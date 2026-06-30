@@ -1,0 +1,27 @@
+# ============================================================
+# Dataset Configuration — UNSW-NB15
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Describes the expected raw dataset files for acquisition and
+# integrity verification (src/data/dataset_acquisition.py).
+#
+# UNSW-NB15 is distributed via UNSW's official research data
+# portal, which requires manual navigation and is not available
+# at a stable, directly-downloadable URL suitable for automated
+# fetching. This config documents the official source; files
+# must be placed manually into data/raw/ before running
+# scripts/01_dataset_acquisition.py.
+# ============================================================
+
+dataset_name: "UNSW-NB15"
+dataset_version: "2015"
+source: "https://research.unsw.edu.au/projects/unsw-nb15-dataset"
+source_type: "official"
+
+hash_algorithm: "sha256"
+
+expected_files:
+  - filename: "UNSW_NB15_training-set.csv"
+    description: "Training partition (predefined split)"
+  - filename: "UNSW_NB15_testing-set.csv"
+    description: "Testing partition (predefined split)"

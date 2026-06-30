@@ -1,0 +1,11 @@
+class_name,count,pct,imbalance_ratio
+Normal,39200,31.938,1.0
+Generic,28000,22.813,1.4
+Exploits,23375,19.045,1.68
+Fuzzers,12729,10.371,3.08
+DoS,8585,6.995,4.57
+Reconnaissance,7343,5.983,5.34
+Analysis,1400,1.141,28.0
+Backdoors,1222,0.996,32.08
+Shellcode,793,0.646,49.43
+Worms,91,0.074,430.77

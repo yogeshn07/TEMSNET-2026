@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import src; import src.core; import src.config; import src.data; import src.features; import src.models; import src.evaluation; import src.explainability; import src.visualization; import src.utils; print\\('All package imports successful - PASS'\\)\")",
+      "Bash(python _verify_file_utils.py)",
+      "Bash(python -c ' *)",
+      "Bash(python _verify_env_validation.py)",
+      "Bash(python _verify_dataset_acquisition.py)",
+      "Bash(python scripts/01_dataset_acquisition.py)",
+      "Bash(echo \"Exit code: $?\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\YOGESH N\\.claude\\projects\\c--Users-YOGESH-N-OneDrive-Desktop-TEMSNET-2026\\memory"
+    ]
+  }
+}

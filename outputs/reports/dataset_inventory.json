@@ -1,0 +1,31 @@
+{
+  "dataset_name": "UNSW-NB15",
+  "dataset_version": "2015",
+  "source": "https://research.unsw.edu.au/projects/unsw-nb15-dataset",
+  "source_type": "official",
+  "raw_data_dir": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\raw",
+  "hash_algorithm": "sha256",
+  "expected_file_count": 2,
+  "found_file_count": 2,
+  "missing_files": [],
+  "files": [
+    {
+      "filename": "UNSW_NB15_training-set.csv",
+      "size_bytes": 32293018,
+      "modified_utc": "2026-06-30T03:51:45.084582+00:00",
+      "hash_algorithm": "sha256",
+      "hash": "bec7dd5ec88dc2a0ccc7a07879d338395ed7421750f675fd0339e07dfe0648fa"
+    },
+    {
+      "filename": "UNSW_NB15_testing-set.csv",
+      "size_bytes": 15380800,
+      "modified_utc": "2026-06-30T03:51:44.457410+00:00",
+      "hash_algorithm": "sha256",
+      "hash": "734fe6642edf758f7c94d7d9149426b49d202fe8e7bf0bef47392489c3c0a559"
+    }
+  ],
+  "verification_status": "PASS",
+  "verification_date_utc": "2026-06-30T03:52:48.257235+00:00",
+  "project_version": "0.1.0",
+  "platform": "Windows-11-10.0.26200-SP0"
+}

@@ -1,0 +1,19 @@
+# ============================================================
+# Experiment Configuration
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Central experiment settings.  Model hyperparameters will be
+# added in a later milestone.
+# ============================================================
+
+experiment_name: "xai_nids_imbalance_study"
+
+dataset: "unsw_nb15"
+
+random_seed: 42
+
+n_runs: 5
+
+train_test_strategy: "predefined_split"
+
+output_format: "csv"

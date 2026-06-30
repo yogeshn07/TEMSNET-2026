@@ -1,0 +1,25 @@
+# ============================================================
+# Logging Configuration
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Consumed by src/core/logging_config.py
+# ============================================================
+
+# Minimum severity to emit (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+log_level: "INFO"
+
+# ── Console output ──────────────────────────────────────────
+console_logging: true
+
+# ── File output ─────────────────────────────────────────────
+file_logging: true
+log_dir: "outputs/logs"
+log_file_name: "temsnet.log"
+
+# ── Rotation (RotatingFileHandler) ──────────────────────────
+max_bytes: 10485760       # 10 MB per file
+backup_count: 5           # keep 5 rotated files
+
+# ── Formatting ──────────────────────────────────────────────
+log_format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+date_format: "%Y-%m-%d %H:%M:%S"
