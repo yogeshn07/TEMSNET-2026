@@ -1,0 +1,4 @@
+column,original_dtype,encoded_dtype,original_unique_count,encoded_min,encoded_max
+proto,object,float64,133,0.0,132.0
+service,object,float64,13,0.0,12.0
+state,object,float64,9,0.0,8.0

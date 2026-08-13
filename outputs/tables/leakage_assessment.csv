@@ -1,0 +1,4 @@
+column,check,finding
+id,identifier_uniqueness,ratio=1.0
+label,label_consistency_training,"status=PASS, inconsistent=0"
+label,label_consistency_testing,"status=PASS, inconsistent=0"

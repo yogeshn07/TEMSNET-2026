@@ -1,0 +1,21 @@
+# ============================================================
+# Model Configuration — Random Forest Baseline
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Consumed by src/models/random_forest.py. Hyperparameters here are
+# NOT tuned — they are a reasonable, fixed baseline configuration
+# (mostly scikit-learn defaults) applied identically to both Model A
+# (baseline) and Model B (SMOTE-balanced), so that training
+# distribution is the only variable that differs between them.
+#
+# random_state is intentionally NOT duplicated here — it is read
+# from configs/experiment.yaml's random_seed (single source of truth).
+# ============================================================
+
+random_forest:
+  n_estimators: 100
+  max_depth: null
+  min_samples_split: 2
+  min_samples_leaf: 1
+  max_features: "sqrt"
+  n_jobs: -1

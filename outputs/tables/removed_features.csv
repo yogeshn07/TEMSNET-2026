@@ -1,0 +1,3 @@
+column,classification,reason,feature_type,cardinality,variance
+id,mandatory_removal,"id is unique for 175341/175341 rows (ratio=1.0) and correlates with binary label at r=0.7272, indicating rows were likely captured in blocks ordered by traffic/attack type — row position alone carries target signal.",numerical,175341,2562053468.5
+label,mandatory_removal,"verify_label_consistency() confirms every 'attack_cat' class maps to exactly one 'label' value in both splits, with 0 exceptions (Normal->0, every attack class->1) — label is a deterministic duplicate of the target.",boolean,2,0.217377

@@ -1,0 +1,1165 @@
+{
+  "basic_info": {
+    "dataset_name": "training",
+    "file_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\raw\\UNSW_NB15_training-set.csv",
+    "file_size_bytes": 32293018,
+    "num_rows": 175341,
+    "num_columns": 45,
+    "memory_usage_bytes": 94587255,
+    "encoding": "utf-8"
+  },
+  "schema": [
+    {
+      "column": "id",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 175341
+    },
+    {
+      "column": "dur",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 74039
+    },
+    {
+      "column": "proto",
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 133
+    },
+    {
+      "column": "service",
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 13
+    },
+    {
+      "column": "state",
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 9
+    },
+    {
+      "column": "spkts",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 480
+    },
+    {
+      "column": "dpkts",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 443
+    },
+    {
+      "column": "sbytes",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 7214
+    },
+    {
+      "column": "dbytes",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 6660
+    },
+    {
+      "column": "rate",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 76991
+    },
+    {
+      "column": "sttl",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 11
+    },
+    {
+      "column": "dttl",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 6
+    },
+    {
+      "column": "sload",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 80885
+    },
+    {
+      "column": "dload",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 77474
+    },
+    {
+      "column": "sloss",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 409
+    },
+    {
+      "column": "dloss",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 370
+    },
+    {
+      "column": "sinpkt",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 76161
+    },
+    {
+      "column": "dinpkt",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 74245
+    },
+    {
+      "column": "sjit",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 77532
+    },
+    {
+      "column": "djit",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 76831
+    },
+    {
+      "column": "swin",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 13
+    },
+    {
+      "column": "stcpb",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 75265
+    },
+    {
+      "column": "dtcpb",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 75089
+    },
+    {
+      "column": "dwin",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 7
+    },
+    {
+      "column": "tcprtt",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 43319
+    },
+    {
+      "column": "synack",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 40142
+    },
+    {
+      "column": "ackdat",
+      "dtype": "float64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 37708
+    },
+    {
+      "column": "smean",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 1357
+    },
+    {
+      "column": "dmean",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 1328
+    },
+    {
+      "column": "trans_depth",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 11
+    },
+    {
+      "column": "response_body_len",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 2386
+    },
+    {
+      "column": "ct_srv_src",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 52
+    },
+    {
+      "column": "ct_state_ttl",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 5
+    },
+    {
+      "column": "ct_dst_ltm",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 50
+    },
+    {
+      "column": "ct_src_dport_ltm",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 47
+    },
+    {
+      "column": "ct_dst_sport_ltm",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 32
+    },
+    {
+      "column": "ct_dst_src_ltm",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 54
+    },
+    {
+      "column": "is_ftp_login",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 4
+    },
+    {
+      "column": "ct_ftp_cmd",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 4
+    },
+    {
+      "column": "ct_flw_http_mthd",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 11
+    },
+    {
+      "column": "ct_src_ltm",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 50
+    },
+    {
+      "column": "ct_srv_dst",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 52
+    },
+    {
+      "column": "is_sm_ips_ports",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 2
+    },
+    {
+      "column": "attack_cat",
+      "dtype": "object",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 10
+    },
+    {
+      "column": "label",
+      "dtype": "int64",
+      "missing_count": 0,
+      "missing_pct": 0.0,
+      "unique_count": 2
+    }
+  ],
+  "target_variable": {
+    "target_column": "attack_cat",
+    "num_classes": 10,
+    "class_names": [
+      "Normal",
+      "Generic",
+      "Exploits",
+      "Fuzzers",
+      "DoS",
+      "Reconnaissance",
+      "Analysis",
+      "Backdoor",
+      "Shellcode",
+      "Worms"
+    ],
+    "distribution": [
+      {
+        "class_name": "Normal",
+        "count": 56000,
+        "pct": 31.9378
+      },
+      {
+        "class_name": "Generic",
+        "count": 40000,
+        "pct": 22.8127
+      },
+      {
+        "class_name": "Exploits",
+        "count": 33393,
+        "pct": 19.0446
+      },
+      {
+        "class_name": "Fuzzers",
+        "count": 18184,
+        "pct": 10.3706
+      },
+      {
+        "class_name": "DoS",
+        "count": 12264,
+        "pct": 6.9944
+      },
+      {
+        "class_name": "Reconnaissance",
+        "count": 10491,
+        "pct": 5.9832
+      },
+      {
+        "class_name": "Analysis",
+        "count": 2000,
+        "pct": 1.1406
+      },
+      {
+        "class_name": "Backdoor",
+        "count": 1746,
+        "pct": 0.9958
+      },
+      {
+        "class_name": "Shellcode",
+        "count": 1133,
+        "pct": 0.6462
+      },
+      {
+        "class_name": "Worms",
+        "count": 130,
+        "pct": 0.0741
+      }
+    ]
+  },
+  "feature_categories": {
+    "numerical": [
+      "id",
+      "dur",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "rate",
+      "sttl",
+      "dttl",
+      "sload",
+      "dload",
+      "sloss",
+      "dloss",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "swin",
+      "stcpb",
+      "dtcpb",
+      "dwin",
+      "tcprtt",
+      "synack",
+      "ackdat",
+      "smean",
+      "dmean",
+      "trans_depth",
+      "response_body_len",
+      "ct_srv_src",
+      "ct_state_ttl",
+      "ct_dst_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_flw_http_mthd",
+      "ct_src_ltm",
+      "ct_srv_dst"
+    ],
+    "integer": [
+      "id",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "sttl",
+      "dttl",
+      "sloss",
+      "dloss",
+      "swin",
+      "stcpb",
+      "dtcpb",
+      "dwin",
+      "smean",
+      "dmean",
+      "trans_depth",
+      "response_body_len",
+      "ct_srv_src",
+      "ct_state_ttl",
+      "ct_dst_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_flw_http_mthd",
+      "ct_src_ltm",
+      "ct_srv_dst"
+    ],
+    "floating_point": [
+      "dur",
+      "rate",
+      "sload",
+      "dload",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "tcprtt",
+      "synack",
+      "ackdat"
+    ],
+    "categorical": [
+      "proto",
+      "service",
+      "state",
+      "attack_cat"
+    ],
+    "boolean": [
+      "is_sm_ips_ports",
+      "label"
+    ]
+  },
+  "missing_data": {
+    "total_missing": 0,
+    "per_column": [
+      {
+        "column": "id",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dur",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "proto",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "service",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "state",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "spkts",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dpkts",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sbytes",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dbytes",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "rate",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sttl",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dttl",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sload",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dload",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sloss",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dloss",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sinpkt",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dinpkt",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "sjit",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "djit",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "swin",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "stcpb",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dtcpb",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dwin",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "tcprtt",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "synack",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ackdat",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "smean",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "dmean",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "trans_depth",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "response_body_len",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_srv_src",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_state_ttl",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_dst_ltm",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_src_dport_ltm",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_dst_sport_ltm",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_dst_src_ltm",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "is_ftp_login",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_ftp_cmd",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_flw_http_mthd",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_src_ltm",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "ct_srv_dst",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "is_sm_ips_ports",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "attack_cat",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      },
+      {
+        "column": "label",
+        "missing_count": 0,
+        "missing_pct": 0.0
+      }
+    ]
+  },
+  "duplicates": {
+    "total_rows": 175341,
+    "duplicate_count": 0,
+    "duplicate_pct": 0.0
+  },
+  "constant_features": {
+    "constant_columns": [],
+    "near_constant_columns": []
+  },
+  "numeric_summary": [
+    {
+      "column": "id",
+      "mean": 87671.0,
+      "median": 87671.0,
+      "std": 50616.731112,
+      "min": 1.0,
+      "q25": 43836.0,
+      "q50": 87671.0,
+      "q75": 131506.0,
+      "max": 175341.0
+    },
+    {
+      "column": "dur",
+      "mean": 1.359389,
+      "median": 0.001582,
+      "std": 6.480249,
+      "min": 0.0,
+      "q25": 8e-06,
+      "q50": 0.001582,
+      "q75": 0.668069,
+      "max": 59.999989
+    },
+    {
+      "column": "spkts",
+      "mean": 20.298664,
+      "median": 2.0,
+      "std": 136.887597,
+      "min": 1.0,
+      "q25": 2.0,
+      "q50": 2.0,
+      "q75": 12.0,
+      "max": 9616.0
+    },
+    {
+      "column": "dpkts",
+      "mean": 18.969591,
+      "median": 2.0,
+      "std": 110.258271,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 2.0,
+      "q75": 10.0,
+      "max": 10974.0
+    },
+    {
+      "column": "sbytes",
+      "mean": 8844.843836,
+      "median": 430.0,
+      "std": 174765.644309,
+      "min": 28.0,
+      "q25": 114.0,
+      "q50": 430.0,
+      "q75": 1418.0,
+      "max": 12965233.0
+    },
+    {
+      "column": "dbytes",
+      "mean": 14928.918564,
+      "median": 164.0,
+      "std": 143654.217718,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 164.0,
+      "q75": 1102.0,
+      "max": 14655550.0
+    },
+    {
+      "column": "rate",
+      "mean": 95406.187105,
+      "median": 3225.80652,
+      "std": 165400.978457,
+      "min": 0.0,
+      "q25": 32.78614,
+      "q50": 3225.80652,
+      "q75": 125000.0003,
+      "max": 1000000.003
+    },
+    {
+      "column": "sttl",
+      "mean": 179.546997,
+      "median": 254.0,
+      "std": 102.940011,
+      "min": 0.0,
+      "q25": 62.0,
+      "q50": 254.0,
+      "q75": 254.0,
+      "max": 255.0
+    },
+    {
+      "column": "dttl",
+      "mean": 79.609567,
+      "median": 29.0,
+      "std": 110.506863,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 29.0,
+      "q75": 252.0,
+      "max": 254.0
+    },
+    {
+      "column": "sload",
+      "mean": 73454033.194063,
+      "median": 879674.75,
+      "std": 188357447.000203,
+      "min": 0.0,
+      "q25": 13053.33887,
+      "q50": 879674.75,
+      "q75": 88888888.0,
+      "max": 5988000256.0
+    },
+    {
+      "column": "dload",
+      "mean": 671205.574188,
+      "median": 1447.022705,
+      "std": 2421312.388757,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 1447.022705,
+      "q75": 27844.87109,
+      "max": 22422730.0
+    },
+    {
+      "column": "sloss",
+      "mean": 4.953,
+      "median": 0.0,
+      "std": 66.005059,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 3.0,
+      "max": 4803.0
+    },
+    {
+      "column": "dloss",
+      "mean": 6.94801,
+      "median": 0.0,
+      "std": 52.732999,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 2.0,
+      "max": 5484.0
+    },
+    {
+      "column": "sinpkt",
+      "mean": 985.976864,
+      "median": 0.279733,
+      "std": 7242.245841,
+      "min": 0.0,
+      "q25": 0.008,
+      "q50": 0.279733,
+      "q75": 55.156896,
+      "max": 84371.496
+    },
+    {
+      "column": "dinpkt",
+      "mean": 88.216296,
+      "median": 0.006,
+      "std": 987.093195,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.006,
+      "q75": 51.053,
+      "max": 56716.824
+    },
+    {
+      "column": "sjit",
+      "mean": 4976.254226,
+      "median": 0.0,
+      "std": 44965.846519,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 2513.295019,
+      "max": 1460480.016
+    },
+    {
+      "column": "djit",
+      "mean": 604.353826,
+      "median": 0.0,
+      "std": 4061.043281,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 114.990625,
+      "max": 289388.2697
+    },
+    {
+      "column": "swin",
+      "mean": 116.257339,
+      "median": 0.0,
+      "std": 127.001024,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 255.0,
+      "max": 255.0
+    },
+    {
+      "column": "stcpb",
+      "mean": 969250421.910511,
+      "median": 0.0,
+      "std": 1355264249.263036,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 1916651334.0,
+      "max": 4294958913.0
+    },
+    {
+      "column": "dtcpb",
+      "mean": 968877027.071153,
+      "median": 0.0,
+      "std": 1353999546.225652,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 1913674673.0,
+      "max": 4294881924.0
+    },
+    {
+      "column": "dwin",
+      "mean": 115.013625,
+      "median": 0.0,
+      "std": 126.88653,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 255.0,
+      "max": 255.0
+    },
+    {
+      "column": "tcprtt",
+      "mean": 0.041396,
+      "median": 0.0,
+      "std": 0.079354,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.065481,
+      "max": 2.518893
+    },
+    {
+      "column": "synack",
+      "mean": 0.02102,
+      "median": 0.0,
+      "std": 0.0434,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.023268,
+      "max": 2.100352
+    },
+    {
+      "column": "ackdat",
+      "mean": 0.020375,
+      "median": 0.0,
+      "std": 0.040506,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.038906,
+      "max": 1.520884
+    },
+    {
+      "column": "smean",
+      "mean": 136.751769,
+      "median": 73.0,
+      "std": 204.67736,
+      "min": 28.0,
+      "q25": 57.0,
+      "q50": 73.0,
+      "q75": 100.0,
+      "max": 1504.0
+    },
+    {
+      "column": "dmean",
+      "mean": 124.173382,
+      "median": 44.0,
+      "std": 258.317056,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 44.0,
+      "q75": 89.0,
+      "max": 1458.0
+    },
+    {
+      "column": "trans_depth",
+      "mean": 0.105982,
+      "median": 0.0,
+      "std": 0.776911,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.0,
+      "max": 172.0
+    },
+    {
+      "column": "response_body_len",
+      "mean": 2144.291655,
+      "median": 0.0,
+      "std": 54207.967294,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.0,
+      "max": 6558056.0
+    },
+    {
+      "column": "ct_srv_src",
+      "mean": 9.306437,
+      "median": 5.0,
+      "std": 10.704331,
+      "min": 1.0,
+      "q25": 2.0,
+      "q50": 5.0,
+      "q75": 12.0,
+      "max": 63.0
+    },
+    {
+      "column": "ct_state_ttl",
+      "mean": 1.304179,
+      "median": 1.0,
+      "std": 0.954406,
+      "min": 0.0,
+      "q25": 1.0,
+      "q50": 1.0,
+      "q75": 2.0,
+      "max": 6.0
+    },
+    {
+      "column": "ct_dst_ltm",
+      "mean": 6.193936,
+      "median": 2.0,
+      "std": 8.052476,
+      "min": 1.0,
+      "q25": 1.0,
+      "q50": 2.0,
+      "q75": 7.0,
+      "max": 51.0
+    },
+    {
+      "column": "ct_src_dport_ltm",
+      "mean": 5.383538,
+      "median": 1.0,
+      "std": 8.047104,
+      "min": 1.0,
+      "q25": 1.0,
+      "q50": 1.0,
+      "q75": 5.0,
+      "max": 51.0
+    },
+    {
+      "column": "ct_dst_sport_ltm",
+      "mean": 4.206255,
+      "median": 1.0,
+      "std": 5.783585,
+      "min": 1.0,
+      "q25": 1.0,
+      "q50": 1.0,
+      "q75": 3.0,
+      "max": 46.0
+    },
+    {
+      "column": "ct_dst_src_ltm",
+      "mean": 8.729881,
+      "median": 3.0,
+      "std": 10.956186,
+      "min": 1.0,
+      "q25": 1.0,
+      "q50": 3.0,
+      "q75": 12.0,
+      "max": 65.0
+    },
+    {
+      "column": "is_ftp_login",
+      "mean": 0.014948,
+      "median": 0.0,
+      "std": 0.126048,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.0,
+      "max": 4.0
+    },
+    {
+      "column": "ct_ftp_cmd",
+      "mean": 0.014948,
+      "median": 0.0,
+      "std": 0.126048,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.0,
+      "max": 4.0
+    },
+    {
+      "column": "ct_flw_http_mthd",
+      "mean": 0.133066,
+      "median": 0.0,
+      "std": 0.701208,
+      "min": 0.0,
+      "q25": 0.0,
+      "q50": 0.0,
+      "q75": 0.0,
+      "max": 30.0
+    },
+    {
+      "column": "ct_src_ltm",
+      "mean": 6.955789,
+      "median": 3.0,
+      "std": 8.321493,
+      "min": 1.0,
+      "q25": 2.0,
+      "q50": 3.0,
+      "q75": 9.0,
+      "max": 60.0
+    },
+    {
+      "column": "ct_srv_dst",
+      "mean": 9.100758,
+      "median": 4.0,
+      "std": 10.756952,
+      "min": 1.0,
+      "q25": 2.0,
+      "q50": 4.0,
+      "q75": 12.0,
+      "max": 62.0
+    }
+  ],
+  "profiled_at_utc": "2026-06-30T04:11:35.014194+00:00",
+  "project_version": "0.1.0",
+  "platform": "Windows-11-10.0.26200-SP0"
+}

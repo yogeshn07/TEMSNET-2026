@@ -1,0 +1,807 @@
+{
+  "config": {
+    "num_features": 10,
+    "num_samples": 5000,
+    "random_seed": 42,
+    "categorical_columns": [
+      "proto",
+      "service",
+      "state"
+    ]
+  },
+  "subset_size": 60,
+  "output_format": "parquet",
+  "baseline_importance": [
+    {
+      "feature": "sttl",
+      "mean_abs_weight": 0.042042,
+      "appearance_count": 53
+    },
+    {
+      "feature": "dttl",
+      "mean_abs_weight": 0.029139,
+      "appearance_count": 28
+    },
+    {
+      "feature": "ct_dst_sport_ltm",
+      "mean_abs_weight": 0.022349,
+      "appearance_count": 24
+    },
+    {
+      "feature": "spkts",
+      "mean_abs_weight": 0.022067,
+      "appearance_count": 3
+    },
+    {
+      "feature": "proto",
+      "mean_abs_weight": 0.020402,
+      "appearance_count": 30
+    },
+    {
+      "feature": "service",
+      "mean_abs_weight": 0.020309,
+      "appearance_count": 53
+    },
+    {
+      "feature": "ct_state_ttl",
+      "mean_abs_weight": 0.01943,
+      "appearance_count": 34
+    },
+    {
+      "feature": "swin",
+      "mean_abs_weight": 0.017911,
+      "appearance_count": 16
+    },
+    {
+      "feature": "is_sm_ips_ports",
+      "mean_abs_weight": 0.014108,
+      "appearance_count": 20
+    },
+    {
+      "feature": "sjit",
+      "mean_abs_weight": 0.013497,
+      "appearance_count": 7
+    },
+    {
+      "feature": "sbytes",
+      "mean_abs_weight": 0.01289,
+      "appearance_count": 30
+    },
+    {
+      "feature": "sinpkt",
+      "mean_abs_weight": 0.012848,
+      "appearance_count": 4
+    },
+    {
+      "feature": "sloss",
+      "mean_abs_weight": 0.01264,
+      "appearance_count": 16
+    },
+    {
+      "feature": "dinpkt",
+      "mean_abs_weight": 0.012352,
+      "appearance_count": 1
+    },
+    {
+      "feature": "ct_dst_src_ltm",
+      "mean_abs_weight": 0.011797,
+      "appearance_count": 27
+    },
+    {
+      "feature": "ct_ftp_cmd",
+      "mean_abs_weight": 0.011641,
+      "appearance_count": 3
+    },
+    {
+      "feature": "dload",
+      "mean_abs_weight": 0.011493,
+      "appearance_count": 21
+    },
+    {
+      "feature": "ct_srv_src",
+      "mean_abs_weight": 0.011439,
+      "appearance_count": 16
+    },
+    {
+      "feature": "dur",
+      "mean_abs_weight": 0.01064,
+      "appearance_count": 12
+    },
+    {
+      "feature": "smean",
+      "mean_abs_weight": 0.0099,
+      "appearance_count": 25
+    },
+    {
+      "feature": "dmean",
+      "mean_abs_weight": 0.009811,
+      "appearance_count": 28
+    },
+    {
+      "feature": "ct_src_dport_ltm",
+      "mean_abs_weight": 0.009715,
+      "appearance_count": 18
+    },
+    {
+      "feature": "state",
+      "mean_abs_weight": 0.009157,
+      "appearance_count": 2
+    },
+    {
+      "feature": "rate",
+      "mean_abs_weight": 0.009048,
+      "appearance_count": 20
+    },
+    {
+      "feature": "sload",
+      "mean_abs_weight": 0.008824,
+      "appearance_count": 13
+    },
+    {
+      "feature": "ct_srv_dst",
+      "mean_abs_weight": 0.008735,
+      "appearance_count": 35
+    },
+    {
+      "feature": "ackdat",
+      "mean_abs_weight": 0.007238,
+      "appearance_count": 4
+    },
+    {
+      "feature": "dbytes",
+      "mean_abs_weight": 0.006872,
+      "appearance_count": 9
+    },
+    {
+      "feature": "is_ftp_login",
+      "mean_abs_weight": 0.006564,
+      "appearance_count": 6
+    },
+    {
+      "feature": "dloss",
+      "mean_abs_weight": 0.004277,
+      "appearance_count": 1
+    },
+    {
+      "feature": "response_body_len",
+      "mean_abs_weight": 0.003736,
+      "appearance_count": 9
+    },
+    {
+      "feature": "trans_depth",
+      "mean_abs_weight": 0.00279,
+      "appearance_count": 13
+    },
+    {
+      "feature": "ct_flw_http_mthd",
+      "mean_abs_weight": 0.002368,
+      "appearance_count": 7
+    },
+    {
+      "feature": "ct_src_ltm",
+      "mean_abs_weight": 0.001957,
+      "appearance_count": 5
+    },
+    {
+      "feature": "synack",
+      "mean_abs_weight": 0.001786,
+      "appearance_count": 1
+    },
+    {
+      "feature": "djit",
+      "mean_abs_weight": 0.001732,
+      "appearance_count": 1
+    },
+    {
+      "feature": "dpkts",
+      "mean_abs_weight": 0.001371,
+      "appearance_count": 3
+    },
+    {
+      "feature": "tcprtt",
+      "mean_abs_weight": 0.00068,
+      "appearance_count": 2
+    }
+  ],
+  "smote_importance": [
+    {
+      "feature": "service",
+      "mean_abs_weight": 0.027653,
+      "appearance_count": 60
+    },
+    {
+      "feature": "dttl",
+      "mean_abs_weight": 0.026008,
+      "appearance_count": 24
+    },
+    {
+      "feature": "proto",
+      "mean_abs_weight": 0.02582,
+      "appearance_count": 22
+    },
+    {
+      "feature": "ct_dst_sport_ltm",
+      "mean_abs_weight": 0.023141,
+      "appearance_count": 23
+    },
+    {
+      "feature": "swin",
+      "mean_abs_weight": 0.022985,
+      "appearance_count": 7
+    },
+    {
+      "feature": "state",
+      "mean_abs_weight": 0.022356,
+      "appearance_count": 2
+    },
+    {
+      "feature": "ct_dst_src_ltm",
+      "mean_abs_weight": 0.020945,
+      "appearance_count": 41
+    },
+    {
+      "feature": "ct_state_ttl",
+      "mean_abs_weight": 0.020094,
+      "appearance_count": 9
+    },
+    {
+      "feature": "sbytes",
+      "mean_abs_weight": 0.01958,
+      "appearance_count": 24
+    },
+    {
+      "feature": "ct_srv_dst",
+      "mean_abs_weight": 0.019299,
+      "appearance_count": 29
+    },
+    {
+      "feature": "dmean",
+      "mean_abs_weight": 0.019154,
+      "appearance_count": 24
+    },
+    {
+      "feature": "dloss",
+      "mean_abs_weight": 0.017672,
+      "appearance_count": 4
+    },
+    {
+      "feature": "dload",
+      "mean_abs_weight": 0.01763,
+      "appearance_count": 23
+    },
+    {
+      "feature": "dbytes",
+      "mean_abs_weight": 0.017404,
+      "appearance_count": 22
+    },
+    {
+      "feature": "sttl",
+      "mean_abs_weight": 0.016967,
+      "appearance_count": 15
+    },
+    {
+      "feature": "sinpkt",
+      "mean_abs_weight": 0.016741,
+      "appearance_count": 3
+    },
+    {
+      "feature": "sjit",
+      "mean_abs_weight": 0.015786,
+      "appearance_count": 3
+    },
+    {
+      "feature": "sloss",
+      "mean_abs_weight": 0.015289,
+      "appearance_count": 18
+    },
+    {
+      "feature": "dpkts",
+      "mean_abs_weight": 0.015054,
+      "appearance_count": 5
+    },
+    {
+      "feature": "ct_src_dport_ltm",
+      "mean_abs_weight": 0.014345,
+      "appearance_count": 29
+    },
+    {
+      "feature": "smean",
+      "mean_abs_weight": 0.014307,
+      "appearance_count": 23
+    },
+    {
+      "feature": "ct_ftp_cmd",
+      "mean_abs_weight": 0.013284,
+      "appearance_count": 22
+    },
+    {
+      "feature": "spkts",
+      "mean_abs_weight": 0.01279,
+      "appearance_count": 6
+    },
+    {
+      "feature": "dur",
+      "mean_abs_weight": 0.012504,
+      "appearance_count": 1
+    },
+    {
+      "feature": "is_sm_ips_ports",
+      "mean_abs_weight": 0.012396,
+      "appearance_count": 23
+    },
+    {
+      "feature": "ct_flw_http_mthd",
+      "mean_abs_weight": 0.01175,
+      "appearance_count": 16
+    },
+    {
+      "feature": "ct_srv_src",
+      "mean_abs_weight": 0.011592,
+      "appearance_count": 22
+    },
+    {
+      "feature": "trans_depth",
+      "mean_abs_weight": 0.010358,
+      "appearance_count": 26
+    },
+    {
+      "feature": "is_ftp_login",
+      "mean_abs_weight": 0.010347,
+      "appearance_count": 25
+    },
+    {
+      "feature": "tcprtt",
+      "mean_abs_weight": 0.009939,
+      "appearance_count": 1
+    },
+    {
+      "feature": "djit",
+      "mean_abs_weight": 0.008985,
+      "appearance_count": 1
+    },
+    {
+      "feature": "sload",
+      "mean_abs_weight": 0.008954,
+      "appearance_count": 11
+    },
+    {
+      "feature": "response_body_len",
+      "mean_abs_weight": 0.008801,
+      "appearance_count": 11
+    },
+    {
+      "feature": "rate",
+      "mean_abs_weight": 0.008036,
+      "appearance_count": 7
+    },
+    {
+      "feature": "dinpkt",
+      "mean_abs_weight": 0.007027,
+      "appearance_count": 6
+    },
+    {
+      "feature": "stcpb",
+      "mean_abs_weight": 0.00622,
+      "appearance_count": 8
+    },
+    {
+      "feature": "ackdat",
+      "mean_abs_weight": 0.00554,
+      "appearance_count": 2
+    },
+    {
+      "feature": "ct_dst_ltm",
+      "mean_abs_weight": 0.004362,
+      "appearance_count": 2
+    }
+  ],
+  "mean_fidelity_baseline": 0.290211,
+  "mean_fidelity_smote": 0.251881,
+  "local_explanations": {
+    "correct_prediction": {
+      "sample_id": "SAMPLE_001421",
+      "true_class": "Backdoor",
+      "baseline": {
+        "sample_id": "SAMPLE_001421",
+        "true_class": "Backdoor",
+        "feature_contributions": [
+          {
+            "feature": "dinpkt",
+            "weight": 0.012352
+          },
+          {
+            "feature": "dbytes",
+            "weight": 0.012115
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "weight": 0.009684
+          },
+          {
+            "feature": "dttl",
+            "weight": 0.008238
+          },
+          {
+            "feature": "sttl",
+            "weight": 0.008198
+          },
+          {
+            "feature": "service",
+            "weight": 0.006548
+          },
+          {
+            "feature": "dload",
+            "weight": 0.005651
+          },
+          {
+            "feature": "ct_srv_dst",
+            "weight": 0.005487
+          },
+          {
+            "feature": "ct_srv_src",
+            "weight": 0.005216
+          },
+          {
+            "feature": "state",
+            "weight": 0.004919
+          }
+        ],
+        "local_fidelity_score": 0.157743,
+        "local_prediction": 0.078443
+      },
+      "smote": {
+        "sample_id": "SAMPLE_001421",
+        "true_class": "Backdoor",
+        "feature_contributions": [
+          {
+            "feature": "service",
+            "weight": 0.027097
+          },
+          {
+            "feature": "proto",
+            "weight": -0.024787
+          },
+          {
+            "feature": "ct_srv_dst",
+            "weight": 0.021453
+          },
+          {
+            "feature": "sbytes",
+            "weight": 0.020498
+          },
+          {
+            "feature": "ct_ftp_cmd",
+            "weight": -0.017298
+          },
+          {
+            "feature": "smean",
+            "weight": 0.013765
+          },
+          {
+            "feature": "sloss",
+            "weight": 0.01343
+          },
+          {
+            "feature": "ct_src_dport_ltm",
+            "weight": 0.011576
+          },
+          {
+            "feature": "trans_depth",
+            "weight": 0.009812
+          },
+          {
+            "feature": "state",
+            "weight": 0.009507
+          }
+        ],
+        "local_fidelity_score": 0.265373,
+        "local_prediction": 0.137074
+      }
+    },
+    "incorrect_prediction": {
+      "sample_id": "SAMPLE_001322",
+      "true_class": "Shellcode",
+      "baseline": {
+        "sample_id": "SAMPLE_001322",
+        "true_class": "Shellcode",
+        "feature_contributions": [
+          {
+            "feature": "ct_dst_src_ltm",
+            "weight": 0.022101
+          },
+          {
+            "feature": "service",
+            "weight": 0.015481
+          },
+          {
+            "feature": "sttl",
+            "weight": 0.011637
+          },
+          {
+            "feature": "ct_srv_dst",
+            "weight": 0.011264
+          },
+          {
+            "feature": "ct_dst_sport_ltm",
+            "weight": 0.010651
+          },
+          {
+            "feature": "ct_src_dport_ltm",
+            "weight": 0.009897
+          },
+          {
+            "feature": "sload",
+            "weight": -0.005044
+          },
+          {
+            "feature": "rate",
+            "weight": -0.004767
+          },
+          {
+            "feature": "sbytes",
+            "weight": 0.004475
+          },
+          {
+            "feature": "ct_state_ttl",
+            "weight": -0.003309
+          }
+        ],
+        "local_fidelity_score": 0.361483,
+        "local_prediction": 0.062148
+      },
+      "smote": {
+        "sample_id": "SAMPLE_001322",
+        "true_class": "Shellcode",
+        "feature_contributions": [
+          {
+            "feature": "service",
+            "weight": 0.040823
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "weight": 0.030261
+          },
+          {
+            "feature": "ct_src_dport_ltm",
+            "weight": 0.01866
+          },
+          {
+            "feature": "ct_dst_sport_ltm",
+            "weight": 0.016077
+          },
+          {
+            "feature": "is_sm_ips_ports",
+            "weight": -0.015836
+          },
+          {
+            "feature": "trans_depth",
+            "weight": 0.013643
+          },
+          {
+            "feature": "rate",
+            "weight": -0.010777
+          },
+          {
+            "feature": "sbytes",
+            "weight": 0.008963
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "weight": 0.007687
+          },
+          {
+            "feature": "sttl",
+            "weight": -0.003868
+          }
+        ],
+        "local_fidelity_score": 0.327781,
+        "local_prediction": 0.107067
+      }
+    },
+    "minority_class": {
+      "sample_id": "SAMPLE_003662",
+      "true_class": "Worms",
+      "baseline": {
+        "sample_id": "SAMPLE_003662",
+        "true_class": "Worms",
+        "feature_contributions": [
+          {
+            "feature": "trans_depth",
+            "weight": 0.002383
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "weight": 0.001958
+          },
+          {
+            "feature": "service",
+            "weight": 0.001685
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "weight": 0.001631
+          },
+          {
+            "feature": "sttl",
+            "weight": 0.001409
+          },
+          {
+            "feature": "dttl",
+            "weight": 0.001392
+          },
+          {
+            "feature": "smean",
+            "weight": 0.001359
+          },
+          {
+            "feature": "ct_srv_dst",
+            "weight": 0.001326
+          },
+          {
+            "feature": "dpkts",
+            "weight": 0.001034
+          },
+          {
+            "feature": "dmean",
+            "weight": 0.000973
+          }
+        ],
+        "local_fidelity_score": 0.04058,
+        "local_prediction": 0.013827
+      },
+      "smote": {
+        "sample_id": "SAMPLE_003662",
+        "true_class": "Worms",
+        "feature_contributions": [
+          {
+            "feature": "service",
+            "weight": 0.021287
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "weight": 0.017852
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "weight": 0.009904
+          },
+          {
+            "feature": "ct_srv_src",
+            "weight": 0.009857
+          },
+          {
+            "feature": "response_body_len",
+            "weight": -0.008016
+          },
+          {
+            "feature": "trans_depth",
+            "weight": 0.006625
+          },
+          {
+            "feature": "rate",
+            "weight": -0.005616
+          },
+          {
+            "feature": "ct_srv_dst",
+            "weight": 0.005568
+          },
+          {
+            "feature": "ackdat",
+            "weight": 0.005256
+          },
+          {
+            "feature": "stcpb",
+            "weight": 0.004971
+          }
+        ],
+        "local_fidelity_score": 0.221109,
+        "local_prediction": 0.084563
+      }
+    },
+    "majority_class": {
+      "sample_id": "SAMPLE_028142",
+      "true_class": "Normal",
+      "baseline": {
+        "sample_id": "SAMPLE_028142",
+        "true_class": "Normal",
+        "feature_contributions": [
+          {
+            "feature": "sttl",
+            "weight": 0.187922
+          },
+          {
+            "feature": "ct_state_ttl",
+            "weight": 0.064721
+          },
+          {
+            "feature": "dttl",
+            "weight": 0.051764
+          },
+          {
+            "feature": "is_sm_ips_ports",
+            "weight": -0.041725
+          },
+          {
+            "feature": "service",
+            "weight": 0.041618
+          },
+          {
+            "feature": "ct_dst_sport_ltm",
+            "weight": 0.039952
+          },
+          {
+            "feature": "swin",
+            "weight": 0.029752
+          },
+          {
+            "feature": "sloss",
+            "weight": 0.022915
+          },
+          {
+            "feature": "rate",
+            "weight": 0.014678
+          },
+          {
+            "feature": "proto",
+            "weight": 0.012426
+          }
+        ],
+        "local_fidelity_score": 0.598421,
+        "local_prediction": 0.644624
+      },
+      "smote": {
+        "sample_id": "SAMPLE_028142",
+        "true_class": "Normal",
+        "feature_contributions": [
+          {
+            "feature": "dttl",
+            "weight": -0.043506
+          },
+          {
+            "feature": "sloss",
+            "weight": 0.033878
+          },
+          {
+            "feature": "service",
+            "weight": 0.028074
+          },
+          {
+            "feature": "ct_state_ttl",
+            "weight": 0.027835
+          },
+          {
+            "feature": "swin",
+            "weight": 0.026885
+          },
+          {
+            "feature": "is_sm_ips_ports",
+            "weight": -0.019146
+          },
+          {
+            "feature": "smean",
+            "weight": 0.015525
+          },
+          {
+            "feature": "dloss",
+            "weight": 0.014813
+          },
+          {
+            "feature": "ct_ftp_cmd",
+            "weight": -0.014544
+          },
+          {
+            "feature": "is_ftp_login",
+            "weight": 0.013078
+          }
+        ],
+        "local_fidelity_score": 0.226708,
+        "local_prediction": 0.227482
+      }
+    }
+  },
+  "summary": {
+    "generated_utc": "2026-06-30T09:32:01.688715+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

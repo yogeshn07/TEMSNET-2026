@@ -43,6 +43,11 @@ data/external/
 outputs/models/
 outputs/logs/
 outputs/checkpoints/
+outputs/predictions/
+outputs/shap/
+outputs/lime/
+outputs/comparison/
+outputs/statistics/
 
 # ---------- OS ----------
 .DS_Store

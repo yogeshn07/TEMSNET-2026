@@ -1,0 +1,23 @@
+Paper_ID,First_Author_Year,Short_Title,Dataset,Model,Balancing_Method,Uses_SHAP,Uses_LIME,Statistical_Tests,Explanation_Stability_Measured,NIDS_Context,UNSW_NB15,Effect_Size_Reported,Research_Gap_vs_Ours
+P01,Breiman 2001,Random Forests,UCI benchmarks,Random Forest,None,No,No,No,No,No,No,No,No XAI; no class imbalance; no NIDS
+P02,Chawla 2002,SMOTE,UCI benchmarks,Various,SMOTE,No,No,No,No,No,No,No,No XAI; no NIDS; no explanation analysis
+P03,Pedregosa 2011,scikit-learn,N/A,Many,N/A,No,No,No,No,No,No,No,Tooling library; not a study
+P04,Moustafa 2015,UNSW-NB15 Dataset,UNSW-NB15 (new),N/A,None,No,No,No,No,Yes,Yes,No,Dataset paper; no ML/XAI
+P05,Ribeiro 2016,LIME,Text/image/tabular,Any,None,No,Yes,No,No,No,No,No,No NIDS; no class imbalance; no stability testing
+P06,Lemaître 2017,imbalanced-learn,N/A,N/A,SMOTE+variants,No,No,No,No,No,No,No,Tooling library; not a study
+P07,Lundberg 2017,SHAP/NeurIPS,Tabular/text/image,Any,None,Yes,No,No,No,No,No,No,No NIDS; no class imbalance; no stability testing
+P08,Lundberg 2020,TreeSHAP/Nature MI,Clinical/Census,RF/XGBoost/LightGBM,None,Yes,No,No,No,No,No,No,No NIDS; no class imbalance; no LIME comparison
+P09,Patil 2020,Explainability of SMOTE,Generic UCI tabular,Decision Tree/SVM,SMOTE,No,Yes,No,No,No,No,No,No NIDS; no SHAP; no effect size; no UNSW-NB15
+P10,Alshamy 2021,SMOTE+RF IDS,NSL-KDD,Random Forest,SMOTE,No,No,No,No,Yes,No,No,No XAI; no UNSW-NB15; no explanation comparison
+P11,Visani 2022,LIME Stability Indices,Credit risk,LR/RF,None,No,Yes,No,Yes (CSI/VSI),No,No,No,No NIDS; no SMOTE; no SHAP comparison; no Wilcoxon
+P12,Charmet 2022,XAI Cybersecurity Survey,Survey,Survey,Survey,Yes,Yes,No,No,Yes,No,No,Survey only; no empirical comparison under distribution shift
+P13,Wu 2022,Enhanced RF+SMOTE IDS,NSL-KDD,Random Forest (enhanced),K-means SMOTE,No,No,No,No,Yes,No,No,No XAI; no UNSW-NB15; no explanation analysis
+P14,Alarab 2022,Resampling+Feature Importance,Elliptic (blockchain),RF/XGBoost,SMOTE/ADASYN/ROS/RUS,No,No,No,Yes (ranking overlap),No,No,No,No NIDS; no SHAP/LIME; no statistical effect-size tests
+P15,Rjoub 2023,Survey XAI Cybersecurity,Survey,Survey,Survey,Yes,Yes,No,No,Yes,No,No,Survey only; identifies open gap our study addresses
+P16,More 2024,Enhanced IDS UNSW-NB15,UNSW-NB15,RF/LR/SVM/DT,None,No,No,No,No,Yes,Yes,No,No XAI; no class imbalance; no minority-class analysis
+P17,Gaspar 2024,LIME+SHAP on MLP IDS,IoT traffic (unconfirmed),MLP,None,Yes,Yes,No,No,Yes,Unknown,No,No SMOTE; no RF; no stability comparison across retraining
+P18,Al-madani 2024,LSTM+SMOTE IDS,IoT NIDS,LSTM,SMOTE,No,No,No,No,Yes,No,No,No XAI; no explanation analysis; no UNSW-NB15
+P19,Razavi-Far 2025,Class Imbalance Eval IDS,NSL-KDD/CIC-IDS,RF/SVM/KNN,SMOTE/ADASYN/ROS/RUS,No,No,No,No,Yes,No,No,No XAI; no feature attribution; no explanation analysis
+P20,Hermosilla 2025a,SHAP+LIME Forensic IDS,UNSW-NB15,XGBoost/TabNet,None,Yes,Yes,No,Yes (qualitative),Yes,Yes,No,No SMOTE; no RF; no paired statistical tests; no effect sizes
+P21,Hermosilla 2025b,XAI for IDS Analysis,UNSW-NB15,XGBoost/TabNet,None,Yes,Yes,No,Yes (qualitative),Yes,Yes,No,No SMOTE; no RF; no Wilcoxon; no bootstrap CI; no effect sizes
+OUR STUDY,This Work 2026,SMOTE Effect on SHAP+LIME in RF-NIDS,UNSW-NB15,Random Forest,SMOTE,Yes,Yes,Yes (McNemar + Wilcoxon + Bootstrap CI + Holm-Bonferroni),Yes (Spearman; top-5 overlap; rank-biserial r),Yes,Yes,Yes (Cohen's h; rank-biserial r),Addresses all identified gaps simultaneously

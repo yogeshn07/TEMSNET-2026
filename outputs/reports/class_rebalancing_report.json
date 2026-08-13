@@ -1,0 +1,226 @@
+{
+  "strategy": {
+    "method": "smote",
+    "parameters": {
+      "sampling_strategy": "auto",
+      "k_neighbors": 5
+    },
+    "random_seed": 42
+  },
+  "pre_balancing": {
+    "class_distribution": [
+      {
+        "class_name": "Normal",
+        "count": 56000,
+        "pct": 31.9378,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Generic",
+        "count": 40000,
+        "pct": 22.8127,
+        "imbalance_ratio": 1.4
+      },
+      {
+        "class_name": "Exploits",
+        "count": 33393,
+        "pct": 19.0446,
+        "imbalance_ratio": 1.677
+      },
+      {
+        "class_name": "Fuzzers",
+        "count": 18184,
+        "pct": 10.3706,
+        "imbalance_ratio": 3.0796
+      },
+      {
+        "class_name": "DoS",
+        "count": 12264,
+        "pct": 6.9944,
+        "imbalance_ratio": 4.5662
+      },
+      {
+        "class_name": "Reconnaissance",
+        "count": 10491,
+        "pct": 5.9832,
+        "imbalance_ratio": 5.3379
+      },
+      {
+        "class_name": "Analysis",
+        "count": 2000,
+        "pct": 1.1406,
+        "imbalance_ratio": 28.0
+      },
+      {
+        "class_name": "Backdoor",
+        "count": 1746,
+        "pct": 0.9958,
+        "imbalance_ratio": 32.0733
+      },
+      {
+        "class_name": "Shellcode",
+        "count": 1133,
+        "pct": 0.6462,
+        "imbalance_ratio": 49.4263
+      },
+      {
+        "class_name": "Worms",
+        "count": 130,
+        "pct": 0.0741,
+        "imbalance_ratio": 430.7692
+      }
+    ],
+    "total_rows": 175341,
+    "max_imbalance_ratio": 430.7692
+  },
+  "post_balancing": {
+    "class_distribution": [
+      {
+        "class_name": "Normal",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Backdoor",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Analysis",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Fuzzers",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Shellcode",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Reconnaissance",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Exploits",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "DoS",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Worms",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      },
+      {
+        "class_name": "Generic",
+        "count": 56000,
+        "pct": 10.0,
+        "imbalance_ratio": 1.0
+      }
+    ],
+    "total_rows": 560000,
+    "max_imbalance_ratio": 1.0,
+    "total_synthetic_samples": 384659
+  },
+  "synthetic_summary": [
+    {
+      "class_name": "Normal",
+      "count_before": 56000,
+      "count_after": 56000,
+      "synthetic_samples_generated": 0
+    },
+    {
+      "class_name": "Generic",
+      "count_before": 40000,
+      "count_after": 56000,
+      "synthetic_samples_generated": 16000
+    },
+    {
+      "class_name": "Exploits",
+      "count_before": 33393,
+      "count_after": 56000,
+      "synthetic_samples_generated": 22607
+    },
+    {
+      "class_name": "Fuzzers",
+      "count_before": 18184,
+      "count_after": 56000,
+      "synthetic_samples_generated": 37816
+    },
+    {
+      "class_name": "DoS",
+      "count_before": 12264,
+      "count_after": 56000,
+      "synthetic_samples_generated": 43736
+    },
+    {
+      "class_name": "Reconnaissance",
+      "count_before": 10491,
+      "count_after": 56000,
+      "synthetic_samples_generated": 45509
+    },
+    {
+      "class_name": "Analysis",
+      "count_before": 2000,
+      "count_after": 56000,
+      "synthetic_samples_generated": 54000
+    },
+    {
+      "class_name": "Backdoor",
+      "count_before": 1746,
+      "count_after": 56000,
+      "synthetic_samples_generated": 54254
+    },
+    {
+      "class_name": "Shellcode",
+      "count_before": 1133,
+      "count_after": 56000,
+      "synthetic_samples_generated": 54867
+    },
+    {
+      "class_name": "Worms",
+      "count_before": 130,
+      "count_after": 56000,
+      "synthetic_samples_generated": 55870
+    }
+  ],
+  "training_baseline": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\processed\\training_baseline.parquet",
+    "row_count": 175341,
+    "column_count": 43
+  },
+  "training_balanced": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\processed\\training_balanced_smote.parquet",
+    "row_count": 560000,
+    "column_count": 43
+  },
+  "testing_baseline": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\processed\\testing_baseline.parquet",
+    "row_count": 82332,
+    "column_count": 43
+  },
+  "output_format": "parquet",
+  "summary": {
+    "generated_utc": "2026-06-30T08:21:35.578878+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

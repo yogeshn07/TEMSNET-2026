@@ -1,0 +1,25 @@
+{
+  "total_training_samples": 175341,
+  "total_testing_samples": 82332,
+  "total_features": 45,
+  "target_variable": "attack_cat",
+  "num_attack_classes": 10,
+  "attack_class_names": [
+    "Normal",
+    "Generic",
+    "Exploits",
+    "Fuzzers",
+    "DoS",
+    "Reconnaissance",
+    "Analysis",
+    "Backdoor",
+    "Shellcode",
+    "Worms"
+  ],
+  "training_missing_values": 0,
+  "testing_missing_values": 0,
+  "training_duplicate_rows": 0,
+  "testing_duplicate_rows": 0,
+  "generated_utc": "2026-06-30T04:11:37.197567+00:00",
+  "project_version": "0.1.0"
+}

@@ -1,0 +1,11 @@
+class_name,count_before,count_after,synthetic_samples_generated
+Normal,56000,56000,0
+Generic,40000,56000,16000
+Exploits,33393,56000,22607
+Fuzzers,18184,56000,37816
+DoS,12264,56000,43736
+Reconnaissance,10491,56000,45509
+Analysis,2000,56000,54000
+Backdoor,1746,56000,54254
+Shellcode,1133,56000,54867
+Worms,130,56000,55870

@@ -1,0 +1,1531 @@
+{
+  "subset_size": 60,
+  "shap_feature_count": 42,
+  "lime_feature_count": 40,
+  "intersection_feature_count": 38,
+  "global_top_n": 10,
+  "minority_classes": [
+    "Worms",
+    "Backdoor",
+    "Analysis"
+  ],
+  "shap_global": {
+    "label_a": "baseline",
+    "label_b": "smote",
+    "common_feature_count": 42,
+    "rank_changes": [
+      {
+        "feature": "trans_depth",
+        "baseline_rank": 35,
+        "smote_rank": 18,
+        "rank_change": 17,
+        "baseline_value": 0.000975,
+        "smote_value": 0.004596
+      },
+      {
+        "feature": "state",
+        "baseline_rank": 26,
+        "smote_rank": 38,
+        "rank_change": -12,
+        "baseline_value": 0.002699,
+        "smote_value": 0.00137
+      },
+      {
+        "feature": "dttl",
+        "baseline_rank": 8,
+        "smote_rank": 19,
+        "rank_change": -11,
+        "baseline_value": 0.008575,
+        "smote_value": 0.003967
+      },
+      {
+        "feature": "swin",
+        "baseline_rank": 25,
+        "smote_rank": 36,
+        "rank_change": -11,
+        "baseline_value": 0.002775,
+        "smote_value": 0.002288
+      },
+      {
+        "feature": "ct_state_ttl",
+        "baseline_rank": 9,
+        "smote_rank": 17,
+        "rank_change": -8,
+        "baseline_value": 0.008312,
+        "smote_value": 0.004873
+      },
+      {
+        "feature": "dinpkt",
+        "baseline_rank": 31,
+        "smote_rank": 23,
+        "rank_change": 8,
+        "baseline_value": 0.002152,
+        "smote_value": 0.003758
+      },
+      {
+        "feature": "stcpb",
+        "baseline_rank": 37,
+        "smote_rank": 30,
+        "rank_change": 7,
+        "baseline_value": 0.000852,
+        "smote_value": 0.002927
+      },
+      {
+        "feature": "ct_dst_ltm",
+        "baseline_rank": 22,
+        "smote_rank": 28,
+        "rank_change": -6,
+        "baseline_value": 0.003496,
+        "smote_value": 0.003308
+      },
+      {
+        "feature": "dur",
+        "baseline_rank": 19,
+        "smote_rank": 25,
+        "rank_change": -6,
+        "baseline_value": 0.004865,
+        "smote_value": 0.003683
+      },
+      {
+        "feature": "ct_dst_src_ltm",
+        "baseline_rank": 6,
+        "smote_rank": 1,
+        "rank_change": 5,
+        "baseline_value": 0.011541,
+        "smote_value": 0.020378
+      },
+      {
+        "feature": "ct_flw_http_mthd",
+        "baseline_rank": 34,
+        "smote_rank": 29,
+        "rank_change": 5,
+        "baseline_value": 0.001061,
+        "smote_value": 0.003076
+      },
+      {
+        "feature": "ct_src_dport_ltm",
+        "baseline_rank": 18,
+        "smote_rank": 13,
+        "rank_change": 5,
+        "baseline_value": 0.004904,
+        "smote_value": 0.006177
+      },
+      {
+        "feature": "dmean",
+        "baseline_rank": 14,
+        "smote_rank": 9,
+        "rank_change": 5,
+        "baseline_value": 0.00606,
+        "smote_value": 0.008054
+      },
+      {
+        "feature": "rate",
+        "baseline_rank": 17,
+        "smote_rank": 22,
+        "rank_change": -5,
+        "baseline_value": 0.005354,
+        "smote_value": 0.003825
+      },
+      {
+        "feature": "sloss",
+        "baseline_rank": 20,
+        "smote_rank": 15,
+        "rank_change": 5,
+        "baseline_value": 0.003691,
+        "smote_value": 0.00535
+      },
+      {
+        "feature": "ackdat",
+        "baseline_rank": 27,
+        "smote_rank": 31,
+        "rank_change": -4,
+        "baseline_value": 0.002525,
+        "smote_value": 0.002759
+      },
+      {
+        "feature": "djit",
+        "baseline_rank": 33,
+        "smote_rank": 37,
+        "rank_change": -4,
+        "baseline_value": 0.00164,
+        "smote_value": 0.002057
+      },
+      {
+        "feature": "proto",
+        "baseline_rank": 11,
+        "smote_rank": 7,
+        "rank_change": 4,
+        "baseline_value": 0.007605,
+        "smote_value": 0.010289
+      },
+      {
+        "feature": "sinpkt",
+        "baseline_rank": 28,
+        "smote_rank": 24,
+        "rank_change": 4,
+        "baseline_value": 0.002419,
+        "smote_value": 0.003694
+      },
+      {
+        "feature": "spkts",
+        "baseline_rank": 24,
+        "smote_rank": 20,
+        "rank_change": 4,
+        "baseline_value": 0.002804,
+        "smote_value": 0.00395
+      },
+      {
+        "feature": "sttl",
+        "baseline_rank": 2,
+        "smote_rank": 6,
+        "rank_change": -4,
+        "baseline_value": 0.017435,
+        "smote_value": 0.011852
+      },
+      {
+        "feature": "tcprtt",
+        "baseline_rank": 30,
+        "smote_rank": 34,
+        "rank_change": -4,
+        "baseline_value": 0.002222,
+        "smote_value": 0.002387
+      },
+      {
+        "feature": "dtcpb",
+        "baseline_rank": 38,
+        "smote_rank": 35,
+        "rank_change": 3,
+        "baseline_value": 0.000783,
+        "smote_value": 0.002374
+      },
+      {
+        "feature": "response_body_len",
+        "baseline_rank": 36,
+        "smote_rank": 33,
+        "rank_change": 3,
+        "baseline_value": 0.000958,
+        "smote_value": 0.002603
+      },
+      {
+        "feature": "synack",
+        "baseline_rank": 23,
+        "smote_rank": 26,
+        "rank_change": -3,
+        "baseline_value": 0.003007,
+        "smote_value": 0.003633
+      },
+      {
+        "feature": "dbytes",
+        "baseline_rank": 13,
+        "smote_rank": 11,
+        "rank_change": 2,
+        "baseline_value": 0.006158,
+        "smote_value": 0.006964
+      },
+      {
+        "feature": "dloss",
+        "baseline_rank": 29,
+        "smote_rank": 27,
+        "rank_change": 2,
+        "baseline_value": 0.002365,
+        "smote_value": 0.003475
+      },
+      {
+        "feature": "sload",
+        "baseline_rank": 16,
+        "smote_rank": 14,
+        "rank_change": 2,
+        "baseline_value": 0.005765,
+        "smote_value": 0.005927
+      },
+      {
+        "feature": "ct_dst_sport_ltm",
+        "baseline_rank": 7,
+        "smote_rank": 8,
+        "rank_change": -1,
+        "baseline_value": 0.010009,
+        "smote_value": 0.009412
+      },
+      {
+        "feature": "ct_ftp_cmd",
+        "baseline_rank": 42,
+        "smote_rank": 41,
+        "rank_change": 1,
+        "baseline_value": 3.9e-05,
+        "smote_value": 1.3e-05
+      },
+      {
+        "feature": "dload",
+        "baseline_rank": 15,
+        "smote_rank": 16,
+        "rank_change": -1,
+        "baseline_value": 0.005843,
+        "smote_value": 0.004893
+      },
+      {
+        "feature": "dwin",
+        "baseline_rank": 40,
+        "smote_rank": 39,
+        "rank_change": 1,
+        "baseline_value": 0.000399,
+        "smote_value": 0.001047
+      },
+      {
+        "feature": "is_ftp_login",
+        "baseline_rank": 41,
+        "smote_rank": 42,
+        "rank_change": -1,
+        "baseline_value": 6.3e-05,
+        "smote_value": 1.2e-05
+      },
+      {
+        "feature": "is_sm_ips_ports",
+        "baseline_rank": 39,
+        "smote_rank": 40,
+        "rank_change": -1,
+        "baseline_value": 0.000617,
+        "smote_value": 0.000155
+      },
+      {
+        "feature": "sbytes",
+        "baseline_rank": 1,
+        "smote_rank": 2,
+        "rank_change": -1,
+        "baseline_value": 0.018471,
+        "smote_value": 0.019053
+      },
+      {
+        "feature": "service",
+        "baseline_rank": 4,
+        "smote_rank": 3,
+        "rank_change": 1,
+        "baseline_value": 0.012591,
+        "smote_value": 0.016707
+      },
+      {
+        "feature": "smean",
+        "baseline_rank": 3,
+        "smote_rank": 4,
+        "rank_change": -1,
+        "baseline_value": 0.014983,
+        "smote_value": 0.014972
+      },
+      {
+        "feature": "ct_src_ltm",
+        "baseline_rank": 12,
+        "smote_rank": 12,
+        "rank_change": 0,
+        "baseline_value": 0.006442,
+        "smote_value": 0.006358
+      },
+      {
+        "feature": "ct_srv_dst",
+        "baseline_rank": 5,
+        "smote_rank": 5,
+        "rank_change": 0,
+        "baseline_value": 0.011754,
+        "smote_value": 0.013307
+      },
+      {
+        "feature": "ct_srv_src",
+        "baseline_rank": 10,
+        "smote_rank": 10,
+        "rank_change": 0,
+        "baseline_value": 0.007731,
+        "smote_value": 0.00729
+      },
+      {
+        "feature": "dpkts",
+        "baseline_rank": 21,
+        "smote_rank": 21,
+        "rank_change": 0,
+        "baseline_value": 0.003604,
+        "smote_value": 0.003916
+      },
+      {
+        "feature": "sjit",
+        "baseline_rank": 32,
+        "smote_rank": 32,
+        "rank_change": 0,
+        "baseline_value": 0.002106,
+        "smote_value": 0.00269
+      }
+    ],
+    "newly_important": [
+      "dmean",
+      "proto"
+    ],
+    "reduced_importance": [
+      "ct_state_ttl",
+      "dttl"
+    ]
+  },
+  "lime_global": {
+    "label_a": "baseline",
+    "label_b": "smote",
+    "common_feature_count": 36,
+    "rank_changes": [
+      {
+        "feature": "dinpkt",
+        "baseline_rank": 14,
+        "smote_rank": 35,
+        "rank_change": -21,
+        "baseline_value": 0.012352,
+        "smote_value": 0.007027
+      },
+      {
+        "feature": "spkts",
+        "baseline_rank": 4,
+        "smote_rank": 23,
+        "rank_change": -19,
+        "baseline_value": 0.022067,
+        "smote_value": 0.01279
+      },
+      {
+        "feature": "dloss",
+        "baseline_rank": 30,
+        "smote_rank": 12,
+        "rank_change": 18,
+        "baseline_value": 0.004277,
+        "smote_value": 0.017672
+      },
+      {
+        "feature": "dpkts",
+        "baseline_rank": 37,
+        "smote_rank": 19,
+        "rank_change": 18,
+        "baseline_value": 0.001371,
+        "smote_value": 0.015054
+      },
+      {
+        "feature": "state",
+        "baseline_rank": 23,
+        "smote_rank": 6,
+        "rank_change": 17,
+        "baseline_value": 0.009157,
+        "smote_value": 0.022356
+      },
+      {
+        "feature": "ct_srv_dst",
+        "baseline_rank": 26,
+        "smote_rank": 10,
+        "rank_change": 16,
+        "baseline_value": 0.008735,
+        "smote_value": 0.019299
+      },
+      {
+        "feature": "is_sm_ips_ports",
+        "baseline_rank": 9,
+        "smote_rank": 25,
+        "rank_change": -16,
+        "baseline_value": 0.014108,
+        "smote_value": 0.012396
+      },
+      {
+        "feature": "dbytes",
+        "baseline_rank": 28,
+        "smote_rank": 14,
+        "rank_change": 14,
+        "baseline_value": 0.006872,
+        "smote_value": 0.017404
+      },
+      {
+        "feature": "sttl",
+        "baseline_rank": 1,
+        "smote_rank": 15,
+        "rank_change": -14,
+        "baseline_value": 0.042042,
+        "smote_value": 0.016967
+      },
+      {
+        "feature": "ackdat",
+        "baseline_rank": 27,
+        "smote_rank": 37,
+        "rank_change": -10,
+        "baseline_value": 0.007238,
+        "smote_value": 0.00554
+      },
+      {
+        "feature": "dmean",
+        "baseline_rank": 21,
+        "smote_rank": 11,
+        "rank_change": 10,
+        "baseline_value": 0.009811,
+        "smote_value": 0.019154
+      },
+      {
+        "feature": "rate",
+        "baseline_rank": 24,
+        "smote_rank": 34,
+        "rank_change": -10,
+        "baseline_value": 0.009048,
+        "smote_value": 0.008036
+      },
+      {
+        "feature": "ct_srv_src",
+        "baseline_rank": 18,
+        "smote_rank": 27,
+        "rank_change": -9,
+        "baseline_value": 0.011439,
+        "smote_value": 0.011592
+      },
+      {
+        "feature": "ct_dst_src_ltm",
+        "baseline_rank": 15,
+        "smote_rank": 7,
+        "rank_change": 8,
+        "baseline_value": 0.011797,
+        "smote_value": 0.020945
+      },
+      {
+        "feature": "tcprtt",
+        "baseline_rank": 38,
+        "smote_rank": 30,
+        "rank_change": 8,
+        "baseline_value": 0.00068,
+        "smote_value": 0.009939
+      },
+      {
+        "feature": "ct_flw_http_mthd",
+        "baseline_rank": 33,
+        "smote_rank": 26,
+        "rank_change": 7,
+        "baseline_value": 0.002368,
+        "smote_value": 0.01175
+      },
+      {
+        "feature": "sjit",
+        "baseline_rank": 10,
+        "smote_rank": 17,
+        "rank_change": -7,
+        "baseline_value": 0.013497,
+        "smote_value": 0.015786
+      },
+      {
+        "feature": "sload",
+        "baseline_rank": 25,
+        "smote_rank": 32,
+        "rank_change": -7,
+        "baseline_value": 0.008824,
+        "smote_value": 0.008954
+      },
+      {
+        "feature": "ct_ftp_cmd",
+        "baseline_rank": 16,
+        "smote_rank": 22,
+        "rank_change": -6,
+        "baseline_value": 0.011641,
+        "smote_value": 0.013284
+      },
+      {
+        "feature": "djit",
+        "baseline_rank": 36,
+        "smote_rank": 31,
+        "rank_change": 5,
+        "baseline_value": 0.001732,
+        "smote_value": 0.008985
+      },
+      {
+        "feature": "dur",
+        "baseline_rank": 19,
+        "smote_rank": 24,
+        "rank_change": -5,
+        "baseline_value": 0.01064,
+        "smote_value": 0.012504
+      },
+      {
+        "feature": "service",
+        "baseline_rank": 6,
+        "smote_rank": 1,
+        "rank_change": 5,
+        "baseline_value": 0.020309,
+        "smote_value": 0.027653
+      },
+      {
+        "feature": "sloss",
+        "baseline_rank": 13,
+        "smote_rank": 18,
+        "rank_change": -5,
+        "baseline_value": 0.01264,
+        "smote_value": 0.015289
+      },
+      {
+        "feature": "dload",
+        "baseline_rank": 17,
+        "smote_rank": 13,
+        "rank_change": 4,
+        "baseline_value": 0.011493,
+        "smote_value": 0.01763
+      },
+      {
+        "feature": "sinpkt",
+        "baseline_rank": 12,
+        "smote_rank": 16,
+        "rank_change": -4,
+        "baseline_value": 0.012848,
+        "smote_value": 0.016741
+      },
+      {
+        "feature": "trans_depth",
+        "baseline_rank": 32,
+        "smote_rank": 28,
+        "rank_change": 4,
+        "baseline_value": 0.00279,
+        "smote_value": 0.010358
+      },
+      {
+        "feature": "swin",
+        "baseline_rank": 8,
+        "smote_rank": 5,
+        "rank_change": 3,
+        "baseline_value": 0.017911,
+        "smote_value": 0.022985
+      },
+      {
+        "feature": "ct_src_dport_ltm",
+        "baseline_rank": 22,
+        "smote_rank": 20,
+        "rank_change": 2,
+        "baseline_value": 0.009715,
+        "smote_value": 0.014345
+      },
+      {
+        "feature": "proto",
+        "baseline_rank": 5,
+        "smote_rank": 3,
+        "rank_change": 2,
+        "baseline_value": 0.020402,
+        "smote_value": 0.02582
+      },
+      {
+        "feature": "response_body_len",
+        "baseline_rank": 31,
+        "smote_rank": 33,
+        "rank_change": -2,
+        "baseline_value": 0.003736,
+        "smote_value": 0.008801
+      },
+      {
+        "feature": "sbytes",
+        "baseline_rank": 11,
+        "smote_rank": 9,
+        "rank_change": 2,
+        "baseline_value": 0.01289,
+        "smote_value": 0.01958
+      },
+      {
+        "feature": "ct_dst_sport_ltm",
+        "baseline_rank": 3,
+        "smote_rank": 4,
+        "rank_change": -1,
+        "baseline_value": 0.022349,
+        "smote_value": 0.023141
+      },
+      {
+        "feature": "ct_state_ttl",
+        "baseline_rank": 7,
+        "smote_rank": 8,
+        "rank_change": -1,
+        "baseline_value": 0.01943,
+        "smote_value": 0.020094
+      },
+      {
+        "feature": "smean",
+        "baseline_rank": 20,
+        "smote_rank": 21,
+        "rank_change": -1,
+        "baseline_value": 0.0099,
+        "smote_value": 0.014307
+      },
+      {
+        "feature": "dttl",
+        "baseline_rank": 2,
+        "smote_rank": 2,
+        "rank_change": 0,
+        "baseline_value": 0.029139,
+        "smote_value": 0.026008
+      },
+      {
+        "feature": "is_ftp_login",
+        "baseline_rank": 29,
+        "smote_rank": 29,
+        "rank_change": 0,
+        "baseline_value": 0.006564,
+        "smote_value": 0.010347
+      }
+    ],
+    "newly_important": [
+      "ct_dst_src_ltm",
+      "ct_srv_dst",
+      "sbytes",
+      "state"
+    ],
+    "reduced_importance": [
+      "is_sm_ips_ports",
+      "sjit",
+      "spkts",
+      "sttl"
+    ]
+  },
+  "agreement_results": [
+    {
+      "pair": "SHAP_baseline_vs_SHAP_smote",
+      "topk_overlap": {
+        "top_5": 0.8,
+        "top_10": 0.8
+      },
+      "jaccard": {
+        "top_5": 0.666667,
+        "top_10": 0.666667
+      },
+      "spearman_correlation": 0.900008,
+      "spearman_p_value": 0.0,
+      "kendall_tau": 0.732869,
+      "kendall_p_value": 0.0,
+      "common_feature_count": 42
+    },
+    {
+      "pair": "LIME_baseline_vs_LIME_smote",
+      "topk_overlap": {
+        "top_5": 0.6,
+        "top_10": 0.6
+      },
+      "jaccard": {
+        "top_5": 0.428571,
+        "top_10": 0.428571
+      },
+      "spearman_correlation": 0.564994,
+      "spearman_p_value": 0.000331,
+      "kendall_tau": 0.390476,
+      "kendall_p_value": 0.000806,
+      "common_feature_count": 36
+    },
+    {
+      "pair": "SHAP_baseline_vs_LIME_baseline",
+      "topk_overlap": {
+        "top_5": 0.2,
+        "top_10": 0.5
+      },
+      "jaccard": {
+        "top_5": 0.111111,
+        "top_10": 0.333333
+      },
+      "spearman_correlation": 0.409563,
+      "spearman_p_value": 0.010665,
+      "kendall_tau": 0.271693,
+      "kendall_p_value": 0.01634,
+      "common_feature_count": 38
+    },
+    {
+      "pair": "SHAP_smote_vs_LIME_smote",
+      "topk_overlap": {
+        "top_5": 0.2,
+        "top_10": 0.6
+      },
+      "jaccard": {
+        "top_5": 0.111111,
+        "top_10": 0.428571
+      },
+      "spearman_correlation": 0.476091,
+      "spearman_p_value": 0.002516,
+      "kendall_tau": 0.334282,
+      "kendall_p_value": 0.003133,
+      "common_feature_count": 38
+    }
+  ],
+  "local_comparison": {
+    "correct_prediction": {
+      "sample_id": "SAMPLE_001421",
+      "true_class": "Backdoor",
+      "shap": {
+        "baseline": [
+          {
+            "feature": "smean",
+            "value": 0.115667
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.105666
+          },
+          {
+            "feature": "dttl",
+            "value": 0.071627
+          },
+          {
+            "feature": "sttl",
+            "value": 0.063088
+          },
+          {
+            "feature": "dbytes",
+            "value": 0.051631
+          }
+        ],
+        "smote": [
+          {
+            "feature": "smean",
+            "value": 0.094901
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.081034
+          },
+          {
+            "feature": "dmean",
+            "value": 0.079751
+          },
+          {
+            "feature": "ct_state_ttl",
+            "value": 0.066867
+          },
+          {
+            "feature": "dttl",
+            "value": 0.053876
+          }
+        ],
+        "overlap": 0.6
+      },
+      "lime": {
+        "baseline": [
+          {
+            "feature": "dinpkt",
+            "value": 0.012352
+          },
+          {
+            "feature": "dbytes",
+            "value": 0.012115
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.009684
+          },
+          {
+            "feature": "dttl",
+            "value": 0.008238
+          },
+          {
+            "feature": "sttl",
+            "value": 0.008198
+          }
+        ],
+        "smote": [
+          {
+            "feature": "service",
+            "value": 0.027097
+          },
+          {
+            "feature": "proto",
+            "value": -0.024787
+          },
+          {
+            "feature": "ct_srv_dst",
+            "value": 0.021453
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.020498
+          },
+          {
+            "feature": "ct_ftp_cmd",
+            "value": -0.017298
+          }
+        ],
+        "overlap": 0.0
+      }
+    },
+    "incorrect_prediction": {
+      "sample_id": "SAMPLE_001322",
+      "true_class": "Shellcode",
+      "shap": {
+        "baseline": [
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.052771
+          },
+          {
+            "feature": "smean",
+            "value": 0.024836
+          },
+          {
+            "feature": "service",
+            "value": 0.019666
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.017886
+          },
+          {
+            "feature": "dbytes",
+            "value": 0.012404
+          }
+        ],
+        "smote": [
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.103099
+          },
+          {
+            "feature": "service",
+            "value": 0.072203
+          },
+          {
+            "feature": "dbytes",
+            "value": 0.046556
+          },
+          {
+            "feature": "sjit",
+            "value": -0.036295
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.029756
+          }
+        ],
+        "overlap": 0.8
+      },
+      "lime": {
+        "baseline": [
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.022101
+          },
+          {
+            "feature": "service",
+            "value": 0.015481
+          },
+          {
+            "feature": "sttl",
+            "value": 0.011637
+          },
+          {
+            "feature": "ct_srv_dst",
+            "value": 0.011264
+          },
+          {
+            "feature": "ct_dst_sport_ltm",
+            "value": 0.010651
+          }
+        ],
+        "smote": [
+          {
+            "feature": "service",
+            "value": 0.040823
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.030261
+          },
+          {
+            "feature": "ct_src_dport_ltm",
+            "value": 0.01866
+          },
+          {
+            "feature": "ct_dst_sport_ltm",
+            "value": 0.016077
+          },
+          {
+            "feature": "is_sm_ips_ports",
+            "value": -0.015836
+          }
+        ],
+        "overlap": 0.6
+      }
+    },
+    "minority_class": {
+      "sample_id": "SAMPLE_003662",
+      "true_class": "Worms",
+      "shap": {
+        "baseline": [
+          {
+            "feature": "sbytes",
+            "value": 0.082474
+          },
+          {
+            "feature": "smean",
+            "value": 0.065899
+          },
+          {
+            "feature": "service",
+            "value": 0.031918
+          },
+          {
+            "feature": "dbytes",
+            "value": 0.018489
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "value": 0.017878
+          }
+        ],
+        "smote": [
+          {
+            "feature": "service",
+            "value": 0.136831
+          },
+          {
+            "feature": "sbytes",
+            "value": 0.127078
+          },
+          {
+            "feature": "smean",
+            "value": 0.112124
+          },
+          {
+            "feature": "trans_depth",
+            "value": 0.094982
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "value": 0.05438
+          }
+        ],
+        "overlap": 0.8
+      },
+      "lime": {
+        "baseline": [
+          {
+            "feature": "trans_depth",
+            "value": 0.002383
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "value": 0.001958
+          },
+          {
+            "feature": "service",
+            "value": 0.001685
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.001631
+          },
+          {
+            "feature": "sttl",
+            "value": 0.001409
+          }
+        ],
+        "smote": [
+          {
+            "feature": "service",
+            "value": 0.021287
+          },
+          {
+            "feature": "ct_dst_src_ltm",
+            "value": 0.017852
+          },
+          {
+            "feature": "ct_flw_http_mthd",
+            "value": 0.009904
+          },
+          {
+            "feature": "ct_srv_src",
+            "value": 0.009857
+          },
+          {
+            "feature": "response_body_len",
+            "value": -0.008016
+          }
+        ],
+        "overlap": 0.6
+      }
+    },
+    "majority_class": {
+      "sample_id": "SAMPLE_028142",
+      "true_class": "Normal",
+      "shap": {
+        "baseline": [
+          {
+            "feature": "sttl",
+            "value": 0.133271
+          },
+          {
+            "feature": "ct_state_ttl",
+            "value": 0.125114
+          },
+          {
+            "feature": "dttl",
+            "value": 0.064724
+          },
+          {
+            "feature": "dload",
+            "value": 0.041097
+          },
+          {
+            "feature": "rate",
+            "value": 0.028194
+          }
+        ],
+        "smote": [
+          {
+            "feature": "sttl",
+            "value": 0.234117
+          },
+          {
+            "feature": "ct_state_ttl",
+            "value": 0.197831
+          },
+          {
+            "feature": "dload",
+            "value": 0.062524
+          },
+          {
+            "feature": "dttl",
+            "value": 0.061223
+          },
+          {
+            "feature": "sloss",
+            "value": 0.030564
+          }
+        ],
+        "overlap": 0.8
+      },
+      "lime": {
+        "baseline": [
+          {
+            "feature": "sttl",
+            "value": 0.187922
+          },
+          {
+            "feature": "ct_state_ttl",
+            "value": 0.064721
+          },
+          {
+            "feature": "dttl",
+            "value": 0.051764
+          },
+          {
+            "feature": "is_sm_ips_ports",
+            "value": -0.041725
+          },
+          {
+            "feature": "service",
+            "value": 0.041618
+          }
+        ],
+        "smote": [
+          {
+            "feature": "dttl",
+            "value": -0.043506
+          },
+          {
+            "feature": "sloss",
+            "value": 0.033878
+          },
+          {
+            "feature": "service",
+            "value": 0.028074
+          },
+          {
+            "feature": "ct_state_ttl",
+            "value": 0.027835
+          },
+          {
+            "feature": "swin",
+            "value": 0.026885
+          }
+        ],
+        "overlap": 0.6
+      }
+    }
+  },
+  "minority_class_results": {
+    "Worms": {
+      "sample_count": 6,
+      "sample_ids": [
+        "SAMPLE_003662",
+        "SAMPLE_006667",
+        "SAMPLE_047087",
+        "SAMPLE_050679",
+        "SAMPLE_051485",
+        "SAMPLE_059795"
+      ],
+      "shap_top_features_baseline": [
+        {
+          "feature": "sttl",
+          "mean_abs_shap": 0.06579566666666666
+        },
+        {
+          "feature": "smean",
+          "mean_abs_shap": 0.03721683333333333
+        },
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.036595833333333334
+        },
+        {
+          "feature": "service",
+          "mean_abs_shap": 0.025563500000000003
+        },
+        {
+          "feature": "dbytes",
+          "mean_abs_shap": 0.0238145
+        }
+      ],
+      "shap_top_features_smote": [
+        {
+          "feature": "service",
+          "mean_abs_shap": 0.10497000000000001
+        },
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.06315866666666667
+        },
+        {
+          "feature": "sttl",
+          "mean_abs_shap": 0.060089000000000004
+        },
+        {
+          "feature": "trans_depth",
+          "mean_abs_shap": 0.050118
+        },
+        {
+          "feature": "dbytes",
+          "mean_abs_shap": 0.039481833333333334
+        }
+      ],
+      "lime_top_features_baseline": [
+        {
+          "feature": "response_body_len",
+          "mean_abs_weight": 0.0034783333333333333
+        },
+        {
+          "feature": "trans_depth",
+          "mean_abs_weight": 0.0023681666666666664
+        },
+        {
+          "feature": "service",
+          "mean_abs_weight": 0.0022378333333333334
+        },
+        {
+          "feature": "ct_flw_http_mthd",
+          "mean_abs_weight": 0.002129
+        },
+        {
+          "feature": "ct_src_ltm",
+          "mean_abs_weight": 0.0018765000000000001
+        }
+      ],
+      "lime_top_features_smote": [
+        {
+          "feature": "service",
+          "mean_abs_weight": 0.02052166666666667
+        },
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_weight": 0.0185866
+        },
+        {
+          "feature": "ct_flw_http_mthd",
+          "mean_abs_weight": 0.00958
+        },
+        {
+          "feature": "ct_srv_src",
+          "mean_abs_weight": 0.00895525
+        },
+        {
+          "feature": "ct_ftp_cmd",
+          "mean_abs_weight": 0.0076875
+        }
+      ],
+      "shap_agreement": {
+        "pair": "SHAP_Worms_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 0.8,
+          "top_10": 0.7
+        },
+        "jaccard": {
+          "top_5": 0.666667,
+          "top_10": 0.538462
+        },
+        "spearman_correlation": 0.759663,
+        "spearman_p_value": 0.0,
+        "kendall_tau": 0.577236,
+        "kendall_p_value": 0.0,
+        "common_feature_count": 42
+      },
+      "lime_agreement": {
+        "pair": "LIME_Worms_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 0.4,
+          "top_10": 0.5
+        },
+        "jaccard": {
+          "top_5": 0.25,
+          "top_10": 0.333333
+        },
+        "spearman_correlation": 0.619048,
+        "spearman_p_value": 0.101733,
+        "kendall_tau": 0.5,
+        "kendall_p_value": 0.108681,
+        "common_feature_count": 8
+      }
+    },
+    "Backdoor": {
+      "sample_count": 6,
+      "sample_ids": [
+        "SAMPLE_001421",
+        "SAMPLE_053319",
+        "SAMPLE_053909",
+        "SAMPLE_057508",
+        "SAMPLE_061118",
+        "SAMPLE_065138"
+      ],
+      "shap_top_features_baseline": [
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.0380385
+        },
+        {
+          "feature": "smean",
+          "mean_abs_shap": 0.03727916666666667
+        },
+        {
+          "feature": "dmean",
+          "mean_abs_shap": 0.022872833333333332
+        },
+        {
+          "feature": "dbytes",
+          "mean_abs_shap": 0.022760833333333338
+        },
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_shap": 0.022151833333333332
+        }
+      ],
+      "shap_top_features_smote": [
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.04815033333333333
+        },
+        {
+          "feature": "smean",
+          "mean_abs_shap": 0.04008083333333333
+        },
+        {
+          "feature": "dmean",
+          "mean_abs_shap": 0.03975516666666667
+        },
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_shap": 0.030957333333333333
+        },
+        {
+          "feature": "dbytes",
+          "mean_abs_shap": 0.02058933333333333
+        }
+      ],
+      "lime_top_features_baseline": [
+        {
+          "feature": "dinpkt",
+          "mean_abs_weight": 0.012352
+        },
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_weight": 0.008903333333333333
+        },
+        {
+          "feature": "sttl",
+          "mean_abs_weight": 0.008546833333333335
+        },
+        {
+          "feature": "proto",
+          "mean_abs_weight": 0.007164
+        },
+        {
+          "feature": "service",
+          "mean_abs_weight": 0.0062773333333333335
+        }
+      ],
+      "lime_top_features_smote": [
+        {
+          "feature": "service",
+          "mean_abs_weight": 0.025649166666666664
+        },
+        {
+          "feature": "ct_srv_dst",
+          "mean_abs_weight": 0.020102
+        },
+        {
+          "feature": "sbytes",
+          "mean_abs_weight": 0.019606666666666668
+        },
+        {
+          "feature": "proto",
+          "mean_abs_weight": 0.01791183333333333
+        },
+        {
+          "feature": "smean",
+          "mean_abs_weight": 0.015577750000000001
+        }
+      ],
+      "shap_agreement": {
+        "pair": "SHAP_Backdoor_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 1.0,
+          "top_10": 0.9
+        },
+        "jaccard": {
+          "top_5": 1.0,
+          "top_10": 0.818182
+        },
+        "spearman_correlation": 0.876833,
+        "spearman_p_value": 0.0,
+        "kendall_tau": 0.714286,
+        "kendall_p_value": 0.0,
+        "common_feature_count": 42
+      },
+      "lime_agreement": {
+        "pair": "LIME_Backdoor_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 0.4,
+          "top_10": 0.4
+        },
+        "jaccard": {
+          "top_5": 0.25,
+          "top_10": 0.25
+        },
+        "spearman_correlation": 0.543956,
+        "spearman_p_value": 0.054647,
+        "kendall_tau": 0.384615,
+        "kendall_p_value": 0.076317,
+        "common_feature_count": 13
+      }
+    },
+    "Analysis": {
+      "sample_count": 6,
+      "sample_ids": [
+        "SAMPLE_051393",
+        "SAMPLE_053459",
+        "SAMPLE_053473",
+        "SAMPLE_053614",
+        "SAMPLE_059252",
+        "SAMPLE_063334"
+      ],
+      "shap_top_features_baseline": [
+        {
+          "feature": "ct_src_ltm",
+          "mean_abs_shap": 0.03425566666666666
+        },
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.012754833333333333
+        },
+        {
+          "feature": "ct_dst_sport_ltm",
+          "mean_abs_shap": 0.012545333333333334
+        },
+        {
+          "feature": "proto",
+          "mean_abs_shap": 0.012229333333333333
+        },
+        {
+          "feature": "ct_srv_dst",
+          "mean_abs_shap": 0.011507833333333333
+        }
+      ],
+      "shap_top_features_smote": [
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_shap": 0.03139083333333333
+        },
+        {
+          "feature": "ct_src_ltm",
+          "mean_abs_shap": 0.024124666666666666
+        },
+        {
+          "feature": "sbytes",
+          "mean_abs_shap": 0.020085000000000002
+        },
+        {
+          "feature": "ct_dst_sport_ltm",
+          "mean_abs_shap": 0.01749416666666667
+        },
+        {
+          "feature": "ct_dst_ltm",
+          "mean_abs_shap": 0.016178333333333333
+        }
+      ],
+      "lime_top_features_baseline": [
+        {
+          "feature": "ct_dst_sport_ltm",
+          "mean_abs_weight": 0.022203999999999998
+        },
+        {
+          "feature": "proto",
+          "mean_abs_weight": 0.007582666666666667
+        },
+        {
+          "feature": "response_body_len",
+          "mean_abs_weight": 0.0038641666666666664
+        },
+        {
+          "feature": "dmean",
+          "mean_abs_weight": 0.003271666666666666
+        },
+        {
+          "feature": "trans_depth",
+          "mean_abs_weight": 0.002920666666666667
+        }
+      ],
+      "lime_top_features_smote": [
+        {
+          "feature": "ct_dst_sport_ltm",
+          "mean_abs_weight": 0.04133183333333334
+        },
+        {
+          "feature": "proto",
+          "mean_abs_weight": 0.02979533333333333
+        },
+        {
+          "feature": "service",
+          "mean_abs_weight": 0.0166415
+        },
+        {
+          "feature": "ct_dst_src_ltm",
+          "mean_abs_weight": 0.011994833333333335
+        },
+        {
+          "feature": "is_sm_ips_ports",
+          "mean_abs_weight": 0.011325
+        }
+      ],
+      "shap_agreement": {
+        "pair": "SHAP_Analysis_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 0.6,
+          "top_10": 0.9
+        },
+        "jaccard": {
+          "top_5": 0.428571,
+          "top_10": 0.818182
+        },
+        "spearman_correlation": 0.807795,
+        "spearman_p_value": 0.0,
+        "kendall_tau": 0.632985,
+        "kendall_p_value": 0.0,
+        "common_feature_count": 42
+      },
+      "lime_agreement": {
+        "pair": "LIME_Analysis_baseline_vs_smote",
+        "topk_overlap": {
+          "top_5": 0.4,
+          "top_10": 0.4
+        },
+        "jaccard": {
+          "top_5": 0.25,
+          "top_10": 0.25
+        },
+        "spearman_correlation": 0.52381,
+        "spearman_p_value": 0.182721,
+        "kendall_tau": 0.357143,
+        "kendall_p_value": 0.275099,
+        "common_feature_count": 8
+      }
+    }
+  },
+  "summary": {
+    "generated_utc": "2026-06-30T13:06:38.849388+00:00",
+    "project_version": "0.1.0",
+    "key_observation": "SHAP's baseline-vs-SMOTE top-5 feature overlap was 0.8 (Spearman r = 0.900008); LIME's was 0.6 (Spearman r = 0.564994)."
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

@@ -1,0 +1,11 @@
+class_name,count,pct,imbalance_ratio
+Normal,56000,10.0,1.0
+Backdoor,56000,10.0,1.0
+Analysis,56000,10.0,1.0
+Fuzzers,56000,10.0,1.0
+Shellcode,56000,10.0,1.0
+Reconnaissance,56000,10.0,1.0
+Exploits,56000,10.0,1.0
+DoS,56000,10.0,1.0
+Worms,56000,10.0,1.0
+Generic,56000,10.0,1.0

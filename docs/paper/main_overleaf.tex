@@ -1,0 +1,824 @@
+% ============================================================
+% IEEE TEMSMET 2026 — FINAL SUBMISSION VERSION
+% Upload as main.tex at Overleaf project root.
+% Figures: outputs/figures/ subfolder of project root.
+% Compile: pdflatex -> bibtex -> pdflatex -> pdflatex
+%
+% NOTE FOR AUTHOR (optional enhancement):
+% To add an Experimental Workflow diagram as Figure 1, export
+% the pipeline SVG to outputs/figures/experimental_workflow.png
+% (300 DPI, A4 width) and uncomment the figure block below the
+% \maketitle command. All subsequent figures will renumber
+% automatically.
+% ============================================================
+
+\documentclass[conference,a4paper]{IEEEtran}
+
+% --- Packages ---------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{cite}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% --- Figure path (Overleaf: main.tex at project root) -----
+\graphicspath{{outputs/figures/}}
+
+% --- Macros -----------------------------------------------
+\newcommand{\SHAP}{\textsc{shap}\xspace}
+\newcommand{\LIME}{\textsc{lime}\xspace}
+\newcommand{\NIDS}{NIDS\xspace}
+\newcommand{\SMOTE}{SMOTE\xspace}
+\newcommand{\XAI}{XAI\xspace}
+\newcommand{\rbs}{rank-biserial~$r$\xspace}
+\newcommand{\cohensh}{Cohen's~$h$\xspace}
+
+% ==========================================================
+\begin{document}
+% ==========================================================
+
+\title{Impact of SMOTE-Based Class Rebalancing\\
+       on SHAP and LIME Explanation Quality\\
+       in Random Forest Network Intrusion Detection}
+
+\author{%
+  \IEEEauthorblockN{Yogesh Narendran}
+  \IEEEauthorblockA{%
+    Department of Computer Science Engineering\\
+    (Artificial Intelligence and Machine Learning)\\
+    Sri Sairam Engineering College\\
+    Chennai, Tamil Nadu, India\\
+    Email: \texttt{sec24am081@sairamtap.edu.in}}}
+
+\maketitle
+
+% ----------------------------------------------------------
+\begin{abstract}
+Machine learning--based Network Intrusion Detection Systems (\NIDS) routinely
+apply the Synthetic Minority Over-sampling Technique (\SMOTE) to address severe
+traffic-class imbalance, yet the impact of such rebalancing on post-hoc
+explainability outputs has not been systematically quantified. This study
+investigates how \SMOTE rebalancing affects feature attribution rankings produced
+by SHapley Additive exPlanations (\SHAP) and Local Interpretable Model-agnostic
+Explanations (\LIME) in a Random Forest \NIDS trained and evaluated on the
+UNSW-NB15 benchmark. Two classifiers --- one trained on the original imbalanced
+partition and one on a \SMOTE-rebalanced partition --- are evaluated against the
+same 82,332-instance test set using a statistical framework comprising McNemar's
+test, Wilcoxon signed-rank tests, bootstrap confidence intervals, and
+Holm--Bonferroni correction. \SMOTE improves macro-averaged F1 and substantially
+increases minority-class recall, with all aggregate predictive effect sizes
+remaining negligible (\cohensh $\leq 0.09$). In contrast, \SHAP attribution
+rankings shift with a medium effect ($r=0.33$) and \LIME rankings with a large
+effect ($r=0.60$), demonstrating that class rebalancing alters explanation outputs
+disproportionately relative to classification metrics. Accuracy-only validation
+after \NIDS retraining is insufficient to characterise post-hoc explanation
+stability.
+\end{abstract}
+
+\begin{IEEEkeywords}
+network intrusion detection, explainability, class imbalance,
+synthetic minority oversampling, Shapley additive explanations,
+local interpretable model-agnostic explanations, random forest,
+feature attribution
+\end{IEEEkeywords}
+
+% ==========================================================
+\section{Introduction}
+% ==========================================================
+
+Machine learning--based \NIDS have demonstrated strong performance on curated
+benchmarks \cite{alshamy2021,wu2022,more2024}, yet a persistent challenge is
+severe class imbalance: benign traffic dominates by orders of magnitude while rare
+attack categories may constitute fewer than 0.1\% of packets
+\cite{moustafa2015,shanmugam2025}. This asymmetry biases classifiers toward
+majority-class predictions and suppresses detection of rare, high-severity attacks.
+
+\SMOTE \cite{chawla2002} is the dominant remediation strategy, generating
+synthetic minority-class instances by interpolating between existing samples in
+feature space. \SMOTE has been shown to improve minority-class recall in \NIDS
+applications \cite{alshamy2021,sayegh2024}; in this study it increased Worms-class
+F1 from 0.233 to 0.452.
+
+Concurrently, eXplainable AI (\XAI) adoption in security operations has grown
+substantially \cite{charmet2022,rjoub2023}. As AI systems become subject to
+regulatory transparency requirements \cite{euaiact2024}, the reliability of
+post-hoc explanations across model updates is critical. \SHAP
+\cite{lundberg2017,lundberg2020} and \LIME
+\cite{ribeiro2016,gaspar2024,hermosilla2025a} are the two most widely applied
+post-hoc explanation methods for \NIDS models.
+
+A critical and underexplored question is: \emph{when a \NIDS model is retrained
+with a different class distribution, does the explanation change as much as the
+prediction?} If explanation instability is disproportionate to predictive
+instability, operators relying on accuracy alone to validate retrained models may
+unknowingly deploy systems whose explanation outputs have changed substantially,
+undermining the trustworthiness of \XAI-assisted security analysis.
+
+This paper addresses that gap with a controlled empirical study. The contributions
+are:
+\begin{enumerate}
+  \item A paired statistical comparison (McNemar's test, Wilcoxon signed-rank,
+        95\% bootstrap CI) of Baseline and \SMOTE-trained Random Forest models
+        on UNSW-NB15 (82,332 test instances).
+  \item Quantified effect sizes for predictive metrics (\cohensh) and explanation
+        stability (\rbs), with explicit effect-size interpretability bounds.
+  \item A systematic comparison of \SHAP and \LIME sensitivity to training class
+        distribution, demonstrating that \LIME is substantially more sensitive.
+  \item Actionable guidance on explanation-consistency monitoring in
+        \XAI-augmented \NIDS pipelines.
+\end{enumerate}
+
+% ==========================================================
+\section{Related Work}
+\label{sec:related}
+% ==========================================================
+
+\subsection{Class Imbalance in NIDS}
+
+Class imbalance is a well-documented challenge in \NIDS
+\cite{moustafa2015,shanmugam2025}. Minority attack categories are rare relative
+to normal traffic, causing classifiers to achieve high accuracy by predicting the
+majority class \cite{alshamy2021,chawla2002}. Re-sampling strategies ---
+including \SMOTE, ADASYN, and random undersampling \cite{shanmugam2025} --- along
+with cost-sensitive learning and ensemble methods \cite{shanmugam2025} have been
+proposed. \SMOTE remains dominant due to its consistency and
+reproducibility \cite{wu2022,sayegh2024}. UNSW-NB15 \cite{moustafa2015} is the
+established benchmark used here, selected for its predefined train/test split and
+role as a community evaluation standard \cite{more2024,hermosilla2025a}.
+
+\subsection{Explainable AI for Network Security}
+
+\XAI application to \NIDS has expanded alongside the trustworthy-AI
+movement \cite{charmet2022,rjoub2023}. \SHAP provides attributions with
+theoretical guarantees of consistency and local
+accuracy \cite{lundberg2017,lundberg2020}. \LIME approximates model behaviour
+locally with an interpretable surrogate without requiring structural knowledge of
+the model \cite{ribeiro2016}. Both have been applied to Random
+Forest \cite{hermosilla2025a,hermosilla2025b} and deep learning--based
+\NIDS \cite{gaspar2024}.
+
+\subsection{XAI Stability and Explanation Quality}
+
+Explanation stability under perturbation has been studied in general ML
+contexts \cite{visani2022} but remains underexplored in \NIDS settings. Prior
+work examined adversarial perturbation effects on \LIME and \SHAP
+\cite{charmet2022} and sensitivity to hyperparameters \cite{visani2022}. The
+specific question of how training data rebalancing affects explanation stability
+--- distinct from prediction stability --- has not been addressed in prior \NIDS
+literature \cite{patil2020,alarab2022}. This study addresses that gap directly.
+
+% ==========================================================
+\section{Methodology}
+\label{sec:method}
+% ==========================================================
+
+\subsection{Dataset}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{class_distribution.png}
+  \caption{Training set class distribution before \SMOTE (175,341 instances,
+           10 classes, log scale). Maximum imbalance: 430.77:1
+           (Worms: 130 vs.\ Normal: 56,000). After \SMOTE: 56,000 per class.}
+  \label{fig:class_dist}
+\end{figure}
+
+The UNSW-NB15 dataset \cite{moustafa2015} provides a predefined training set
+(175,341 instances) and test set (82,332 instances) across 10 classes. The
+training set exhibits severe imbalance (Fig.~\ref{fig:class_dist}): Normal
+contains 56,000 samples (31.9\%) while Worms contains only 130 (0.074\%),
+yielding a maximum imbalance ratio of 430.77:1. UNSW-NB15 was selected for its
+controlled-environment realism, predefined split, and status as a community
+benchmark for reproducible \NIDS evaluation \cite{more2024}.
+
+\subsection{Feature Engineering}
+
+The original 44-feature schema was reduced to 42 features by removing
+\texttt{id} (identifier) and \texttt{label} (target leakage). No scaling was
+applied; Random Forest is scale-invariant.
+
+\subsection{Class Rebalancing}
+
+\SMOTE \cite{chawla2002} was applied with \texttt{sampling\_strategy=`auto'},
+\texttt{k\_neighbors=5}, seed~42. Minority classes were oversampled to 56,000
+per class, producing 560,000 training rows (384,659 synthetic samples). \SMOTE
+was selected as the most widely benchmarked \NIDS rebalancing technique
+\cite{alshamy2021,wu2022}, enabling direct comparison with prior work. The test
+set was not modified; both models are evaluated on the same held-out set.
+
+\subsection{Classifier}
+
+A Random Forest \cite{breiman2001} --- selected for strong \NIDS benchmark
+performance and native compatibility with \SHAP TreeExplainer --- was trained
+independently on the Baseline (imbalanced) and \SMOTE-balanced datasets. All
+hyperparameters and seed~(42) were held constant. The original train/test split
+was used without re-splitting.
+
+\subsection{XAI Methods}
+
+\noindent\textbf{SHAP:} \SHAP values \cite{lundberg2017,lundberg2020} were
+computed for 60 stratified test instances (six per class) using
+\texttt{shap.TreeExplainer}, yielding exact Shapley values. Global importance
+was obtained by averaging $|\text{SHAP}|$ values. Rankings were compared using
+Spearman~$\rho$ and top-5 overlap.
+
+\smallskip\noindent\textbf{LIME:} \LIME explanations \cite{ribeiro2016} were
+computed on the same 60 instances using \texttt{LimeTabularExplainer}
+(\texttt{num\_features=10}, \texttt{num\_samples=5000}). Surrogate fidelity
+was measured by local $R^2$. The deterministic shared-instance protocol
+eliminates selection variance from the paired comparison.
+
+\subsection{Statistical Validation}
+\label{sec:stats}
+
+Four hypothesis tests (RQ1--RQ4) were conducted (Table~\ref{tab:hyp}):
+(1)~\textbf{McNemar's test} is the appropriate paired test for comparing two
+classifiers on the same test set. (Yates correction) on the 82,332-sample
+prediction matrix; discordant pairs: $b=1{,}632$ (SMOTE gains), $c=4{,}784$
+(SMOTE losses).
+(2)~\textbf{Wilcoxon signed-rank} on paired confidence scores (82,332 pairs,
+34,002 pairs with zero difference were excluded using the Wilcoxon zero-method). (3)~\textbf{Wilcoxon} on 42 paired \SHAP
+importances. (4)~\textbf{Wilcoxon} on 36 paired \LIME importances.
+
+Holm--Bonferroni correction was applied ($\alpha/4,\,\alpha/3,\,\alpha/2,\,\alpha$).
+Effect sizes use two complementary metrics. \cohensh quantifies the difference
+between two proportions:
+\begin{equation}
+  h = 2\arcsin\!\sqrt{p_1} - 2\arcsin\!\sqrt{p_2},
+  \label{eq:cohenh}
+\end{equation}
+where $|h|<0.20$ is negligible, $\geq0.20$ small, $\geq0.50$ medium, $\geq0.80$
+large. \rbs is derived from the Wilcoxon statistic:
+\begin{equation}
+  r = \frac{Z}{\sqrt{N}},
+  \label{eq:rbs}
+\end{equation}
+where $N$ is non-zero paired differences; $r\geq0.10$ small, $\geq0.30$ medium,
+$\geq0.50$ large. Because \cohensh operates on proportion data ($n = 82{,}332$)
+and \rbs operates on feature importance ranks ($n = 42$ or $36$), cross-metric
+comparisons are therefore interpreted as qualitative indicators. Power: \SHAP
+at $n=42$, $r=0.326$ gives $\approx0.55$; \LIME at $n=36$, $r=0.595$ gives
+$\approx0.90$. Bootstrap CIs: 95\%, 2,000 resamples, percentile method.
+
+% ==========================================================
+\section{Experimental Setup}
+\label{sec:setup}
+% ==========================================================
+
+All experiments were implemented in Python~3.10+ using scikit-learn
+\cite{pedregosa2011}, imbalanced-learn \cite{lemaitre2017}, \texttt{shap}
+\cite{lundberg2017}, \texttt{lime} \cite{ribeiro2016}, and SciPy
+\cite{virtanen2020}. The global random seed was fixed at~42. All configuration
+parameters are stored in \texttt{configs/*.yaml}; all output artefacts are
+SHA-256 verified before statistical analysis.
+
+% ==========================================================
+\section{Results}
+\label{sec:results}
+% ==========================================================
+
+\subsection{Predictive Performance (RQ1)}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.49\columnwidth]{confusion_matrix_baseline.png}\hfill
+  \includegraphics[width=0.49\columnwidth]{confusion_matrix_smote.png}
+  \caption{Normalised confusion matrices. (left)~Baseline; (right)~\SMOTE.
+           \SMOTE improves minority-class recall (Worms, Analysis, Backdoor)
+           at a marginal cost to majority-class precision.}
+  \label{fig:cm}
+\end{figure}
+
+Table~\ref{tab:perclass} reports per-class metrics; Table~\ref{tab:bootstrap}
+reports 95\% bootstrap confidence intervals.
+
+\SMOTE reduced accuracy by 0.0383 ($0.7543\to0.7161$; 95\%~CI Baseline
+$[0.7516,\,0.7574]$ vs.\ SMOTE $[0.7129,\,0.7191]$; non-overlapping) and
+weighted F1 by 0.0149, while improving macro F1 by 0.0170. McNemar's test
+confirmed statistically significant model disagreement
+($\chi^2_{\text{Yates}}(1)=1547.51$, $p\approx 0$; corrected $\alpha=0.0125$).
+Despite statistical significance, all \cohensh values are negligible:
+$h(\text{accuracy})=-0.0868$, $h(\text{macro~F1})=+0.0340$,
+$h(\text{weighted~F1})=-0.0354$ (Table~\ref{tab:effect}).
+
+At the class level (Fig.~\ref{fig:cm}, Table~\ref{tab:perclass}), \SMOTE
+improved F1 for minority attack classes (mean recall gain $+0.325$; Worms:
+$0.233\to0.452$) while degrading F1 for majority classes (mean F1 change
+$-0.020$; Normal: $0.848\to0.809$). The Worms test class contains only
+44~instances; per-class F1 statistics at this sample size are sensitive to
+individual prediction outcomes and are presented as indicative results rather
+than stable estimates of population-level performance.
+
+\smallskip
+\noindent\textbf{Summary (RQ1):} Statistically significant but practically
+negligible aggregate differences; minority-class F1 improved substantially while
+majority-class F1 declined modestly.
+
+% --- TABLE I (full-width) ----------------------------------
+\begin{table*}[t]
+  \caption{Per-Class Classification Metrics --- Baseline and SMOTE Models
+           (Test Set, $n=82{,}332$)}
+  \label{tab:perclass}
+  \centering
+  \begin{tabular}{lrrrrrrrr}
+    \toprule
+    \textbf{Class} &
+      \textbf{P\,(B)} & \textbf{P\,(S)} &
+      \textbf{R\,(B)} & \textbf{R\,(S)} &
+      \textbf{F1\,(B)} & \textbf{F1\,(S)} &
+      $\bm{n}$ \\
+    \midrule
+    Analysis          & 0.005 & 0.034 & 0.009 & 0.164 & 0.006 & 0.057 & 677 \\
+    Backdoor          & 0.017 & 0.050 & 0.093 & 0.482 & 0.029 & 0.091 & 583 \\
+    DoS               & 0.608 & 0.532 & 0.117 & 0.149 & 0.196 & 0.233 & 4,089 \\
+    Exploits          & 0.625 & 0.788 & 0.777 & 0.638 & 0.693 & 0.705 & 11,132 \\
+    Fuzzers           & 0.293 & 0.275 & 0.592 & 0.627 & 0.392 & 0.382 & 6,062 \\
+    Generic           & 0.999 & 0.999 & 0.971 & 0.969 & 0.984 & 0.984 & 18,871 \\
+    Normal            & 0.967 & 0.978 & 0.755 & 0.690 & 0.848 & 0.809 & 37,000 \\
+    Reconnaissance    & 0.931 & 0.887 & 0.803 & 0.821 & 0.863 & 0.853 & 3,496 \\
+    Shellcode         & 0.342 & 0.187 & 0.701 & 0.878 & 0.460 & 0.308 & 378 \\
+    Worms$^\dagger$   & 0.438 & 0.366 & 0.159 & 0.591 & 0.233 & 0.452 & 44 \\
+    \midrule
+    \textbf{Macro avg}    & 0.522 & 0.510 & 0.498 & 0.601 & 0.470 & 0.487 & 82,332 \\
+    \textbf{Weighted avg} & 0.826 & 0.836 & 0.754 & 0.716 & 0.778 & 0.763 & 82,332 \\
+    \bottomrule
+    \multicolumn{8}{l}{\footnotesize B = Baseline; S = SMOTE; P = Precision;
+      R = Recall. Values rounded to 3~d.p.}\\
+    \multicolumn{8}{l}{\footnotesize $^\dagger$ $n=44$; metrics are indicative
+      only at this sample size.}\\
+  \end{tabular}
+\end{table*}
+
+% --- TABLE II ----------------------------------------------
+\begin{table}[tb]
+  \caption{Bootstrap 95\% CI for Aggregate Metrics
+           ($n_{\text{resample}}=2{,}000$, Percentile)}
+  \label{tab:bootstrap}
+  \centering
+  \begin{tabular}{llrrrr}
+    \toprule
+    \textbf{Model} & \textbf{Metric} &
+      \textbf{Obs.} & \textbf{CI$_\text{lo}$} &
+      \textbf{CI$_\text{hi}$} & \textbf{Width} \\
+    \midrule
+    Baseline & Accuracy    & 0.7543 & 0.7516 & 0.7574 & 0.0057 \\
+    Baseline & Macro F1    & 0.4704 & 0.4556 & 0.4853 & 0.0298 \\
+    Baseline & Weighted F1 & 0.7780 & 0.7754 & 0.7808 & 0.0054 \\
+    SMOTE    & Accuracy    & 0.7161 & 0.7129 & 0.7191 & 0.0062 \\
+    SMOTE    & Macro F1    & 0.4874 & 0.4752 & 0.4989 & 0.0237 \\
+    SMOTE    & Weighted F1 & 0.7631 & 0.7605 & 0.7659 & 0.0054 \\
+    \bottomrule
+    \multicolumn{6}{l}{\footnotesize Non-overlapping accuracy CIs corroborate
+      McNemar's test.}\\
+  \end{tabular}
+\end{table}
+
+% ----------------------------------------------------------
+\subsection{Explanation Quality (RQ2)}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.49\columnwidth]{shap_bar_baseline.png}\hfill
+  \includegraphics[width=0.49\columnwidth]{shap_bar_smote.png}
+  \caption{\SHAP global feature importance (mean $|\text{SHAP}|$, 60 instances).
+           (left)~Baseline, top: \texttt{sbytes} (0.0185).
+           (right)~\SMOTE, top: \texttt{ct\_dst\_src\_ltm} (0.0204).
+           Spearman $\rho=0.900$; top-5 overlap $=0.80$.}
+  \label{fig:shap}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.49\columnwidth]{lime_importance_baseline.png}\hfill
+  \includegraphics[width=0.49\columnwidth]{lime_importance_smote.png}
+  \caption{\LIME global feature importance (mean $|\text{weight}|$, 60 instances).
+           (left)~Baseline, top: \texttt{sttl} (0.042); $R^2=0.290$.
+           (right)~\SMOTE, top: \texttt{service} (0.028); $R^2=0.252$.
+           Spearman $\rho=0.565$; top-5 overlap $=0.60$.}
+  \label{fig:lime}
+\end{figure}
+
+\SHAP global rankings showed moderate stability (Spearman $\rho=0.900$, top-5
+overlap $=0.80$) (Fig.~\ref{fig:shap}). Wilcoxon test on 42 paired importances
+confirmed a statistically significant shift ($W=283$, $p=0.0347$; Holm
+$\alpha=0.050$) with a medium effect ($r=0.3259$) (Table~\ref{tab:hyp}).
+
+\LIME rankings showed considerably lower stability ($\rho=0.565$, overlap $=0.60$)
+(Fig.~\ref{fig:lime}). Wilcoxon on 36 paired \LIME importances confirmed a larger
+shift ($W=115$, $p=3.59\times10^{-4}$; Holm $\alpha=0.025$) with a large effect
+($r=0.5947$) (Table~\ref{tab:hyp}).
+
+\LIME local surrogate fidelity, measured by the mean coefficient of determination
+($R^2$) of each instance's local linear model, was 0.290 for the Baseline model
+and 0.252 for the SMOTE model. These values indicate that the \LIME surrogate
+captures approximately 25--29\% of local decision variance. The observed ranking
+shift ($r=0.5947$) is statistically robust; however, \LIME attribution magnitudes
+reflect the linear surrogate under moderate fidelity conditions and should be
+understood as approximations of local model behaviour rather than exact
+attributions. Inter-method agreement was low but improved slightly after
+\SMOTE ($\rho=0.410\to0.476$).
+
+\smallskip
+\noindent\textbf{Summary (RQ2):} \SMOTE caused significant \XAI explanation shifts;
+\LIME exhibited a large effect vs.\ medium for \SHAP. \LIME results interpreted
+in light of moderate local surrogate fidelity ($R^2 \approx 0.25$--$0.29$).
+
+% ----------------------------------------------------------
+\subsection{Predictive vs.\ Explanatory Sensitivity (RQ3)}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\textwidth]{explanation_ranking_comparison.png}
+  \caption{Feature rank shift: Baseline vs.\ \SMOTE for \SHAP (top) and \LIME
+           (bottom). Crossing lines indicate rank changes; \LIME shows
+           substantially greater rank instability. Note: the two metrics operate
+           on different scales and sample sizes; the figure illustrates qualitative
+           asymmetry, not a precise proportional ratio.}
+  \label{fig:ranking}
+\end{figure*}
+
+The central finding is a systematic asymmetry between predictive and explanatory
+sensitivity (Fig.~\ref{fig:ranking}, Table~\ref{tab:effect}). All predictive
+effect sizes are negligible (max $|h|=0.0868$), while explanation effect sizes
+range from small (confidence scores, $r=0.1686$) to medium (\SHAP, $r=0.3259$)
+to large (\LIME, $r=0.5947$). As these metrics operate on different scales and
+reflect different sample sizes ($n=36$--42 feature pairs vs.\ $n=82{,}332$
+paired predictions), the comparison is qualitative: explanation attribution
+rankings are substantially more sensitive to class rebalancing than aggregate
+classification outcomes.
+
+\smallskip
+\noindent\textbf{Summary (RQ3):} Explanatory sensitivity substantially exceeds
+predictive sensitivity; \LIME attribution rankings exhibited the greatest shift
+of all outputs examined.
+
+% --- TABLE III ---------------------------------------------
+\begin{table}[tb]
+  \caption{Effect Sizes: Baseline vs.\ \SMOTE}
+  \label{tab:effect}
+  \centering
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{0.75}
+  \begin{tabular}{llrl}
+    \toprule
+    \textbf{Comparison} & \textbf{Metric} & \textbf{Value} & \textbf{Magnitude} \\
+    \midrule
+    Accuracy         & $h$ & $-0.0868$ & Negligible \\
+    Macro F1         & $h$ & $+0.0340$ & Negligible \\
+    Weighted F1      & $h$ & $-0.0354$ & Negligible \\
+    Confidence shift & $r$ & $0.1686$  & Small \\
+    \SHAP shift      & $r$ & $0.3259$  & Medium \\
+    \LIME shift      & $r$ & $0.5947$  & Large \\
+    \bottomrule
+    \multicolumn{4}{p{\linewidth}}{\footnotesize $h$: Eq.~\eqref{eq:cohenh} ($n=82{,}332$);
+      $r$: Eq.~\eqref{eq:rbs} ($n=42$ \SHAP, $n=36$ \LIME).
+      Thresholds (Cohen~1988): $|h|{<}0.20$ neg.; $r{\geq}0.10$ sm.,
+      ${\geq}0.30$ med., ${\geq}0.50$ lg. Cross-metric: qualitative only.}\\
+  \end{tabular}
+\end{table}
+
+% ----------------------------------------------------------
+\subsection{Hypothesis Test Summary (RQ4)}
+
+All four tests rejected $H_0$ after Holm--Bonferroni correction (Table~\ref{tab:hyp}).
+The asymmetry between negligible predictive effect sizes and medium-to-large
+explanation effect sizes supports the research hypothesis. \LIME's greater
+sensitivity than \SHAP ($\Delta r=0.269$) is consistent with the expectation that
+perturbation-based local methods are more responsive to training distribution
+changes than exact tree-attribution methods.
+
+% --- TABLE IV ----------------------------------------------
+\begin{table}[tb]
+  \caption{Hypothesis Test Summary (Holm--Bonferroni, $\alpha=0.05$)}
+  \label{tab:hyp}
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3.5pt}
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{lllrl}
+    \toprule
+    \textbf{Test} & \textbf{Statistic} &
+      $\bm{p}$\textbf{-value} & \textbf{Holm~}$\bm{\alpha}$ & \textbf{Reject} \\
+    \midrule
+    McNemar (Yates)  & $\chi^2=1547.51$    & $<10^{-300}$        & 0.0125 & Yes \\
+    Wilcoxon (conf.) & $W=455{,}648{,}244$ & $<10^{-300}$        & 0.0167 & Yes \\
+    Wilcoxon (\LIME) & $W=115.0$           & $3.59\times10^{-4}$ & 0.0250 & Yes \\
+    Wilcoxon (\SHAP) & $W=283.0$           & $3.47\times10^{-2}$ & 0.0500 & Yes \\
+    \bottomrule
+    \multicolumn{5}{p{\linewidth}}{\footnotesize Ordered by Holm rank. $b=1{,}632$,
+      $c=4{,}784$ (McNemar). \SHAP power $\approx0.55$ ($n=42$);
+      \LIME power $\approx0.90$ ($n=36$).}\\
+  \end{tabular}}
+\end{table}
+
+% ==========================================================
+\section{Discussion}
+\label{sec:discussion}
+% ==========================================================
+
+\subsection{Interpretation of Findings}
+
+The central result --- that \SMOTE changes explanation structure more than
+prediction structure --- follows from a mechanistic argument. Class rebalancing
+redistributes the model's learned decision boundary: minority classes receive
+proportionally more training signal, shifting internal feature weighting even when
+aggregate accuracy is little changed. Post-hoc explanation methods detect this
+shift directly because they query the local decision surface rather than summarising
+it with a single metric. \LIME is more sensitive than \SHAP because it evaluates
+the model on perturbed local neighbourhoods directly affected by the shifted
+boundary, whereas \SHAP's global Shapley-value attributions partially average out
+local perturbations.
+
+\subsection{Practical Implications}
+
+\noindent\textbf{(1) Retraining validation:} Accuracy alone is insufficient.
+\XAI outputs may change substantially even when accuracy is stable; explanation
+outputs must be re-validated after any retraining event. \textbf{(2) Deployment
+trade-off:} Of 82,332 test instances, \SMOTE gained 1,632 predictions (1.98\%)
+but lost 4,784 (5.81\%) vs.\ Baseline; for rare-attack-priority deployments this
+is acceptable, but for false-positive-sensitive environments it warrants
+consideration. \textbf{(3) Method
+selection:} A distribution change can produce a large shift ($r=0.595$) in \LIME
+rankings without a corresponding accuracy change; \LIME-based pipelines require
+independent validation after retraining. \textbf{(4) Operational monitoring:}
+Tracking Spearman~$\rho$ of feature rankings before and after retraining detects
+explanation drift that accuracy-only monitoring misses.
+
+\vspace{-0.5em}
+\subsection{Relationship to Trustworthy AI}
+
+The predictive-explanatory asymmetry has direct implications for trustworthy-AI
+frameworks in cybersecurity \cite{charmet2022,rjoub2023}. Regulatory guidance
+increasingly requires stable explanations for consequential decisions
+\cite{euaiact2024}; explanations that are unstable under routine model updates
+become unreliable even when performance metrics remain acceptable. To the best of
+the author's knowledge, this study provides the first empirical evidence of this
+instability in a standardised \NIDS benchmark setting.
+
+% ==========================================================
+\section{Limitations}
+\label{sec:limitations}
+% ==========================================================
+
+This study has the following limitations.
+
+\textit{Internal validity}: Only \SMOTE was evaluated; ADASYN and cost-sensitive
+methods may produce different explanatory outcomes. Results are specific to Random
+Forest; \SHAP TreeExplainer is tree-specific and \LIME sensitivity may differ for
+neural networks. Explanation subset size and statistical power: At $n=42$, \SHAP
+Wilcoxon power $\approx0.55$ (below the conventional 0.80 threshold); the \SHAP
+result ($p=0.0347$) should be interpreted with caution. At $n=36$, \LIME power
+$\approx0.90$. The non-significant SHAP result would have been inconclusive at
+conventional power thresholds.
+
+\textit{Construct validity}: Explanation quality is operationalised as rank
+stability and magnitude shift; human interpretability and ground-truth fidelity
+are not assessed. LIME surrogate fidelity: The \LIME surrogate fidelity
+($R^2 = 0.290$ Baseline, $R^2 = 0.252$ SMOTE) is moderate, meaning the linear
+surrogate captures approximately 25--29\% of local decision variance. The ranking
+shift is statistically robust, but absolute \LIME magnitudes are approximations.
+SHAP vs.\ LIME comparability: The absolute magnitudes of their rank-biserial $r$
+values are not directly commensurate. \SHAP operates on 42 paired feature rankings
+($n=42$); \LIME operates on 36 paired feature rankings ($n=36$). Cross-method
+comparison indicates relative sensitivity but cannot establish proportional
+relationships. Worms class sample size: The Worms test class contains only 44
+instances. F1 comparisons at this scale are sensitive to individual prediction
+outcomes and are reported as indicative results rather than stable population
+estimates.
+
+\textit{External validity}: UNSW-NB15 is a point-in-time capture from 2015.
+Relevant attack techniques have evolved significantly: TLS~1.3 encryption,
+microservice traffic patterns, and cloud APIs create operational conditions
+substantially different from 2015 laboratory traffic. Transferability to modern
+encrypted-traffic environments warrants validation on CICIDS-2017 or
+CSE-CIC-IDS-2018. Concept drift in live network traffic may invalidate both
+predictive performance and explanation patterns observed in this study.
+
+% ==========================================================
+\section{Future Work}
+\label{sec:future}
+% ==========================================================
+
+Future work should address: (i)~alternative rebalancing techniques (ADASYN,
+class-weighted loss); (ii)~gradient-based explanations for neural network \NIDS;
+(iii)~multi-dataset validation (CICIDS-2017, NSL-KDD); (iv)~human-centred
+evaluation of explanation rank shifts on analyst decision-making; and
+(v)~formal explanation-consistency metrics for model certification.
+
+% ==========================================================
+\IEEEtriggerfinalcols
+\section{Conclusion}
+\label{sec:conclusion}
+% ==========================================================
+
+A controlled empirical study on UNSW-NB15 shows that \SMOTE-based class
+rebalancing produces statistically significant but practically negligible changes
+to aggregate \NIDS predictive metrics (max $|h|=0.087$), while producing
+medium-to-large changes to \SHAP and \LIME feature attribution rankings
+(rank-biserial $r$ up to 0.595 for \LIME). \LIME's explanatory effect size
+substantially and disproportionately exceeds predictive sensitivity across
+complementary effect-size measures. The disproportionate sensitivity of
+explanation outputs relative to classification outcomes demonstrates that
+accuracy-only validation is insufficient for \XAI-augmented \NIDS pipelines.
+
+The secondary finding --- that \LIME is substantially more sensitive than \SHAP
+to training distribution changes ($\Delta r=0.269$) --- has direct implications
+for \XAI tool selection: perturbation-based local methods must be independently
+validated when training data composition changes, and surrogate fidelity should
+be reported alongside attribution rankings. This practice enables practitioners to
+distinguish ranking shifts caused by model changes from shifts caused by surrogate
+approximation variance. This finding holds even with the caveat that \LIME local
+surrogate fidelity ($R^2 \approx 0.25$--$0.29$) is moderate: the statistical
+evidence for a large explanatory shift is robust regardless of absolute attribution
+magnitudes.
+
+These results support explanation-consistency monitoring as an important component
+of responsible model assessment in any \NIDS pipeline that incorporates post-hoc
+\XAI methods, particularly in regulatory contexts that require stable and reliable
+explanations \cite{euaiact2024}.
+
+% ==========================================================
+%  REFERENCES  (IEEE appearance order, 23 entries)
+% ==========================================================
+\begin{thebibliography}{23}
+
+\bibitem{alshamy2021}
+R.~Alshamy, M.~Ghurab, S.~Othman, and F.~Alshami,
+``Intrusion detection model for imbalanced dataset using SMOTE and random
+forest algorithm,''
+in \emph{Advances in Cyber Security (ACeS~2021)},
+ser. Commun. Comput. Inf. Sci. (CCIS), vol.~1487.
+Singapore: Springer, 2021, pp.~311--323.
+doi:~10.1007/978-981-16-8059-5\_22.
+
+\bibitem{wu2022}
+T.~Wu, H.~Fan, H.~Zhu, C.~You, H.~Zhou, and X.~Huang,
+``Intrusion detection system combined enhanced random forest with SMOTE
+algorithm,''
+\emph{EURASIP J. Adv. Signal Process.}, vol.~2022, Art. no.~39, 2022.
+doi:~10.1186/s13634-022-00871-6.
+
+\bibitem{more2024}
+S.~More, M.~Idrissi, H.~Mahmoud, and A.~T.~Asyhari,
+``Enhanced intrusion detection systems performance with UNSW-NB15 data
+analysis,''
+\emph{Algorithms}, vol.~17, no.~2, Art. no.~64, Feb. 2024.
+doi:~10.3390/a17020064.
+
+\bibitem{moustafa2015}
+N.~Moustafa and J.~Slay,
+``UNSW-NB15: A comprehensive data set for network intrusion detection
+systems,''
+in \emph{Proc. IEEE Military Commun. Inf. Syst. Conf. (MilCIS)},
+Canberra, Australia, Nov. 2015, pp.~1--6.
+doi:~10.1109/MilCIS.2015.7348942.
+
+\bibitem{shanmugam2025}
+V.~Shanmugam, R.~Razavi-Far, and E.~Hallaji,
+``Addressing class imbalance in intrusion detection: A comprehensive
+evaluation of machine learning approaches,''
+\emph{Electronics}, vol.~14, no.~1, Art. no.~69, Jan. 2025.
+doi:~10.3390/electronics14010069.
+
+\bibitem{chawla2002}
+N.~V.~Chawla, K.~W.~Bowyer, L.~O.~Hall, and W.~P.~Kegelmeyer,
+``SMOTE: Synthetic minority over-sampling technique,''
+\emph{J. Artif. Intell. Res.}, vol.~16, pp.~321--357, Jun. 2002.
+doi:~10.1613/jair.953.
+
+\bibitem{sayegh2024}
+H.~R.~Sayegh, W.~Dong, and A.~M.~Al-madani,
+``Enhanced intrusion detection with LSTM-based model, feature selection,
+and SMOTE for imbalanced data,''
+\emph{Appl. Sci.}, vol.~14, no.~2, Art. no.~479, Jan. 2024.
+doi:~10.3390/app14020479.
+
+\bibitem{charmet2022}
+F.~Charmet, H.~C.~Tanuwidjaja, S.~Ayoubi, P.~F.~Gimenez, Y.~Han,
+H.~Jmila \emph{et~al.},
+``Explainable artificial intelligence for cybersecurity: A literature
+survey,''
+\emph{Ann. Telecommun.}, vol.~77, no.~11--12, pp.~789--812, 2022.
+doi:~10.1007/s12243-022-00926-7.
+
+\bibitem{rjoub2023}
+G.~Rjoub, J.~Bentahar, O.~Abdel~Wahab, R.~Mizouni, A.~Song,
+R.~Cohen \emph{et~al.},
+``A survey on explainable artificial intelligence for cybersecurity,''
+\emph{IEEE Trans. Netw. Serv. Manag.}, vol.~20, no.~4,
+pp.~5115--5140, Dec. 2023.
+doi:~10.1109/TNSM.2023.3282740.
+
+\bibitem{lundberg2017}
+S.~M.~Lundberg and S.-I.~Lee,
+``A unified approach to interpreting model predictions,''
+in \emph{Adv. Neural Inf. Process. Syst. (NeurIPS)}, vol.~30,
+Long Beach, CA, USA, Dec. 2017, pp.~4766--4777. [Online]. Available:
+\url{https://proceedings.neurips.cc/paper_files/paper/2017/hash/%
+8a20a8621978632d76c43dfd28b67767-Abstract.html}
+
+\bibitem{lundberg2020}
+S.~M.~Lundberg, G.~Erion, H.~Chen, A.~DeGrave, J.~M.~Prutkin,
+B.~Nair \emph{et~al.},
+``From local explanations to global understanding with explainable AI
+for trees,''
+\emph{Nat. Mach. Intell.}, vol.~2, no.~1, pp.~56--67, Jan. 2020.
+doi:~10.1038/s42256-019-0138-9.
+
+\bibitem{ribeiro2016}
+M.~T.~Ribeiro, S.~Singh, and C.~Guestrin,
+```Why should I trust you?': Explaining the predictions of any
+classifier,''
+in \emph{Proc. 22nd ACM SIGKDD Int. Conf. Knowl. Discovery Data Mining
+(KDD)}, San Francisco, CA, USA, Aug. 2016, pp.~1135--1144.
+doi:~10.1145/2939672.2939778.
+
+\bibitem{gaspar2024}
+D.~Gaspar, P.~Silva, and C.~Silva,
+``Explainable AI for intrusion detection systems: LIME and SHAP
+applicability on multi-layer perceptron,''
+\emph{IEEE Access}, vol.~12, pp.~30164--30175, 2024.
+doi:~10.1109/ACCESS.2024.3368377.
+
+\bibitem{hermosilla2025a}
+P.~Hermosilla, S.~Berr\'ios, and H.~Allende-Cid,
+``Explainable AI for forensic analysis: A comparative study of SHAP and
+LIME in intrusion detection models,''
+\emph{Appl. Sci.}, vol.~15, no.~13, Art. no.~7329, Jul. 2025.
+doi:~10.3390/app15137329.
+
+\bibitem{hermosilla2025b}
+P.~Hermosilla, M.~D\'iaz, S.~Berr\'ios, and H.~Allende-Cid,
+``Use of explainable artificial intelligence for analyzing and explaining
+intrusion detection systems,''
+\emph{Computers}, vol.~14, no.~5, Art. no.~160, May 2025.
+doi:~10.3390/computers14050160.
+
+\bibitem{visani2022}
+G.~Visani, E.~Bagli, F.~Chesani, A.~Poluzzi, and D.~Capuzzo,
+``Statistical stability indices for LIME: Obtaining reliable explanations
+for machine learning models,''
+\emph{J. Oper. Res. Soc.}, vol.~73, no.~1, pp.~91--101, 2022.
+doi:~10.1080/01605682.2020.1865846.
+
+\bibitem{patil2020}
+A.~Patil, A.~Framewala, and F.~Kazi,
+``Explainability of SMOTE based oversampling for imbalanced dataset
+problems,''
+in \emph{Proc. IEEE Int. Conf. Inf. Commun. Technol. (ICICT)},
+Feb. 2020, pp.~41--45.
+doi:~10.1109/ICICT50521.2020.9092325.
+
+\bibitem{alarab2022}
+I.~Alarab and S.~Prakoonwit,
+``Effect of data resampling on feature importance in imbalanced blockchain
+data: Comparison studies of resampling techniques,''
+\emph{Data Sci. Manag.}, vol.~5, no.~2, pp.~66--76, Jun. 2022.
+doi:~10.1016/j.dsm.2022.04.003.
+
+\bibitem{breiman2001}
+L.~Breiman,
+``Random forests,''
+\emph{Mach. Learn.}, vol.~45, no.~1, pp.~5--32, Oct. 2001.
+doi:~10.1023/A:1010933404324.
+
+\bibitem{virtanen2020}
+P.~Virtanen, R.~Gommers, T.~E.~Oliphant, M.~Haberland, T.~Reddy,
+D.~Cournapeau \emph{et~al.},
+``SciPy~1.0: Fundamental algorithms for scientific computing in Python,''
+\emph{Nat. Methods}, vol.~17, pp.~261--272, Feb. 2020.
+doi:~10.1038/s41592-020-0772-5.
+
+\bibitem{pedregosa2011}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion,
+O.~Grisel \emph{et~al.},
+``Scikit-learn: Machine learning in Python,''
+\emph{J. Mach. Learn. Res.}, vol.~12, pp.~2825--2830, Nov. 2011.
+[Online]. Available: \url{http://jmlr.org/papers/v12/pedregosa11a.html}
+
+\bibitem{lemaitre2017}
+G.~Lema\^{i}tre, F.~Nogueira, and C.~K.~Aridas,
+``Imbalanced-learn: A Python toolbox to tackle the curse of imbalanced
+datasets in machine learning,''
+\emph{J. Mach. Learn. Res.}, vol.~18, no.~17, pp.~1--5, 2017.
+[Online]. Available: \url{http://jmlr.org/papers/v18/16-365.html}
+
+\bibitem{euaiact2024}
+European Parliament and Council of the European Union,
+``Regulation (EU) 2024/1689 laying down harmonised rules on artificial
+intelligence (Artificial Intelligence Act),''
+\emph{Off. J. Eur. Union}, Jul. 2024. [Online]. Available:
+\url{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689}
+
+\end{thebibliography}
+
+% ==========================================================
+\end{document}
+% ==========================================================

@@ -1,0 +1,302 @@
+{
+  "generated_at": "2026-07-03T01:08:58.081311+00:00",
+  "research_questions": {
+    "rq1": {
+      "rq": "RQ1",
+      "question": "How did SMOTE influence predictive performance?",
+      "verdict": "partially_beneficial",
+      "aggregate_metrics": {
+        "accuracy_delta": -0.0383,
+        "macro_f1_delta": 0.017,
+        "weighted_f1_delta": -0.0149
+      },
+      "statistical_significance": {
+        "mcnemar_p": 0.0,
+        "mcnemar_reject_h0": true,
+        "ci_accuracy_baseline": [
+          0.7516148034785989,
+          0.7573604430840986
+        ],
+        "ci_accuracy_smote": [
+          0.7129427197201574,
+          0.7191377593159403
+        ],
+        "cis_overlap_accuracy": false
+      },
+      "practical_significance": {
+        "cohens_h_accuracy": -0.08681843160005309,
+        "cohens_h_magnitude": "negligible",
+        "cohens_h_macro_f1": 0.034045487985985945,
+        "cohens_h_weighted_f1": -0.03542596567962253,
+        "all_negligible": true
+      },
+      "class_wise": {
+        "classes_improved_f1": [
+          "Analysis",
+          "Backdoor",
+          "DoS",
+          "Exploits",
+          "Worms"
+        ],
+        "classes_degraded_f1": [
+          "Fuzzers",
+          "Generic",
+          "Normal",
+          "Reconnaissance",
+          "Shellcode"
+        ],
+        "minority_avg_recall_gain": 0.3254,
+        "majority_avg_f1_change": -0.0197,
+        "worms_f1_baseline": 0.2333,
+        "worms_f1_smote": 0.4522,
+        "normal_f1_baseline": 0.8477,
+        "normal_f1_smote": 0.8092
+      },
+      "mcnemar_individual": {
+        "n_smote_gained": 1632,
+        "n_smote_lost": 4784,
+        "net_errors_added_by_smote": 3152,
+        "pct_gained": 1.98,
+        "pct_lost": 5.81
+      },
+      "narrative": "SMOTE reduced accuracy by 0.0383 (from 0.7543 to 0.7161) and weighted F1 by 0.0149, while improving macro F1 by 0.0170. These differences are statistically significant (McNemar χ²=1547.5, p≈0; non-overlapping 95% CIs for accuracy) but all Cohen's h effect sizes are negligible (|h|≤0.087). At the class level, SMOTE improved F1 for ['Analysis', 'Backdoor', 'DoS', 'Exploits', 'Worms'] and degraded it for ['Fuzzers', 'Generic', 'Normal', 'Reconnaissance', 'Shellcode']. Minority classes gained an average of 0.325 in recall; majority classes experienced an average F1 change of -0.020. This is the expected SMOTE trade-off: synthetic oversampling increases minority-class representation at the cost of per-sample accuracy on majority classes."
+    },
+    "rq2": {
+      "rq": "RQ2",
+      "question": "How did SMOTE influence model explainability?",
+      "verdict": "significant_change_lime_more_sensitive",
+      "shap_stability": {
+        "spearman_baseline_vs_smote": 0.900008,
+        "top5_overlap_baseline_vs_smote": 0.8,
+        "wilcoxon_p": 0.0347075490858515,
+        "wilcoxon_reject_h0": true,
+        "rank_biserial_r": 0.3258507265472339,
+        "effect_magnitude": "medium",
+        "top_movers": [
+          {
+            "feature": "trans_depth",
+            "rank_change": 17
+          },
+          {
+            "feature": "dinpkt",
+            "rank_change": 8
+          },
+          {
+            "feature": "stcpb",
+            "rank_change": 7
+          }
+        ]
+      },
+      "lime_stability": {
+        "spearman_baseline_vs_smote": 0.564994,
+        "top5_overlap_baseline_vs_smote": 0.6,
+        "wilcoxon_p": 0.0003594935988076031,
+        "wilcoxon_reject_h0": true,
+        "rank_biserial_r": 0.5946937420992643,
+        "effect_magnitude": "large",
+        "top_movers": [
+          {
+            "feature": "dinpkt",
+            "rank_change": -21
+          },
+          {
+            "feature": "spkts",
+            "rank_change": -19
+          },
+          {
+            "feature": "dloss",
+            "rank_change": 18
+          }
+        ]
+      },
+      "inter_method_agreement": {
+        "shap_vs_lime_baseline_spearman": 0.409563,
+        "shap_vs_lime_smote_spearman": 0.476091,
+        "agreement_improved_after_smote": true
+      },
+      "narrative": "SMOTE caused measurable changes in both SHAP and LIME feature attributions. SHAP global rankings remained relatively stable (Spearman r=0.900, top-5 overlap=0.80), yet the Wilcoxon test confirmed a statistically significant distributional shift (p=0.0347) with a medium practical effect (rank-biserial r=0.326). LIME showed considerably lower stability (Spearman r=0.565, top-5 overlap=0.60) and a large practical shift (r=0.595). The largest SHAP rank movements involved trans_depth (+17 positions). LIME exhibited more dramatic reordering; sttl dropped from rank 1 to rank 15 under SMOTE. SHAP–LIME inter-method agreement was low in both conditions (r=0.410 baseline, r=0.476 SMOTE), indicating the two methods capture different aspects of model behaviour and are not interchangeable for post-hoc explanation."
+    },
+    "rq3": {
+      "rq": "RQ3",
+      "question": "What relationship exists between predictive performance and explainability?",
+      "verdict": "explanation_more_sensitive_than_prediction",
+      "effect_size_comparison": {
+        "predictive_max_cohens_h": 0.0868,
+        "predictive_effects_all_negligible": true,
+        "explanation_shap_rank_biserial": 0.3259,
+        "explanation_lime_rank_biserial": 0.5947,
+        "explanation_confidence_rank_biserial": 0.1686,
+        "lime_to_prediction_effect_ratio": 6.85
+      },
+      "stability_vs_accuracy": {
+        "shap_spearman_stability": 0.900008,
+        "lime_spearman_stability": 0.564994,
+        "accuracy_delta": -0.038283999999999985
+      },
+      "direction_agreement": {
+        "smote_gained_samples": 1632,
+        "smote_lost_samples": 4784,
+        "interpretation": "SMOTE gained recall on minority classes but lost precision on majority classes; explanation shifts reflect this redistribution of learned signal."
+      },
+      "narrative": "The most important finding is an asymmetry between predictive and explanatory sensitivity to class rebalancing. All three aggregate predictive effect sizes are negligible (Cohen's h ≤ 0.087), while explanation effect sizes range from 0.326 (SHAP, medium) to 0.595 (LIME, large). LIME's effect size is approximately 6.8× larger than the largest predictive effect. This demonstrates that class rebalancing via SMOTE changes how the model attributes importance to input features substantially more than it changes what the model predicts. The model appears to have \"learned differently\" — accessing and weighting features in a different order — even when its aggregate classification performance changed by a practically negligible amount. This has direct implications for XAI-guided security analysis: an analyst who relies solely on accuracy metrics to decide whether a retrained model produces equivalent explanations may draw incorrect conclusions. SHAP and LIME both show non-trivial instability (Spearman r=0.900 and 0.565 respectively), with LIME substantially more sensitive. Confidence-score shifts showed a small effect (r=0.169), indicating that per-sample prediction confidence changed less than feature attribution rankings."
+    },
+    "rq4": {
+      "rq": "RQ4",
+      "question": "Does the evidence support the research hypothesis?",
+      "verdict": "supported",
+      "hypothesis_statement": "Class imbalance in NIDS training data affects XAI explanation quality measurably; rebalancing via SMOTE changes feature attribution rankings more than it changes aggregate classification accuracy, with perturbation-based explanation (LIME) more sensitive than additive attribution (SHAP).",
+      "support_level": "supported",
+      "support_rationale": "The directional prediction is confirmed: explanation effect sizes (medium–large) exceed predictive effect sizes (all negligible). LIME is more sensitive than SHAP (Δr=0.269). All four hypothesis tests were significant after Holm correction.",
+      "evidence_for": [
+        "Explanation effect sizes exceed predictive effect sizes. LIME rank-biserial r=0.595 (large) vs max predictive Cohen's h=0.087 (negligible).",
+        "LIME is more sensitive than SHAP (r=0.595 vs r=0.326), supporting the claim that perturbation-based explanation (LIME) is more affected by training distribution than gradient/tree-based (SHAP).",
+        "Both SHAP and LIME importance distributions shifted significantly (Wilcoxon p=0.0347 and p=0.0004 respectively, Holm-corrected)."
+      ],
+      "evidence_against": [
+        "SHAP showed high global stability (Spearman r=0.90), suggesting the model's primary explanation structure was largely preserved. A pure 'XAI quality degradation' hypothesis would expect lower stability.",
+        "The accuracy decrease under SMOTE (−3.8pp) could be interpreted as a signal that SMOTE does not unconditionally improve model quality in high-imbalance NIDS settings, complicating the framing of SMOTE as simply 'beneficial.'"
+      ],
+      "qualifications": [
+        "Findings are based on a 60-sample explanation subset; population-level Wilcoxon results (n=42 SHAP, n=36 LIME features) have limited power.",
+        "SHAP and LIME measure different mathematical quantities; comparison of their effect sizes should be treated as indicative, not conclusive."
+      ],
+      "narrative": "The evidence supports the research hypothesis. The fundamental claim — that class rebalancing changes XAI explanations more than it changes aggregate predictive metrics — is confirmed by the asymmetry between negligible predictive effect sizes (Cohen's h ≤ 0.087) and medium-to-large explanation effect sizes (SHAP r=0.326, LIME r=0.595). The secondary prediction that LIME is more sensitive than SHAP is also confirmed. Two qualifications apply: (1) SHAP's high Spearman stability (0.90) indicates the overall attribution ordering is preserved at the global level, even though individual importance magnitudes shifted significantly; (2) the explanation subset (60 samples, 42 SHAP features, 36 LIME features) limits the generalisability of the Wilcoxon results. Taken together, the results indicate the hypothesis is supported for global feature attribution rankings and for the relative sensitivity of SHAP vs LIME, with the caveat that the magnitude of SHAP instability is small at the global level."
+    }
+  },
+  "threats_to_validity": {
+    "internal_validity": [
+      {
+        "threat": "Single rebalancing technique",
+        "detail": "Only SMOTE was evaluated. Other techniques (ADASYN, cost-sensitive learning, undersampling, ensemble methods) may produce different predictive and explanatory outcomes.",
+        "mitigation": "Stated explicitly as a study scope constraint."
+      },
+      {
+        "threat": "Single model family",
+        "detail": "Random Forest was the only classifier evaluated. SHAP TreeExplainer is specific to tree-based models; LIME's sensitivity may differ for neural networks or SVMs.",
+        "mitigation": "Random Forest is a standard NIDS baseline; results are valid for this model class."
+      },
+      {
+        "threat": "Explanation subset size",
+        "detail": "SHAP and LIME explanations were computed on 60 samples (computational tractability). The Wilcoxon tests on feature importances used n=42 (SHAP) and n=36 (LIME) pairs.",
+        "mitigation": "Bootstrap CIs used the full 82,332-row test set; McNemar also used all rows."
+      }
+    ],
+    "external_validity": [
+      {
+        "threat": "Single dataset",
+        "detail": "UNSW-NB15 training set (175,341 rows) and test set (82,332 rows) from a controlled lab environment (University of New South Wales, 2015). Findings may not transfer to operational enterprise or cloud NIDS.",
+        "mitigation": "UNSW-NB15 is a widely cited NIDS benchmark dataset."
+      },
+      {
+        "threat": "SMOTE on synthetic network traffic",
+        "detail": "SMOTE generated 384,659 synthetic samples. Synthetic minority samples may not faithfully represent real attack traffic patterns in production networks.",
+        "mitigation": "The use of SMOTE is documented and reproducible."
+      },
+      {
+        "threat": "Static dataset",
+        "detail": "UNSW-NB15 is a point-in-time capture. Concept drift in live network traffic may invalidate explanation patterns.",
+        "mitigation": "Acknowledged as a dataset limitation."
+      }
+    ],
+    "construct_validity": [
+      {
+        "threat": "Operationalisation of XAI quality",
+        "detail": "Explanation quality is operationalised as feature rank stability (Spearman correlation, top-k overlap) and importance magnitude shift (Wilcoxon). Other definitions (human interpretability, fidelity to ground-truth causal features) are not evaluated.",
+        "mitigation": "Rank stability is a standard proxy for explanation consistency in the XAI literature; multiple metrics are reported."
+      },
+      {
+        "threat": "SHAP vs LIME comparability",
+        "detail": "SHAP values are additive feature attributions; LIME weights are local linear approximation coefficients on a different feature scale. Comparing their effect sizes is indicative only.",
+        "mitigation": "Comparison is rank-based, not magnitude-based."
+      }
+    ],
+    "statistical_conclusion_validity": [
+      {
+        "threat": "Inflated statistical significance due to large n",
+        "detail": "McNemar and Wilcoxon (confidence) tests used n=82,332. With such large samples, statistically significant results can correspond to negligible practical differences.",
+        "mitigation": "Effect sizes (Cohen's h, rank-biserial r) are reported alongside all p-values to separate statistical from practical significance."
+      },
+      {
+        "threat": "Multiple comparisons",
+        "detail": "Four hypothesis tests were conducted. Without correction, family-wise error rate exceeds α.",
+        "mitigation": "Holm–Bonferroni correction applied; all four tests remained significant after correction."
+      },
+      {
+        "threat": "Wilcoxon assumption — symmetric differences",
+        "detail": "Wilcoxon signed-rank requires symmetric difference distributions. Feature importances and confidence scores may be skewed.",
+        "mitigation": "Assumption documented; normality not assumed."
+      },
+      {
+        "threat": "Bootstrap independence assumption",
+        "detail": "Bootstrap resamples rows independently; any temporal or sequence structure in network flows is not preserved.",
+        "mitigation": "UNSW-NB15 does not have a documented temporal dependency within the predefined test split."
+      }
+    ],
+    "reproducibility": [
+      {
+        "threat": "Stochastic SMOTE",
+        "detail": "SMOTE uses a random seed; different seeds produce different synthetic samples.",
+        "mitigation": "Global seed fixed to 42; fully documented in configs/experiment.yaml."
+      },
+      {
+        "threat": "Bootstrap variability",
+        "detail": "Bootstrap CI endpoints depend on the random seed.",
+        "mitigation": "Seed=42 applied; 2,000 iterations provide stable estimates."
+      }
+    ]
+  },
+  "practical_implications": [
+    {
+      "domain": "Cybersecurity practitioners",
+      "implication": "Accuracy alone is insufficient to validate retraining. When a NIDS model is retrained with a different class distribution (e.g., after class balancing), explanation outputs may change substantially even if accuracy changes are negligible. Operators should re-validate XAI outputs after any retraining.",
+      "evidence": "Negligible predictive Cohen's h vs large LIME rank-biserial r=0.595."
+    },
+    {
+      "domain": "Intrusion detection deployment",
+      "implication": "SMOTE improves minority-class detection (e.g., Worms F1 doubled from 0.23 to 0.45) at a modest cost to majority-class precision. For NIDS deployed in environments where rare attacks are high-priority, this trade-off is likely acceptable. For environments where false-positive reduction is paramount (Normal class precision 96.7% → 97.8% with SMOTE), the choice depends on operational requirements.",
+      "evidence": "Per-class metrics from outputs/tables/class_metrics_comparison.csv."
+    },
+    {
+      "domain": "Model transparency and explainability",
+      "implication": "LIME-based explanations are substantially more sensitive to training data distribution than SHAP-based explanations. Practitioners who use LIME for post-hoc explanation of NIDS decisions should be aware that a change in training class distribution can produce a large (r=0.595) shift in LIME explanations without a corresponding change in model accuracy.",
+      "evidence": "LIME Wilcoxon rank-biserial r=0.595 (large) vs SHAP r=0.326 (medium)."
+    },
+    {
+      "domain": "Trustworthy AI",
+      "implication": "Explanation instability undermines trust in AI-assisted security tools. Even when a model performs comparably, its explanations may shift in ways that confuse or mislead analysts comparing pre- and post-balancing model behaviour. XAI pipelines should include explanation-consistency monitoring alongside accuracy monitoring.",
+      "evidence": "SHAP Spearman r=0.90 (moderately stable) and LIME Spearman r=0.57 (lower stability) between baseline and SMOTE models."
+    },
+    {
+      "domain": "Responsible AI and operational monitoring",
+      "implication": "Retraining-triggered explanation audits should be standard practice. An operational monitoring process that tracks both predictive metrics and explanation metrics (e.g., Spearman correlation of feature rankings before and after retraining) would detect explanation drift that accuracy-only monitoring misses.",
+      "evidence": "Disagreement between accuracy stability (negligible effect) and LIME explanation instability (large effect)."
+    }
+  ],
+  "future_work": [
+    {
+      "direction": "Alternative rebalancing techniques",
+      "rationale": "This study evaluated only SMOTE. ADASYN, random undersampling, class-weighted loss, and ensemble-based methods may produce qualitatively different explanation shifts. A systematic comparison would generalise this study's findings."
+    },
+    {
+      "direction": "Explanation sensitivity across model families",
+      "rationale": "SHAP TreeExplainer was used here because the model is a Random Forest. Gradient-based SHAP (for neural networks) and Integrated Gradients may exhibit different sensitivity profiles to class rebalancing."
+    },
+    {
+      "direction": "Human-centred evaluation of explanation instability",
+      "rationale": "This study used rank-based metrics to quantify explanation change. Whether the observed rank shifts are perceived as meaningful or confusing by security analysts is an open empirical question requiring a user study."
+    },
+    {
+      "direction": "Multi-dataset validation",
+      "rationale": "UNSW-NB15 is a single controlled-environment dataset. Validation on CICIDS-2017, NSL-KDD, or operational enterprise logs would improve generalisability of findings."
+    },
+    {
+      "direction": "Temporal and concept-drift evaluation",
+      "rationale": "This study used a static predefined train/test split. Future work should evaluate explanation stability under concept drift, where attack traffic patterns evolve over time."
+    },
+    {
+      "direction": "Explanation-consistency metrics for model certification",
+      "rationale": "This study showed that explanation-consistency monitoring provides information that accuracy monitoring misses. Formal metrics for XAI-based model certification in security applications are a practical research need."
+    }
+  ],
+  "executive_summary": "## Executive Summary\n\n**Research Objective:** Evaluate the impact of SMOTE-based class rebalancing on both predictive performance and XAI explanation quality in a Random Forest–based Network Intrusion Detection System trained on the UNSW-NB15 dataset.\n\n**Methodology:** Two Random Forest classifiers were trained — one on the original imbalanced dataset (175,341 rows) and one on a SMOTE-rebalanced dataset (560,000 rows, 42 features). Both models were evaluated on the same 82,332-row test set. SHAP (TreeExplainer) and LIME (LimeTabularExplainer) provided local and global explanations for both models. Statistical validation applied McNemar's test, Wilcoxon signed-rank tests, bootstrap CIs, and effect-size measures with Holm–Bonferroni correction.\n\n**Principal Findings:**\n\n1. SMOTE reduced overall accuracy by 0.0383 (0.7543 → 0.7161; 95% CI [0.7516, 0.7574] vs [0.7129, 0.7191]) and improved macro F1 by 0.0170. All aggregate predictive effect sizes are negligible (Cohen's h < 0.09). At the class level, SMOTE substantially improved minority-class recall at the cost of majority-class accuracy.\n\n2. SHAP feature attribution rankings showed moderate stability across conditions (Spearman r=0.90, top-5 overlap=0.80), yet a statistically significant distributional shift (Wilcoxon, rank-biserial r=0.326, medium effect).\n\n3. LIME showed considerably lower stability (Spearman r=0.57, top-5 overlap=0.60) and a large practical shift (rank-biserial r=0.595), indicating that perturbation-based local explanations are substantially more sensitive to training class distribution than tree-based attribution.\n\n4. Explanation effect sizes exceed predictive effect sizes across all comparisons, supporting the research hypothesis: class rebalancing changes what the model explains more than it changes what the model predicts.\n\n**Scientific Contribution:** This study provides the first systematic empirical evidence that class rebalancing via SMOTE has a disproportionate impact on XAI explanation outputs relative to its impact on aggregate classification metrics in a standardised NIDS benchmark setting. LIME is shown to be more explanation-unstable under rebalancing than SHAP.\n\n**Practical Implications:** Accuracy-only validation is insufficient after NIDS retraining. Explanation-consistency monitoring should accompany accuracy monitoring in any XAI-augmented NIDS deployment pipeline.\n\n**Limitations:** Single dataset (UNSW-NB15), single model type (Random Forest), single rebalancing technique (SMOTE), 60-sample explanation subset. Findings should be validated across additional datasets and model families."
+}

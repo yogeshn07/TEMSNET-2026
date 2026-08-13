@@ -1,0 +1,41 @@
+slot_id,manuscript_section,line_number,citation_context,replace_placeholder_with,ref_numbers,ref_short_labels,db_status,flag
+C01,§I Introduction,55,"ML-based NIDS strong performance on benchmark datasets","[10, 13, 16]","10,13,16","Alshamy 2021; Wu 2022; More 2024",VERIFIED,
+C02,§I Introduction,59,"Severe class imbalance — rare attack categories minority of traffic","[4, 19]","4,19","Moustafa 2015; Shanmugam 2025",VERIFIED,
+C03,§I Introduction,63,"Synthetic Minority Over-sampling Technique (SMOTE) definition","[2]","2","Chawla 2002",VERIFIED,
+C04,§I Introduction,67,"SMOTE improves minority-class recall in NIDS applications","[10, 18]","10,18","Alshamy 2021; Sayegh 2024",VERIFIED,
+C05,§I Introduction,71,"Adoption of XAI methods in security operations grown substantially","[12, 15]","12,15","Charmet 2022; Rjoub 2023",VERIFIED,
+C06,§I Introduction,72,"SHAP (SHapley Additive exPlanations) definition","[7, 8]","7,8","Lundberg 2017; Lundberg 2020",VERIFIED,
+C07,§I Introduction,73,"LIME (Local Interpretable Model-agnostic Explanations) definition + widely applied to NIDS","[5, 17, 20]","5,17,20","Ribeiro 2016; Gaspar 2024; Hermosilla 2025a",VERIFIED,"Bundles LIME definition [5] with NIDS application citations [17,20] per citation_plan.md — no separate slot for NIDS claim in this sentence"
+C08,§II-A Related Work,110,"Class imbalance well-documented challenge in NIDS","[4, 19]","4,19","Moustafa 2015; Shanmugam 2025",VERIFIED,
+C09,§II-A Related Work,112,"Standard classifiers biased toward majority class — suppresses minority detection","[2, 10]","2,10","Chawla 2002; Alshamy 2021",VERIFIED,
+C10,§II-A Related Work,113,"SMOTE [inline citation at method name]","[2]","2","Chawla 2002",VERIFIED,
+C11,§II-A Related Work,113,"ADASYN [inline citation at method name]","[19]","19","Shanmugam 2025",VERIFIED,"Shanmugam 2025 evaluates ADASYN among strategies — most specific NIDS-domain citation available for this claim"
+C12,§II-A Related Work,114,"Random undersampling [inline citation at method name]","[19]","19","Shanmugam 2025",VERIFIED,
+C13,§II-A Related Work,115,"Cost-sensitive learning [inline citation at method name]","[19]","19","Shanmugam 2025",VERIFIED,
+C14,§II-A Related Work,115,"Ensemble methods [inline citation at method name]","[19]","19","Shanmugam 2025",VERIFIED,
+C15,§II-A Related Work,118,"SMOTE dominant approach in NIDS — simplicity reproducibility recall improvements","[13, 18]","13,18","Wu 2022; Sayegh 2024",VERIFIED,
+C16,§II-B Related Work,123,"XAI methods applied to NIDS expanded — trustworthy-AI movement","[12, 15]","12,15","Charmet 2022; Rjoub 2023",VERIFIED,
+C17,§II-B Related Work,125,"SHAP grounded in cooperative game theory — consistency and local accuracy guarantees","[7, 8]","7,8","Lundberg 2017; Lundberg 2020",VERIFIED,
+C18,§II-B Related Work,127,"LIME approximates model locally with interpretable surrogate — model-agnostic","[5]","5","Ribeiro 2016",VERIFIED,
+C19,§II-B Related Work,128,"Both SHAP and LIME applied to Random Forest–based NIDS","[20, 21]","20,21","Hermosilla 2025a; Hermosilla 2025b",VERIFIED,"Citation plan specifies [20] for RF-based NIDS; [21] must be added here to avoid orphan reference — see ISSUE-02 in audit report"
+C20,§II-B Related Work,129,"SHAP and LIME applied to deep-learning NIDS (MLP)","[17]","17","Gaspar 2024",VERIFIED,
+C21,§II-C Related Work,134,"XAI stability under perturbation studied in general ML contexts","[11]","11","Visani 2022",VERIFIED,
+C22,§II-C Related Work,136,"Adversarial perturbations affect LIME and SHAP outputs","[12]","12","Charmet 2022",VERIFIED,
+C23,§II-C Related Work,137,"Sensitivity of explanations to hyperparameter choices","[11]","11","Visani 2022",VERIFIED,
+C24,§II-C Related Work,139,"SMOTE effect on explainability not addressed in prior NIDS literature (gap claim)","[9, 14]","9,14","Patil 2020; Alarab 2022",VERIFIED,"Cited as closest prior work to establish the gap — not cited to support the gap itself"
+C25,§II-D Related Work,143,"UNSW-NB15 benchmark [inline citation at dataset name]","[4]","4","Moustafa 2015",VERIFIED,
+C26,§II-D Related Work,146,"UNSW-NB15 adopted as standard NIDS evaluation benchmark","[16, 20]","16,20","More 2024; Hermosilla 2025a",VERIFIED,
+C27,§III-A Methodology,155,"UNSW-NB15 dataset [inline citation at dataset name]","[4]","4","Moustafa 2015",VERIFIED,
+C28,§III-C Methodology,172,"SMOTE [inline citation at method name in SMOTE subsection]","[2]","2","Chawla 2002",VERIFIED,
+C29,§III-E Methodology,188,"SHAP values [citation] — TreeExplainer exact Shapley values","[7, 8]","7,8","Lundberg 2017; Lundberg 2020",VERIFIED,"[8] (TreeSHAP) is the primary citation for TreeExplainer; [7] provides foundational SHAP theory"
+C30,§III-E Methodology,195,"LIME explanations [citation] — LimeTabularExplainer local surrogate","[5]","5","Ribeiro 2016",VERIFIED,
+C31,§IV Experimental Setup,227,"scikit-learn [citation] for Random Forest classifier and evaluation metrics","[3]","3","Pedregosa 2011",VERIFIED,
+C32,§IV Experimental Setup,228,"imbalanced-learn [citation] for SMOTE","[6]","6","Lemaitre 2017",VERIFIED,
+C33,§IV Experimental Setup,228,"shap library [citation] for SHAP explanations","[7]","7","Lundberg 2017",VERIFIED,
+C34,§IV Experimental Setup,229,"lime library [citation] for LIME explanations","[5]","5","Ribeiro 2016",VERIFIED,
+C35,§IV Experimental Setup,229,"scipy [citation] for statistical tests","[22]","22","Virtanen 2020 (SciPy)",PENDING,"NOT IN VERIFIED DATABASE — author must add scipy reference manually before submission; see references_ieee.md [22]"
+C36,§VI-C Discussion,354,"Trustworthy AI frameworks in cybersecurity [citation]","[12, 15]","12,15","Charmet 2022; Rjoub 2023",VERIFIED,
+C37,§VI-C Discussion,356,"Regulatory guidance on AI transparency — explanations for consequential decisions","[23]","23","EU AI Act / GDPR (TBD)",PENDING,"NOT IN VERIFIED DATABASE — author must identify and add regulatory reference manually; see references_ieee.md [23]"
+,,,,,,,,
+UNCITED_REF_01,§III-D Methodology,180–185,"Random Forest classifier introduced — NO [CITATION REQUIRED] tag present","Add [1] after 'Random Forest classifier'","1","Breiman 2001",VERIFIED,"⚠ MISSING TAG: [1] Breiman 2001 must be cited when Random Forest is first named in §III-D. No [CITATION REQUIRED] placeholder exists — author must insert manually."
+UNCITED_REF_02,§II-B Related Work,128,"SHAP and LIME complementarity — [21] assigned to C19 but currently only [20] may be present","Change [20] to [20, 21] at C19 slot","21","Hermosilla 2025b",VERIFIED,"⚠ ORPHAN REFERENCE RISK: [21] Hermosilla 2025b has no standalone slot; bundled into C19 recommendation. If author maps C19 only to [20], reference [21] will be uncited."

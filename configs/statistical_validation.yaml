@@ -1,0 +1,58 @@
+# ============================================================
+# Statistical Validation Configuration
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# Task F.1 — Statistical Validation & Significance Analysis
+# ============================================================
+
+# Significance threshold applied to all hypothesis tests
+significance_level: 0.05
+
+# Multiple comparison correction strategy
+# Options: "holm_bonferroni" | "benjamini_hochberg" | "none"
+multiple_comparison_correction: "holm_bonferroni"
+
+# ── Bootstrap confidence intervals ──────────────────────────
+bootstrap:
+  # Number of resampling iterations (higher = tighter CI estimates)
+  n_iterations: 2000
+  # Nominal confidence level
+  confidence_level: 0.95
+  # Percentile method: "percentile" | "bca" (bias-corrected & accelerated)
+  method: "percentile"
+
+# ── McNemar's test ───────────────────────────────────────────
+mcnemar:
+  # Apply Yates' continuity correction (recommended for n < 25 in b+c)
+  continuity_correction: true
+  # Use exact binomial when b+c below this threshold
+  exact_threshold: 25
+
+# ── Wilcoxon signed-rank test ────────────────────────────────
+wilcoxon:
+  alternative: "two-sided"
+  # "auto" selects normal approximation for large n, exact for small n
+  method: "approx"
+  # Minimum paired observations required to attempt the test
+  min_pairs: 6
+
+# ── Effect size thresholds (Cohen / common convention) ───────
+effect_size:
+  # Thresholds for Cohen's h (proportion differences)
+  cohens_h:
+    small: 0.2
+    medium: 0.5
+    large: 0.8
+  # Thresholds for rank-biserial r (Wilcoxon effect size)
+  rank_biserial:
+    small: 0.1
+    medium: 0.3
+    large: 0.5
+
+# ── Figure settings ──────────────────────────────────────────
+figures:
+  dpi: 300
+  format: "png"
+  style: "seaborn-v0_8-paper"
+  figsize_bootstrap: [14, 10]
+  figsize_ci: [10, 6]
+  figsize_effect: [10, 6]

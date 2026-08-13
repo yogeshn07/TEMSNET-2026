@@ -23,5 +23,12 @@ hash_algorithm: "sha256"
 expected_files:
   - filename: "UNSW_NB15_training-set.csv"
     description: "Training partition (predefined split)"
+    split: "training"
   - filename: "UNSW_NB15_testing-set.csv"
     description: "Testing partition (predefined split)"
+    split: "testing"
+
+# ── Profiling settings (Research Task B.2) ──────────────────
+target_column: "attack_cat"
+binary_label_column: "label"
+near_constant_threshold: 0.99

@@ -1,0 +1,9 @@
+finding_id,category,finding,evidence_source,direction,practical_significance
+F1,Predictive performance,SMOTE accuracy Δ = -0.0383 (negligible Cohen's h),"outputs/tables/class_metrics_comparison.csv, outputs/reports/statistical_validation_report.json",baseline_higher,negligible
+F2,Predictive performance,SMOTE macro F1 Δ = +0.0170 (negligible Cohen's h),outputs/reports/random_forest_report.json,smote_higher,negligible
+F3,Predictive performance,"SMOTE improved minority recall (Worms +0.43, Analysis +0.16, Backdoor +0.39) at cost of Normal F1 (-0.04)",outputs/tables/class_metrics_comparison.csv,mixed,moderate_class_level
+F4,Explainability — SHAP,SHAP global rankings: Spearman r=0.90 (stable); Wilcoxon shift medium (r=0.326),"outputs/comparison/explanation_similarity.csv, F.1 statistics",moderate_shift,medium
+F5,Explainability — LIME,LIME global rankings: Spearman r=0.57 (lower stability); Wilcoxon shift large (r=0.595),"outputs/comparison/explanation_similarity.csv, F.1 statistics",large_shift,large
+F6,Explainability — inter-method,SHAP–LIME agreement low in both conditions (r≈0.41–0.48); methods not interchangeable,outputs/comparison/explanation_similarity.csv,low_agreement,moderate
+F7,Performance vs explainability,Explanation effects (medium–large) exceed predictive effects (all negligible); LIME:prediction ratio ≈ 6.8×,outputs/reports/statistical_validation_report.json,explanation_more_sensitive,high
+F8,Hypothesis evaluation,Research hypothesis supported: class rebalancing changes explanations more than predictions,All F.1 outputs,supported,high

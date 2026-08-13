@@ -1,0 +1,7 @@
+split,column,unique_count,empty_string_count,whitespace_issue_count
+training,proto,133,0,0
+training,service,13,0,0
+training,state,9,0,0
+testing,proto,131,0,0
+testing,service,13,0,0
+testing,state,7,0,0

@@ -1,0 +1,149 @@
+{
+  "pipeline_diagram": "+-----------------------------------------------------------------+\n|              UNSW-NB15 Preprocessing Pipeline (C.1)             |\n+-----------------------------------------------------------------+\n|   [TRAINING SET]                          [TESTING SET]         |\n|        |                                       |                |\n|        v                                       v                |\n|   1. Dataset Validation  ----------------  1. Dataset Validation|\n|        |                                       |                |\n|        v                                       v                |\n|   2. Data Loading        ----------------  2. Data Loading      |\n|        |                                       |                |\n|        v                                       v                |\n|   3. Schema Verification ----------------  3. Schema Verification|\n|        |                                       |                |\n|        v                                       v                |\n|   X_train, y_train                        X_test, y_test        |\n|        |                                       |                |\n|        v                                       v                |\n|   4. Missing Value Handling          [PLANNED — C.2]            |\n|   5. Duplicate Handling              [PLANNED — C.2]            |\n|   6. Feature Encoding   (fit TRAIN only, transform both) [C.3]  |\n|   7. Feature Scaling    (fit TRAIN only, transform both) [C.3]  |\n|   8. Feature Selection  (fit TRAIN only, transform both) [C.4]  |\n|   9. Class Balancing    (TRAIN only, TEST untouched)     [C.5]  |\n|        |                                       |                |\n|        v                                       v                |\n|  10. Export Processed Dataset  ----------  10. Export Processed |\n|      data/processed/train.*                data/processed/test.*|\n+-----------------------------------------------------------------+\n  NOTE: Training and testing data are never merged at any stage.\n  NOTE: Any \"fit\" operation (stages 6-9) learns parameters from\n        the TRAINING split only and is applied to TEST via\n        transform() — never re-fit on test data.",
+  "stages": [
+    {
+      "order": 1,
+      "name": "Dataset Validation",
+      "status": "implemented",
+      "description": "Verify raw dataset files exist and pass integrity checks before loading.",
+      "leakage_note": "Runs independently for train and test file paths.",
+      "research_task": "C.1 (this task, reuses B.1)"
+    },
+    {
+      "order": 2,
+      "name": "Data Loading",
+      "status": "implemented",
+      "description": "Load training and testing CSVs as two independent DataFrames.",
+      "leakage_note": "Train and test are never concatenated at load time.",
+      "research_task": "C.1 (this task, reuses B.2/B.3 loader)"
+    },
+    {
+      "order": 3,
+      "name": "Schema Verification",
+      "status": "implemented",
+      "description": "Verify column presence, column order, dtypes, and target column against a frozen schema contract.",
+      "leakage_note": "Each split validated against the same static reference schema, never against the other split.",
+      "research_task": "C.1 (this task)"
+    },
+    {
+      "order": 4,
+      "name": "Missing Value Handling",
+      "status": "planned",
+      "description": "Impute or flag missing values (UNSW-NB15 currently has none; safeguard for future data).",
+      "leakage_note": "Any imputer must be fit on X_train only and applied to X_test via transform().",
+      "research_task": "C.2"
+    },
+    {
+      "order": 5,
+      "name": "Duplicate Handling",
+      "status": "planned",
+      "description": "Detect and decide how to handle duplicate rows within each split.",
+      "leakage_note": "Deduplication is evaluated independently per split; rows are never compared across splits.",
+      "research_task": "C.2"
+    },
+    {
+      "order": 6,
+      "name": "Feature Encoding",
+      "status": "planned",
+      "description": "Encode categorical features (proto, service, state) into numeric representations.",
+      "leakage_note": "Encoder (e.g. OneHotEncoder, OrdinalEncoder) fit on X_train categories only; test set categories not seen during fit are handled explicitly, never used to refit.",
+      "research_task": "C.3"
+    },
+    {
+      "order": 7,
+      "name": "Feature Scaling",
+      "status": "planned",
+      "description": "Scale/normalise numerical features.",
+      "leakage_note": "Scaler statistics (mean, std, min, max) computed on X_train only, applied to X_test via transform().",
+      "research_task": "C.3"
+    },
+    {
+      "order": 8,
+      "name": "Feature Selection",
+      "status": "planned",
+      "description": "Select a feature subset based on training-set statistics (e.g. variance, correlation, importance).",
+      "leakage_note": "Selection criteria computed on X_train/y_train only; the same selected columns are then applied to X_test.",
+      "research_task": "C.4"
+    },
+    {
+      "order": 9,
+      "name": "Class Balancing",
+      "status": "planned",
+      "description": "Address class imbalance (e.g. oversampling, undersampling, class weighting) for model training.",
+      "leakage_note": "Applied to the training split only; the test split must retain the real-world class distribution for valid evaluation.",
+      "research_task": "C.5"
+    },
+    {
+      "order": 10,
+      "name": "Export Processed Dataset",
+      "status": "planned",
+      "description": "Persist the fully processed train/test feature and target arrays to data/processed/.",
+      "leakage_note": "Train and test exported as separate files; no merged artefact is ever produced.",
+      "research_task": "C.6"
+    }
+  ],
+  "stage_registry_integrity": true,
+  "leakage_safeguards": [
+    "Training and testing CSVs are loaded as two independent DataFrames and never concatenated.",
+    "Each split is validated against the same static schema contract, never against the other split's data.",
+    "X/y separation removes the target column only; no feature value is read, imputed, encoded, or scaled.",
+    "Stage order is fixed by an immutable registry (PIPELINE_STAGES), making out-of-order execution a visible code change.",
+    "Future fit-based stages (6-9) must fit on X_train only and transform both splits; class balancing (9) applies to training only."
+  ],
+  "target_column": "attack_cat",
+  "training": {
+    "row_count": 175341,
+    "feature_count": 44,
+    "validation": {
+      "overall_status": "PASS",
+      "columns": {
+        "status": "PASS",
+        "missing_columns": [],
+        "extra_columns": []
+      },
+      "column_order": {
+        "status": "PASS",
+        "first_mismatch_index": null
+      },
+      "dtypes": {
+        "status": "PASS",
+        "mismatches": []
+      },
+      "target_column": {
+        "status": "PASS",
+        "present": true,
+        "null_count": 0,
+        "num_classes": 10
+      }
+    }
+  },
+  "testing": {
+    "row_count": 82332,
+    "feature_count": 44,
+    "validation": {
+      "overall_status": "PASS",
+      "columns": {
+        "status": "PASS",
+        "missing_columns": [],
+        "extra_columns": []
+      },
+      "column_order": {
+        "status": "PASS",
+        "first_mismatch_index": null
+      },
+      "dtypes": {
+        "status": "PASS",
+        "mismatches": []
+      },
+      "target_column": {
+        "status": "PASS",
+        "present": true,
+        "null_count": 0,
+        "num_classes": 10
+      }
+    }
+  },
+  "generated_utc": "2026-06-30T04:52:00.483150+00:00",
+  "project_version": "0.1.0",
+  "platform": "Windows-11-10.0.26200-SP0"
+}

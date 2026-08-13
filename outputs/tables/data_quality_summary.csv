@@ -1,0 +1,3 @@
+split,row_count,schema_status,missing_values,duplicate_rows,infinite_values,invalid_numeric_values,empty_strings,whitespace_issues,label_consistency_status
+training,175341,PASS,0,0,0,0,0,0,PASS
+testing,82332,PASS,0,0,0,0,0,0,PASS

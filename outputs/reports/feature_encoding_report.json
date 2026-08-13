@@ -1,0 +1,99 @@
+{
+  "categorical_columns": [
+    "proto",
+    "service",
+    "state"
+  ],
+  "unseen_categories": [
+    {
+      "column": "proto",
+      "unseen_categories": [],
+      "affected_row_count": 0,
+      "affected_pct": 0.0
+    },
+    {
+      "column": "service",
+      "unseen_categories": [],
+      "affected_row_count": 0,
+      "affected_pct": 0.0
+    },
+    {
+      "column": "state",
+      "unseen_categories": [
+        "ACC",
+        "CLO"
+      ],
+      "affected_row_count": 5,
+      "affected_pct": 0.0061
+    }
+  ],
+  "training": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\interim\\training_encoded.parquet",
+    "row_count": 175341,
+    "column_count": 45,
+    "encoded_feature_summary": [
+      {
+        "column": "proto",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 133,
+        "encoded_min": 0.0,
+        "encoded_max": 132.0
+      },
+      {
+        "column": "service",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 13,
+        "encoded_min": 0.0,
+        "encoded_max": 12.0
+      },
+      {
+        "column": "state",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 9,
+        "encoded_min": 0.0,
+        "encoded_max": 8.0
+      }
+    ]
+  },
+  "testing": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\interim\\testing_encoded.parquet",
+    "row_count": 82332,
+    "column_count": 45,
+    "encoded_feature_summary": [
+      {
+        "column": "proto",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 131,
+        "encoded_min": 0.0,
+        "encoded_max": 132.0
+      },
+      {
+        "column": "service",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 13,
+        "encoded_min": 0.0,
+        "encoded_max": 12.0
+      },
+      {
+        "column": "state",
+        "original_dtype": "object",
+        "encoded_dtype": "float64",
+        "original_unique_count": 7,
+        "encoded_min": -1.0,
+        "encoded_max": 6.0
+      }
+    ]
+  },
+  "output_format": "parquet",
+  "summary": {
+    "unseen_category_count": 2,
+    "generated_utc": "2026-06-30T05:36:39.183768+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

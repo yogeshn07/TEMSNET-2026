@@ -1,0 +1,37 @@
+artifact_id,type,filename,path,caption,section,priority
+Fig. 1,figure,class_distribution.png,outputs\figures\class_distribution.png,Class distribution in the UNSW-NB15 training set (pre-balancing),Methodology,primary
+Fig. 2,figure,imbalance_ratio.png,outputs\figures\imbalance_ratio.png,Class imbalance ratio before and after SMOTE balancing,Methodology,primary
+Fig. 3,figure,numerical_distributions.png,outputs\figures\numerical_distributions.png,Distribution of numerical features in the training set,Methodology,supplementary
+Fig. 4,figure,correlation_heatmap.png,outputs\figures\correlation_heatmap.png,Pearson correlation heatmap of retained numerical features,Methodology,supplementary
+Fig. 5,figure,outlier_summary.png,outputs\figures\outlier_summary.png,"Outlier count per feature (IQR method, training set)",Methodology,supplementary
+Fig. 6,figure,confusion_matrix_baseline.png,outputs\figures\confusion_matrix_baseline.png,"Confusion matrix — Random Forest (Baseline, imbalanced training data)",Results,primary
+Fig. 7,figure,confusion_matrix_smote.png,outputs\figures\confusion_matrix_smote.png,"Confusion matrix — Random Forest (SMOTE, balanced training data)",Results,primary
+Fig. 8,figure,minority_class_comparison.png,outputs\figures\minority_class_comparison.png,Per-class F1 comparison: Baseline vs SMOTE for minority attack categories,Results,primary
+Fig. 9,figure,shap_summary_baseline.png,outputs\figures\shap_summary_baseline.png,"SHAP summary plot — Baseline model (top 20 features, mean |SHAP|)",Results,supplementary
+Fig. 10,figure,shap_summary_smote.png,outputs\figures\shap_summary_smote.png,"SHAP summary plot — SMOTE model (top 20 features, mean |SHAP|)",Results,supplementary
+Fig. 11,figure,shap_bar_baseline.png,outputs\figures\shap_bar_baseline.png,SHAP global feature importance bar chart — Baseline model,Results,primary
+Fig. 12,figure,shap_bar_smote.png,outputs\figures\shap_bar_smote.png,SHAP global feature importance bar chart — SMOTE model,Results,primary
+Fig. 13,figure,lime_importance_baseline.png,outputs\figures\lime_importance_baseline.png,"LIME global feature importance — Baseline model (aggregated, 60 samples)",Results,primary
+Fig. 14,figure,lime_importance_smote.png,outputs\figures\lime_importance_smote.png,"LIME global feature importance — SMOTE model (aggregated, 60 samples)",Results,primary
+Fig. 15,figure,lime_local_correct_prediction.png,outputs\figures\lime_local_correct_prediction.png,LIME local explanation for a correctly classified instance (Baseline),Results,supplementary
+Fig. 16,figure,lime_local_incorrect_prediction.png,outputs\figures\lime_local_incorrect_prediction.png,LIME local explanation for a misclassified instance (Baseline),Results,supplementary
+Fig. 17,figure,lime_local_minority_class.png,outputs\figures\lime_local_minority_class.png,LIME local explanation for a minority-class (attack) instance (SMOTE),Results,supplementary
+Fig. 18,figure,lime_local_majority_class.png,outputs\figures\lime_local_majority_class.png,LIME local explanation for a majority-class (Normal) instance (SMOTE),Results,supplementary
+Fig. 19,figure,explanation_ranking_comparison.png,outputs\figures\explanation_ranking_comparison.png,Feature rank comparison: SHAP and LIME under Baseline and SMOTE conditions,Results,supplementary
+Fig. 20,figure,explanation_similarity_metrics.png,outputs\figures\explanation_similarity_metrics.png,"Explanation similarity metrics (Spearman ρ, top-5 overlap) across all condition pairs",Results,primary
+Fig. 21,figure,explanation_agreement_heatmap.png,outputs\figures\explanation_agreement_heatmap.png,Inter-method agreement heatmap (SHAP vs LIME) for Baseline and SMOTE models,Results,supplementary
+Fig. 22,figure,bootstrap_distributions.png,outputs\figures\bootstrap_distributions.png,"Bootstrap sampling distributions (n=2,000 iterations) for accuracy, macro F1, and weighted F1",Results,supplementary
+Fig. 23,figure,confidence_interval_comparison.png,outputs\figures\confidence_interval_comparison.png,95% bootstrap confidence intervals for aggregate metrics: Baseline vs SMOTE,Results,primary
+Fig. 24,figure,effect_sizes.png,outputs\figures\effect_sizes.png,Effect size summary: Cohen's h (predictive) and rank-biserial r (explanation/confidence),Results,primary
+Fig. A1,figure,fig_A1_class_distribution.png,outputs\figures\fig_A1_class_distribution.png,Appendix: Detailed class distribution (all 10 categories with sample counts),Appendix,supplementary
+Fig. A4,figure,fig_A4_numeric_distributions.png,outputs\figures\fig_A4_numeric_distributions.png,Appendix: Full-feature numerical distributions,Appendix,supplementary
+Fig. A6,figure,fig_A6_imbalance_ratio.png,outputs\figures\fig_A6_imbalance_ratio.png,Appendix: Per-class imbalance ratio,Appendix,supplementary
+Fig. A7,figure,categorical_distributions.png,outputs\figures\categorical_distributions.png,Appendix: Categorical feature distributions,Appendix,supplementary
+Fig. A8,figure,feature_relationships.png,outputs\figures\feature_relationships.png,Appendix: Feature pair relationships,Appendix,supplementary
+Fig. A9,figure,class_percentage.png,outputs\figures\class_percentage.png,Appendix: Class percentage composition in training and test sets,Appendix,supplementary
+Table I,table,class_metrics_comparison.csv,outputs\tables\class_metrics_comparison.csv,"Per-class precision, recall, and F1: Baseline vs SMOTE",Results,primary
+Table II,table,confidence_intervals.csv,outputs\tables\confidence_intervals.csv,95% bootstrap confidence intervals for aggregate classification metrics,Results,primary
+Table III,table,effect_sizes.csv,outputs\tables\effect_sizes.csv,Effect size summary: Cohen's h (predictive) and rank-biserial r (XAI),Results,primary
+Table IV,table,hypothesis_tests.csv,outputs\tables\hypothesis_tests.csv,Statistical hypothesis test results with Holm–Bonferroni correction,Results,primary
+Table V,table,key_findings_summary.csv,outputs\tables\key_findings_summary.csv,Key findings summary (F1–F8),Discussion,primary
+Table VI,table,research_question_summary.csv,outputs\tables\research_question_summary.csv,Research question verdicts and evidence summary,Discussion,primary

@@ -1,0 +1,11 @@
+true_class,total_samples,agreement_count,agreement_rate
+Analysis,677,278,0.410635
+Backdoor,583,160,0.274443
+DoS,4089,2523,0.617021
+Exploits,11132,8811,0.791502
+Fuzzers,6062,4412,0.727813
+Generic,18871,18691,0.990462
+Normal,37000,33350,0.901351
+Reconnaissance,3496,3148,0.900458
+Shellcode,378,292,0.772487
+Worms,44,25,0.568182

@@ -1,0 +1,284 @@
+{
+  "baseline_count": 82332,
+  "smote_count": 82332,
+  "output_format": "parquet",
+  "class_distribution": [
+    {
+      "class_name": "Normal",
+      "count": 37000
+    },
+    {
+      "class_name": "Generic",
+      "count": 18871
+    },
+    {
+      "class_name": "Exploits",
+      "count": 11132
+    },
+    {
+      "class_name": "Fuzzers",
+      "count": 6062
+    },
+    {
+      "class_name": "DoS",
+      "count": 4089
+    },
+    {
+      "class_name": "Reconnaissance",
+      "count": 3496
+    },
+    {
+      "class_name": "Analysis",
+      "count": 677
+    },
+    {
+      "class_name": "Backdoor",
+      "count": 583
+    },
+    {
+      "class_name": "Shellcode",
+      "count": 378
+    },
+    {
+      "class_name": "Worms",
+      "count": 44
+    }
+  ],
+  "baseline_confidence": {
+    "model": "baseline",
+    "overall": {
+      "mean": 0.814778,
+      "median": 0.96,
+      "std": 0.226161,
+      "min": 0.19,
+      "max": 1.0
+    },
+    "per_class": [
+      {
+        "class_name": "Analysis",
+        "count": 1278,
+        "mean_confidence": 0.504155,
+        "min_confidence": 0.195655,
+        "max_confidence": 0.82
+      },
+      {
+        "class_name": "Backdoor",
+        "count": 3126,
+        "mean_confidence": 0.644155,
+        "min_confidence": 0.237023,
+        "max_confidence": 0.99
+      },
+      {
+        "class_name": "DoS",
+        "count": 788,
+        "mean_confidence": 0.514093,
+        "min_confidence": 0.21,
+        "max_confidence": 0.975
+      },
+      {
+        "class_name": "Exploits",
+        "count": 13834,
+        "mean_confidence": 0.658349,
+        "min_confidence": 0.2,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Fuzzers",
+        "count": 12267,
+        "mean_confidence": 0.641496,
+        "min_confidence": 0.21,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Generic",
+        "count": 18348,
+        "mean_confidence": 0.977057,
+        "min_confidence": 0.28,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Normal",
+        "count": 28885,
+        "mean_confidence": 0.89765,
+        "min_confidence": 0.23,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Reconnaissance",
+        "count": 3015,
+        "mean_confidence": 0.918008,
+        "min_confidence": 0.19,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Shellcode",
+        "count": 775,
+        "mean_confidence": 0.530611,
+        "min_confidence": 0.21,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Worms",
+        "count": 16,
+        "mean_confidence": 0.482201,
+        "min_confidence": 0.21,
+        "max_confidence": 0.745
+      }
+    ]
+  },
+  "smote_confidence": {
+    "model": "smote",
+    "overall": {
+      "mean": 0.83185,
+      "median": 0.96,
+      "std": 0.215928,
+      "min": 0.18,
+      "max": 1.0
+    },
+    "per_class": [
+      {
+        "class_name": "Analysis",
+        "count": 3221,
+        "mean_confidence": 0.564014,
+        "min_confidence": 0.228463,
+        "max_confidence": 0.98
+      },
+      {
+        "class_name": "Backdoor",
+        "count": 5625,
+        "mean_confidence": 0.661918,
+        "min_confidence": 0.2,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "DoS",
+        "count": 1149,
+        "mean_confidence": 0.502963,
+        "min_confidence": 0.18,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Exploits",
+        "count": 9017,
+        "mean_confidence": 0.764838,
+        "min_confidence": 0.206739,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Fuzzers",
+        "count": 13815,
+        "mean_confidence": 0.681338,
+        "min_confidence": 0.210267,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Generic",
+        "count": 18305,
+        "mean_confidence": 0.97738,
+        "min_confidence": 0.2675,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Normal",
+        "count": 26117,
+        "mean_confidence": 0.92171,
+        "min_confidence": 0.19,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Reconnaissance",
+        "count": 3236,
+        "mean_confidence": 0.900978,
+        "min_confidence": 0.25,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Shellcode",
+        "count": 1776,
+        "mean_confidence": 0.639928,
+        "min_confidence": 0.25,
+        "max_confidence": 1.0
+      },
+      {
+        "class_name": "Worms",
+        "count": 71,
+        "mean_confidence": 0.63969,
+        "min_confidence": 0.24,
+        "max_confidence": 0.98
+      }
+    ]
+  },
+  "agreement": {
+    "overall_agreement_rate": 0.870743,
+    "total_samples": 82332,
+    "agreement_count": 71690,
+    "disagreement_count": 10642,
+    "per_class": [
+      {
+        "true_class": "Analysis",
+        "total_samples": 677,
+        "agreement_count": 278,
+        "agreement_rate": 0.410635
+      },
+      {
+        "true_class": "Backdoor",
+        "total_samples": 583,
+        "agreement_count": 160,
+        "agreement_rate": 0.274443
+      },
+      {
+        "true_class": "DoS",
+        "total_samples": 4089,
+        "agreement_count": 2523,
+        "agreement_rate": 0.617021
+      },
+      {
+        "true_class": "Exploits",
+        "total_samples": 11132,
+        "agreement_count": 8811,
+        "agreement_rate": 0.791502
+      },
+      {
+        "true_class": "Fuzzers",
+        "total_samples": 6062,
+        "agreement_count": 4412,
+        "agreement_rate": 0.727813
+      },
+      {
+        "true_class": "Generic",
+        "total_samples": 18871,
+        "agreement_count": 18691,
+        "agreement_rate": 0.990462
+      },
+      {
+        "true_class": "Normal",
+        "total_samples": 37000,
+        "agreement_count": 33350,
+        "agreement_rate": 0.901351
+      },
+      {
+        "true_class": "Reconnaissance",
+        "total_samples": 3496,
+        "agreement_count": 3148,
+        "agreement_rate": 0.900458
+      },
+      {
+        "true_class": "Shellcode",
+        "total_samples": 378,
+        "agreement_count": 292,
+        "agreement_rate": 0.772487
+      },
+      {
+        "true_class": "Worms",
+        "total_samples": 44,
+        "agreement_count": 25,
+        "agreement_rate": 0.568182
+      }
+    ]
+  },
+  "summary": {
+    "generated_utc": "2026-06-30T08:47:52.044141+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

@@ -1,0 +1,280 @@
+{
+  "audit": [
+    {
+      "column": "id",
+      "classification": "mandatory_removal",
+      "reason": "id is unique for 175341/175341 rows (ratio=1.0) and correlates with binary label at r=0.7272, indicating rows were likely captured in blocks ordered by traffic/attack type — row position alone carries target signal."
+    },
+    {
+      "column": "dur",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "proto",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "service",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "state",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "spkts",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "dpkts",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "sbytes",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "dbytes",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "rate",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "sttl",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dttl",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "sload",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dload",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "sloss",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "dloss",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "sinpkt",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dinpkt",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "sjit",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "djit",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "swin",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "stcpb",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dtcpb",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dwin",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "tcprtt",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "synack",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ackdat",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "smean",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "dmean",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "trans_depth",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "response_body_len",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "ct_srv_src",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_state_ttl",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "ct_dst_ltm",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_src_dport_ltm",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_dst_sport_ltm",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_dst_src_ltm",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "is_ftp_login",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_ftp_cmd",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_flw_http_mthd",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "ct_src_ltm",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "ct_srv_dst",
+      "classification": "candidate",
+      "reason": "Involved in a highly correlated feature pair (|r| > 0.8, Task B.3). Retained — not removed solely for correlation, since Random Forest tolerates multicollinearity and removal without an empirical accuracy/explanation-quality comparison would be premature at this descriptive stage. Flagged for reconsideration once real modelling experiments exist."
+    },
+    {
+      "column": "is_sm_ips_ports",
+      "classification": "final_baseline",
+      "reason": "No leakage evidence found; not involved in a highly correlated pair."
+    },
+    {
+      "column": "label",
+      "classification": "mandatory_removal",
+      "reason": "verify_label_consistency() confirms every 'attack_cat' class maps to exactly one 'label' value in both splits, with 0 exceptions (Normal->0, every attack class->1) — label is a deterministic duplicate of the target."
+    }
+  ],
+  "leakage_analysis": {
+    "identifier_features": [
+      {
+        "column": "id",
+        "unique_count": 175341,
+        "uniqueness_ratio": 1.0
+      }
+    ],
+    "deterministic_mapping_features": [],
+    "label_leakage": {
+      "training": {
+        "status": "PASS",
+        "inconsistent_classes": []
+      },
+      "testing": {
+        "status": "PASS",
+        "inconsistent_classes": []
+      }
+    },
+    "id_label_evidence": {
+      "id": {
+        "uniqueness_ratio": 1.0,
+        "correlation_with_label": 0.727173,
+        "evidence": "id is unique for 175341/175341 rows (ratio=1.0) and correlates with binary label at r=0.7272, indicating rows were likely captured in blocks ordered by traffic/attack type — row position alone carries target signal."
+      },
+      "label": {
+        "consistency_status": "PASS",
+        "evidence": "verify_label_consistency() confirms every 'attack_cat' class maps to exactly one 'label' value in both splits, with 0 exceptions (Normal->0, every attack class->1) — label is a deterministic duplicate of the target."
+      }
+    }
+  },
+  "training": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\processed\\training_selected.parquet",
+    "row_count": 175341,
+    "column_count": 43
+  },
+  "testing": {
+    "output_path": "C:\\Users\\YOGESH N\\OneDrive\\Desktop\\TEMSNET-2026\\data\\processed\\testing_selected.parquet",
+    "row_count": 82332,
+    "column_count": 43
+  },
+  "output_format": "parquet",
+  "summary": {
+    "original_feature_count": 44,
+    "removed_count": 2,
+    "removed_columns": [
+      "id",
+      "label"
+    ],
+    "retained_count": 42,
+    "candidate_count": 21,
+    "final_baseline_count": 21,
+    "generated_utc": "2026-06-30T05:51:58.529345+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

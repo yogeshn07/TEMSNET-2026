@@ -1,0 +1,42 @@
+# ============================================================
+# Explainability Configuration
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Consumed by src/explainability/shap_analysis.py (Research Task
+# E.2), src/explainability/lime_analysis.py (Research Task E.3), and
+# src/explainability/explanation_comparison.py (Research Task E.4),
+# so all three explain/compare the same fixed, reproducible subset.
+#
+# random_seed is intentionally NOT duplicated here — it is read
+# from configs/experiment.yaml (single source of truth).
+# ============================================================
+
+sample_selection:
+  # Per true class, how many correctly-classified and how many
+  # misclassified samples (per the baseline model's predictions) to
+  # include in the fixed evaluation subset. "Correct"/"incorrect" is
+  # defined once, by the baseline model, so the same sample_id set
+  # is well-defined and reused unchanged for the SMOTE model.
+  correct_samples_per_class: 3
+  incorrect_samples_per_class: 3
+
+shap:
+  # TreeExplainer's exact, polynomial-time algorithm — no
+  # approximation, no background dataset required.
+  check_additivity: false
+  # Number of top features to report per local example.
+  local_top_k_features: 5
+
+lime:
+  # Number of features LimeTabularExplainer reports per explanation.
+  num_features: 10
+  # Number of perturbed samples generated per explained instance
+  # (LimeTabularExplainer's default; explicit here for reproducibility
+  # and configuration-driven design, not buried as a hardcoded default).
+  num_samples: 5000
+
+comparison:
+  # Top-k overlap is reported at each of these k values.
+  top_k_values: [5, 10]
+  # Classes given dedicated minority-class analysis (Task E.4).
+  minority_classes: ["Worms", "Backdoor", "Analysis"]

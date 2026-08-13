@@ -1,0 +1,1419 @@
+{
+  "training": {
+    "quality": {
+      "split_label": "training",
+      "row_count": 175341,
+      "schema": {
+        "overall_status": "PASS",
+        "columns": {
+          "status": "PASS",
+          "missing_columns": [],
+          "extra_columns": []
+        },
+        "column_order": {
+          "status": "PASS",
+          "first_mismatch_index": null
+        },
+        "dtypes": {
+          "status": "PASS",
+          "mismatches": []
+        },
+        "target_column": {
+          "status": "PASS",
+          "present": true,
+          "null_count": 0,
+          "num_classes": 10
+        }
+      },
+      "missing_values": {
+        "total_missing": 0,
+        "per_column": [
+          {
+            "column": "id",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dur",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "proto",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "service",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "state",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "spkts",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dpkts",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sbytes",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dbytes",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "rate",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sload",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dload",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sloss",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dloss",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sinpkt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dinpkt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sjit",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "djit",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "swin",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "stcpb",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dtcpb",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dwin",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "tcprtt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "synack",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ackdat",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "smean",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dmean",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "trans_depth",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "response_body_len",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_srv_src",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_state_ttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "is_ftp_login",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_src_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_srv_dst",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "is_sm_ips_ports",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "attack_cat",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "label",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          }
+        ]
+      },
+      "duplicates": {
+        "total_rows": 175341,
+        "duplicate_count": 0,
+        "duplicate_pct": 0.0
+      },
+      "target_integrity": {
+        "status": "PASS",
+        "present": true,
+        "null_count": 0,
+        "num_classes": 10
+      },
+      "infinite_values": {
+        "total_infinite": 0,
+        "per_column": [
+          {
+            "column": "dur",
+            "infinite_count": 0
+          },
+          {
+            "column": "spkts",
+            "infinite_count": 0
+          },
+          {
+            "column": "dpkts",
+            "infinite_count": 0
+          },
+          {
+            "column": "sbytes",
+            "infinite_count": 0
+          },
+          {
+            "column": "dbytes",
+            "infinite_count": 0
+          },
+          {
+            "column": "rate",
+            "infinite_count": 0
+          },
+          {
+            "column": "sttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "dttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "sload",
+            "infinite_count": 0
+          },
+          {
+            "column": "dload",
+            "infinite_count": 0
+          },
+          {
+            "column": "sloss",
+            "infinite_count": 0
+          },
+          {
+            "column": "dloss",
+            "infinite_count": 0
+          },
+          {
+            "column": "sinpkt",
+            "infinite_count": 0
+          },
+          {
+            "column": "dinpkt",
+            "infinite_count": 0
+          },
+          {
+            "column": "sjit",
+            "infinite_count": 0
+          },
+          {
+            "column": "djit",
+            "infinite_count": 0
+          },
+          {
+            "column": "swin",
+            "infinite_count": 0
+          },
+          {
+            "column": "stcpb",
+            "infinite_count": 0
+          },
+          {
+            "column": "dtcpb",
+            "infinite_count": 0
+          },
+          {
+            "column": "dwin",
+            "infinite_count": 0
+          },
+          {
+            "column": "tcprtt",
+            "infinite_count": 0
+          },
+          {
+            "column": "synack",
+            "infinite_count": 0
+          },
+          {
+            "column": "ackdat",
+            "infinite_count": 0
+          },
+          {
+            "column": "smean",
+            "infinite_count": 0
+          },
+          {
+            "column": "dmean",
+            "infinite_count": 0
+          },
+          {
+            "column": "trans_depth",
+            "infinite_count": 0
+          },
+          {
+            "column": "response_body_len",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_srv_src",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_state_ttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "is_ftp_login",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_src_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_srv_dst",
+            "infinite_count": 0
+          }
+        ]
+      },
+      "invalid_numeric_values": {
+        "total_invalid": 0,
+        "per_column": [
+          {
+            "column": "dur",
+            "negative_count": 0
+          },
+          {
+            "column": "spkts",
+            "negative_count": 0
+          },
+          {
+            "column": "dpkts",
+            "negative_count": 0
+          },
+          {
+            "column": "sbytes",
+            "negative_count": 0
+          },
+          {
+            "column": "dbytes",
+            "negative_count": 0
+          },
+          {
+            "column": "rate",
+            "negative_count": 0
+          },
+          {
+            "column": "sttl",
+            "negative_count": 0
+          },
+          {
+            "column": "dttl",
+            "negative_count": 0
+          },
+          {
+            "column": "sload",
+            "negative_count": 0
+          },
+          {
+            "column": "dload",
+            "negative_count": 0
+          },
+          {
+            "column": "sloss",
+            "negative_count": 0
+          },
+          {
+            "column": "dloss",
+            "negative_count": 0
+          },
+          {
+            "column": "sinpkt",
+            "negative_count": 0
+          },
+          {
+            "column": "dinpkt",
+            "negative_count": 0
+          },
+          {
+            "column": "sjit",
+            "negative_count": 0
+          },
+          {
+            "column": "djit",
+            "negative_count": 0
+          },
+          {
+            "column": "swin",
+            "negative_count": 0
+          },
+          {
+            "column": "stcpb",
+            "negative_count": 0
+          },
+          {
+            "column": "dtcpb",
+            "negative_count": 0
+          },
+          {
+            "column": "dwin",
+            "negative_count": 0
+          },
+          {
+            "column": "tcprtt",
+            "negative_count": 0
+          },
+          {
+            "column": "synack",
+            "negative_count": 0
+          },
+          {
+            "column": "ackdat",
+            "negative_count": 0
+          },
+          {
+            "column": "smean",
+            "negative_count": 0
+          },
+          {
+            "column": "dmean",
+            "negative_count": 0
+          },
+          {
+            "column": "trans_depth",
+            "negative_count": 0
+          },
+          {
+            "column": "response_body_len",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_srv_src",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_state_ttl",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "is_ftp_login",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_src_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_srv_dst",
+            "negative_count": 0
+          }
+        ]
+      },
+      "categorical_validation": {
+        "total_empty_strings": 0,
+        "total_whitespace_issues": 0,
+        "per_column": [
+          {
+            "column": "proto",
+            "unique_count": 133,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          },
+          {
+            "column": "service",
+            "unique_count": 13,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          },
+          {
+            "column": "state",
+            "unique_count": 9,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          }
+        ]
+      },
+      "label_consistency": {
+        "status": "PASS",
+        "inconsistent_classes": []
+      },
+      "numeric_columns": [
+        "dur",
+        "spkts",
+        "dpkts",
+        "sbytes",
+        "dbytes",
+        "rate",
+        "sttl",
+        "dttl",
+        "sload",
+        "dload",
+        "sloss",
+        "dloss",
+        "sinpkt",
+        "dinpkt",
+        "sjit",
+        "djit",
+        "swin",
+        "stcpb",
+        "dtcpb",
+        "dwin",
+        "tcprtt",
+        "synack",
+        "ackdat",
+        "smean",
+        "dmean",
+        "trans_depth",
+        "response_body_len",
+        "ct_srv_src",
+        "ct_state_ttl",
+        "ct_dst_ltm",
+        "ct_src_dport_ltm",
+        "ct_dst_sport_ltm",
+        "ct_dst_src_ltm",
+        "is_ftp_login",
+        "ct_ftp_cmd",
+        "ct_flw_http_mthd",
+        "ct_src_ltm",
+        "ct_srv_dst"
+      ],
+      "categorical_columns": [
+        "proto",
+        "service",
+        "state"
+      ]
+    },
+    "actions": [
+      {
+        "action": "imputation",
+        "performed": false,
+        "reason": "No missing values detected in this split.",
+        "evidence": "profile_missing_data() total_missing = 0 (re-verified live, consistent with Task B.2)",
+        "expected_impact": "None — no data altered."
+      },
+      {
+        "action": "deduplication",
+        "performed": false,
+        "reason": "No duplicate rows detected in this split.",
+        "evidence": "profile_duplicates() duplicate_count = 0 (re-verified live, consistent with Task B.2)",
+        "expected_impact": "None — no rows removed."
+      },
+      {
+        "action": "categorical_whitespace_cleaning",
+        "performed": false,
+        "reason": "No leading/trailing whitespace detected in categorical columns.",
+        "evidence": "validate_categorical_values() total_whitespace_issues = 0, total_empty_strings = 0",
+        "expected_impact": "None — categorical values already clean."
+      },
+      {
+        "action": "infinite_value_handling",
+        "performed": false,
+        "reason": "No infinite values detected in numeric columns.",
+        "evidence": "detect_infinite_values() total_infinite = 0",
+        "expected_impact": "None."
+      },
+      {
+        "action": "invalid_numeric_correction",
+        "performed": false,
+        "reason": "No negative values detected in semantically non-negative numeric columns.",
+        "evidence": "detect_invalid_numeric_values() total_invalid = 0",
+        "expected_impact": "None."
+      }
+    ]
+  },
+  "testing": {
+    "quality": {
+      "split_label": "testing",
+      "row_count": 82332,
+      "schema": {
+        "overall_status": "PASS",
+        "columns": {
+          "status": "PASS",
+          "missing_columns": [],
+          "extra_columns": []
+        },
+        "column_order": {
+          "status": "PASS",
+          "first_mismatch_index": null
+        },
+        "dtypes": {
+          "status": "PASS",
+          "mismatches": []
+        },
+        "target_column": {
+          "status": "PASS",
+          "present": true,
+          "null_count": 0,
+          "num_classes": 10
+        }
+      },
+      "missing_values": {
+        "total_missing": 0,
+        "per_column": [
+          {
+            "column": "id",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dur",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "proto",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "service",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "state",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "spkts",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dpkts",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sbytes",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dbytes",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "rate",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sload",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dload",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sloss",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dloss",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sinpkt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dinpkt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "sjit",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "djit",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "swin",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "stcpb",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dtcpb",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dwin",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "tcprtt",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "synack",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ackdat",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "smean",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "dmean",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "trans_depth",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "response_body_len",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_srv_src",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_state_ttl",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "is_ftp_login",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_src_ltm",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "ct_srv_dst",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "is_sm_ips_ports",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "attack_cat",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          },
+          {
+            "column": "label",
+            "missing_count": 0,
+            "missing_pct": 0.0
+          }
+        ]
+      },
+      "duplicates": {
+        "total_rows": 82332,
+        "duplicate_count": 0,
+        "duplicate_pct": 0.0
+      },
+      "target_integrity": {
+        "status": "PASS",
+        "present": true,
+        "null_count": 0,
+        "num_classes": 10
+      },
+      "infinite_values": {
+        "total_infinite": 0,
+        "per_column": [
+          {
+            "column": "dur",
+            "infinite_count": 0
+          },
+          {
+            "column": "spkts",
+            "infinite_count": 0
+          },
+          {
+            "column": "dpkts",
+            "infinite_count": 0
+          },
+          {
+            "column": "sbytes",
+            "infinite_count": 0
+          },
+          {
+            "column": "dbytes",
+            "infinite_count": 0
+          },
+          {
+            "column": "rate",
+            "infinite_count": 0
+          },
+          {
+            "column": "sttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "dttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "sload",
+            "infinite_count": 0
+          },
+          {
+            "column": "dload",
+            "infinite_count": 0
+          },
+          {
+            "column": "sloss",
+            "infinite_count": 0
+          },
+          {
+            "column": "dloss",
+            "infinite_count": 0
+          },
+          {
+            "column": "sinpkt",
+            "infinite_count": 0
+          },
+          {
+            "column": "dinpkt",
+            "infinite_count": 0
+          },
+          {
+            "column": "sjit",
+            "infinite_count": 0
+          },
+          {
+            "column": "djit",
+            "infinite_count": 0
+          },
+          {
+            "column": "swin",
+            "infinite_count": 0
+          },
+          {
+            "column": "stcpb",
+            "infinite_count": 0
+          },
+          {
+            "column": "dtcpb",
+            "infinite_count": 0
+          },
+          {
+            "column": "dwin",
+            "infinite_count": 0
+          },
+          {
+            "column": "tcprtt",
+            "infinite_count": 0
+          },
+          {
+            "column": "synack",
+            "infinite_count": 0
+          },
+          {
+            "column": "ackdat",
+            "infinite_count": 0
+          },
+          {
+            "column": "smean",
+            "infinite_count": 0
+          },
+          {
+            "column": "dmean",
+            "infinite_count": 0
+          },
+          {
+            "column": "trans_depth",
+            "infinite_count": 0
+          },
+          {
+            "column": "response_body_len",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_srv_src",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_state_ttl",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "is_ftp_login",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_src_ltm",
+            "infinite_count": 0
+          },
+          {
+            "column": "ct_srv_dst",
+            "infinite_count": 0
+          }
+        ]
+      },
+      "invalid_numeric_values": {
+        "total_invalid": 0,
+        "per_column": [
+          {
+            "column": "dur",
+            "negative_count": 0
+          },
+          {
+            "column": "spkts",
+            "negative_count": 0
+          },
+          {
+            "column": "dpkts",
+            "negative_count": 0
+          },
+          {
+            "column": "sbytes",
+            "negative_count": 0
+          },
+          {
+            "column": "dbytes",
+            "negative_count": 0
+          },
+          {
+            "column": "rate",
+            "negative_count": 0
+          },
+          {
+            "column": "sttl",
+            "negative_count": 0
+          },
+          {
+            "column": "dttl",
+            "negative_count": 0
+          },
+          {
+            "column": "sload",
+            "negative_count": 0
+          },
+          {
+            "column": "dload",
+            "negative_count": 0
+          },
+          {
+            "column": "sloss",
+            "negative_count": 0
+          },
+          {
+            "column": "dloss",
+            "negative_count": 0
+          },
+          {
+            "column": "sinpkt",
+            "negative_count": 0
+          },
+          {
+            "column": "dinpkt",
+            "negative_count": 0
+          },
+          {
+            "column": "sjit",
+            "negative_count": 0
+          },
+          {
+            "column": "djit",
+            "negative_count": 0
+          },
+          {
+            "column": "swin",
+            "negative_count": 0
+          },
+          {
+            "column": "stcpb",
+            "negative_count": 0
+          },
+          {
+            "column": "dtcpb",
+            "negative_count": 0
+          },
+          {
+            "column": "dwin",
+            "negative_count": 0
+          },
+          {
+            "column": "tcprtt",
+            "negative_count": 0
+          },
+          {
+            "column": "synack",
+            "negative_count": 0
+          },
+          {
+            "column": "ackdat",
+            "negative_count": 0
+          },
+          {
+            "column": "smean",
+            "negative_count": 0
+          },
+          {
+            "column": "dmean",
+            "negative_count": 0
+          },
+          {
+            "column": "trans_depth",
+            "negative_count": 0
+          },
+          {
+            "column": "response_body_len",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_srv_src",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_state_ttl",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_src_dport_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_sport_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_dst_src_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "is_ftp_login",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_ftp_cmd",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_flw_http_mthd",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_src_ltm",
+            "negative_count": 0
+          },
+          {
+            "column": "ct_srv_dst",
+            "negative_count": 0
+          }
+        ]
+      },
+      "categorical_validation": {
+        "total_empty_strings": 0,
+        "total_whitespace_issues": 0,
+        "per_column": [
+          {
+            "column": "proto",
+            "unique_count": 131,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          },
+          {
+            "column": "service",
+            "unique_count": 13,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          },
+          {
+            "column": "state",
+            "unique_count": 7,
+            "empty_string_count": 0,
+            "whitespace_issue_count": 0
+          }
+        ]
+      },
+      "label_consistency": {
+        "status": "PASS",
+        "inconsistent_classes": []
+      },
+      "numeric_columns": [
+        "dur",
+        "spkts",
+        "dpkts",
+        "sbytes",
+        "dbytes",
+        "rate",
+        "sttl",
+        "dttl",
+        "sload",
+        "dload",
+        "sloss",
+        "dloss",
+        "sinpkt",
+        "dinpkt",
+        "sjit",
+        "djit",
+        "swin",
+        "stcpb",
+        "dtcpb",
+        "dwin",
+        "tcprtt",
+        "synack",
+        "ackdat",
+        "smean",
+        "dmean",
+        "trans_depth",
+        "response_body_len",
+        "ct_srv_src",
+        "ct_state_ttl",
+        "ct_dst_ltm",
+        "ct_src_dport_ltm",
+        "ct_dst_sport_ltm",
+        "ct_dst_src_ltm",
+        "is_ftp_login",
+        "ct_ftp_cmd",
+        "ct_flw_http_mthd",
+        "ct_src_ltm",
+        "ct_srv_dst"
+      ],
+      "categorical_columns": [
+        "proto",
+        "service",
+        "state"
+      ]
+    },
+    "actions": [
+      {
+        "action": "imputation",
+        "performed": false,
+        "reason": "No missing values detected in this split.",
+        "evidence": "profile_missing_data() total_missing = 0 (re-verified live, consistent with Task B.2)",
+        "expected_impact": "None — no data altered."
+      },
+      {
+        "action": "deduplication",
+        "performed": false,
+        "reason": "No duplicate rows detected in this split.",
+        "evidence": "profile_duplicates() duplicate_count = 0 (re-verified live, consistent with Task B.2)",
+        "expected_impact": "None — no rows removed."
+      },
+      {
+        "action": "categorical_whitespace_cleaning",
+        "performed": false,
+        "reason": "No leading/trailing whitespace detected in categorical columns.",
+        "evidence": "validate_categorical_values() total_whitespace_issues = 0, total_empty_strings = 0",
+        "expected_impact": "None — categorical values already clean."
+      },
+      {
+        "action": "infinite_value_handling",
+        "performed": false,
+        "reason": "No infinite values detected in numeric columns.",
+        "evidence": "detect_infinite_values() total_infinite = 0",
+        "expected_impact": "None."
+      },
+      {
+        "action": "invalid_numeric_correction",
+        "performed": false,
+        "reason": "No negative values detected in semantically non-negative numeric columns.",
+        "evidence": "detect_invalid_numeric_values() total_invalid = 0",
+        "expected_impact": "None."
+      }
+    ]
+  },
+  "unseen_categories": {
+    "proto": [],
+    "service": [],
+    "state": [
+      "ACC",
+      "CLO"
+    ]
+  },
+  "summary": {
+    "training_missing_values": 0,
+    "testing_missing_values": 0,
+    "training_duplicate_rows": 0,
+    "testing_duplicate_rows": 0,
+    "training_infinite_values": 0,
+    "testing_infinite_values": 0,
+    "training_invalid_numeric": 0,
+    "testing_invalid_numeric": 0,
+    "training_label_consistency": "PASS",
+    "testing_label_consistency": "PASS",
+    "actions_performed": [],
+    "actions_not_performed": [
+      "categorical_whitespace_cleaning",
+      "deduplication",
+      "imputation",
+      "infinite_value_handling",
+      "invalid_numeric_correction"
+    ],
+    "generated_utc": "2026-06-30T05:14:40.421594+00:00",
+    "project_version": "0.1.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0"
+}

@@ -1,6 +1,6 @@
 # UNSW-NB15 Dataset Report
 
-**Generated:** 2026-06-29 04:07:30  
+**Generated:** 2026-06-30 04:16:52  
 **Project:** IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study  
 **Research Question:** Does class imbalance degrade per-class XAI explanation quality in ML-based NIDS?
 
@@ -13,10 +13,10 @@
 | Dataset Name | UNSW-NB15 |
 | Source | University of New South Wales — Cyber Range Lab |
 | Year | 2015 |
-| Training Rows | 122,738 |
-| Test Rows | 52,603 |
-| Total Rows | 175,341 |
-| Feature Columns | 44 numeric |
+| Training Rows | 175,341 |
+| Test Rows | 82,332 |
+| Total Rows | 257,673 |
+| Feature Columns | 39 numeric, 4 categorical |
 | Attack Classes | 10 |
 | Label Type | Binary (0=Normal, 1=Attack) + Multi-class (attack_cat) |
 
@@ -26,16 +26,16 @@
 
 | Attack Class | Count | % of Total | Imbalance Ratio (IR) | Binary Label |
 |---|---|---|---|---|
-| Normal | 39,200 | 31.938% | 1.0 | — |
-| Generic | 28,000 | 22.813% | 1.4 | — |
-| Exploits | 23,375 | 19.045% | 1.68 | — |
-| Fuzzers | 12,729 | 10.371% | 3.08 | — |
-| DoS | 8,585 | 6.995% | 4.57 | — |
-| Reconnaissance | 7,343 | 5.983% | 5.34 | — |
-| Analysis | 1,400 | 1.141% | 28.0 | — |
-| Backdoors | 1,222 | 0.996% | 32.08 | — |
-| Shellcode | 793 | 0.646% | 49.43 | — |
-| Worms | 91 | 0.074% | 430.77 | — |
+| Normal | 56,000 | 31.938% | 1.0 | — |
+| Generic | 40,000 | 22.813% | 1.4 | 1 |
+| Exploits | 33,393 | 19.045% | 1.68 | 1 |
+| Fuzzers | 18,184 | 10.371% | 3.08 | 1 |
+| DoS | 12,264 | 6.994% | 4.57 | 1 |
+| Reconnaissance | 10,491 | 5.983% | 5.34 | 1 |
+| Analysis | 2,000 | 1.141% | 28.0 | 1 |
+| Backdoor | 1,746 | 0.996% | 32.07 | 1 |
+| Shellcode | 1,133 | 0.646% | 49.43 | 1 |
+| Worms | 130 | 0.074% | 430.77 | 1 |
 
 > **IR = majority class count ÷ class count.**  IR = 1 means balanced.
 
@@ -45,10 +45,10 @@
 
 | Metric | Value |
 |---|---|
-| Most Imbalanced Class | Worms (IR = 430.8) |
+| Most Imbalanced Class | Worms (IR = 430.77) |
 | Classes with IR > 10 | 4 |
-| Majority Class | Normal (39,200 instances) |
-| Least Represented Class | Worms (91 instances) |
+| Majority Class | Normal (56,000 instances) |
+| Least Represented Class | Worms (130 instances) |
 
 ---
 
@@ -56,23 +56,23 @@
 
 | Property | Value |
 |---|---|
-| Numeric features | 44 |
-| Categorical features | 6 |
+| Numeric features | 39 |
+| Categorical features | 4 |
 
 ### Numeric Feature Statistics (Training Set — sample)
 
 | Feature | Min | Max | Mean | Std | 25th | 50th | 75th |
 |---|---|---|---|---|---|---|---|
-| dur | 0.0 | 18.247 | 1.188 | 1.449 | 0.272 | 0.697 | 1.538 |
-| sbytes | 50.0 | 99997.0 | 19406.682 | 25557.12 | 2983.0 | 8601.0 | 19246.75 |
-| dbytes | 0.0 | 19999.0 | 5037.927 | 5783.022 | 95.0 | 2854.0 | 8157.75 |
-| rate | 0.1 | 499.999 | 94.141 | 128.57 | 7.051 | 43.191 | 96.057 |
-| spkts | 1.0 | 499.0 | 249.704 | 144.347 | 125.0 | 250.0 | 375.0 |
-| dpkts | 0.0 | 499.0 | 249.886 | 144.092 | 126.0 | 251.0 | 375.0 |
-| sttl | 64.0 | 255.0 | 149.045 | 79.335 | 64.0 | 128.0 | 255.0 |
-| dttl | 64.0 | 255.0 | 149.325 | 79.43 | 64.0 | 128.0 | 255.0 |
-| sload | 0.0 | 387.585 | 41.18 | 42.244 | 9.498 | 24.864 | 62.024 |
-| dload | 0.001 | 362.622 | 48.008 | 43.158 | 16.028 | 35.529 | 66.942 |
+| dur | 0.0 | 59.999989 | 1.359389 | 6.480249 | 8e-06 | 0.001582 | 0.668069 |
+| sbytes | 28.0 | 12965233.0 | 8844.843836 | 174765.644309 | 114.0 | 430.0 | 1418.0 |
+| dbytes | 0.0 | 14655550.0 | 14928.918564 | 143654.217718 | 0.0 | 164.0 | 1102.0 |
+| rate | 0.0 | 1000000.003 | 95406.187105 | 165400.978457 | 32.78614 | 3225.80652 | 125000.0003 |
+| spkts | 1.0 | 9616.0 | 20.298664 | 136.887597 | 2.0 | 2.0 | 12.0 |
+| dpkts | 0.0 | 10974.0 | 18.969591 | 110.258271 | 0.0 | 2.0 | 10.0 |
+| sttl | 0.0 | 255.0 | 179.546997 | 102.940011 | 62.0 | 254.0 | 254.0 |
+| dttl | 0.0 | 254.0 | 79.609567 | 110.506863 | 0.0 | 29.0 | 252.0 |
+| sload | 0.0 | 5988000256.0 | 73454033.194063 | 188357447.000203 | 13053.33887 | 879674.75 | 88888888.0 |
+| dload | 0.0 | 22422730.0 | 671205.574188 | 2421312.388757 | 0.0 | 1447.022705 | 27844.87109 |
 
 ---
 
@@ -90,11 +90,11 @@
 
 *(Observations relevant to the research hypothesis — no solutions suggested)*
 
-1. **Severe class imbalance confirmed:** The dataset contains attack classes with imbalance ratios up to 431×, meeting the study's criterion for investigating per-class XAI quality degradation.
+1. **Severe class imbalance confirmed:** The dataset contains attack classes with imbalance ratios up to 430.77×, meeting the study's criterion for investigating per-class XAI quality degradation.
 
 2. **4 classes qualify as minority classes** (IR > 10), providing sufficient variation to test the correlation between imbalance ratio and XAI quality degradation (H3).
 
-3. **The most severe minority class** is `Worms` with IR = 430.8 — this class will be the critical test for whether per-class explanation quality degrades for extreme imbalance.
+3. **The most severe minority class** is `Worms` with IR = 430.77 — this class will be the critical test for whether per-class explanation quality degrades for extreme imbalance.
 
 4. **Per-class sample size concern:** Some minority classes in the test set may fall below the 30-instance threshold specified in the experimental blueprint. Statistical power for those classes will be limited; bootstrap CIs are required.
 
@@ -110,9 +110,9 @@
 
 UNSW-NB15 is **confirmed suitable** for the study because:
 
-- 9 distinct attack classes spanning a wide IR range (1× to 431×)
+- 9 distinct attack classes spanning a wide IR range (1× to 430.77×)
 - Well-documented imbalance, enabling validation against published statistics
-- Small enough (~175K rows) for CPU-only training of Random Forest
+- Small enough (~257K rows total) for CPU-only training of Random Forest
 - Used in prior XAI-IDS studies, so reviewers are familiar with the dataset
 - No missing values: preprocessing artefacts will not confound XAI quality results
 

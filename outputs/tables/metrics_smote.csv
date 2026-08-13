@@ -1,0 +1,13 @@
+scope,class_name,accuracy,precision,recall,f1_score,support,average_type
+overall,ALL,0.716064,0.509583,0.600983,0.487432,82332,macro
+overall,ALL,0.716064,0.860869,0.716064,0.76314,82332,weighted
+per_class,Analysis,,0.034461,0.163959,0.056952,677,
+per_class,Backdoor,,0.049956,0.48199,0.090528,583,
+per_class,DoS,,0.531767,0.149425,0.233295,4089,
+per_class,Exploits,,0.787512,0.637891,0.704849,11132,
+per_class,Fuzzers,,0.275136,0.627021,0.382452,6062,
+per_class,Generic,,0.998907,0.968947,0.983699,18871,
+per_class,Normal,,0.977754,0.690162,0.809164,37000,
+per_class,Reconnaissance,,0.887206,0.821224,0.852941,3496,
+per_class,Shellcode,,0.186937,0.878307,0.308264,378,
+per_class,Worms,,0.366197,0.590909,0.452174,44,

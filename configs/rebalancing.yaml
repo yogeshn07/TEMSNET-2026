@@ -1,0 +1,24 @@
+# ============================================================
+# Class Rebalancing Configuration — UNSW-NB15
+# IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study
+# ============================================================
+# Consumed by src/data/class_rebalancing.py. Only "smote" is
+# implemented in Research Task C.5; the "method" field exists so
+# additional strategies (e.g. ADASYN, random undersampling) can be
+# registered later without changing the calling code in
+# run_class_rebalancing().
+#
+# random_seed is intentionally NOT duplicated here — it is read
+# from configs/experiment.yaml (single source of truth).
+# ============================================================
+
+method: "smote"
+
+smote:
+  # 'auto' = resample every class except the majority to match the
+  # majority class count (standard imbalanced-learn default).
+  sampling_strategy: "auto"
+  # Default scikit-learn-learn/imbalanced-learn neighbour count.
+  # The smallest training class (Worms, 130 rows) comfortably
+  # exceeds this, so no class requires a reduced k_neighbors.
+  k_neighbors: 5

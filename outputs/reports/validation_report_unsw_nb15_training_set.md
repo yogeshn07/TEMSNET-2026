@@ -1,6 +1,6 @@
 # Data Validation Report — UNSW_NB15_training-set.csv
 
-**Generated:** 2026-06-29 04:05:35  
+**Generated:** 2026-06-30 04:16:52  
 **Project:** IEEE TEMSMET 2026 | XAI-NIDS Imbalance Study  
 
 ---
@@ -10,10 +10,10 @@
 | Property | Value |
 |---|---|
 | File | `UNSW_NB15_training-set.csv` |
-| Total Rows | 122,738 |
-| Total Columns | 52 |
-| Numeric Features | 46 |
-| Categorical Features | 6 |
+| Total Rows | 175,341 |
+| Total Columns | 45 |
+| Numeric Features | 39 |
+| Categorical Features | 4 |
 
 ---
 
@@ -52,16 +52,16 @@
 
 | Attack Class   | Count  | % of Total | Imbalance Ratio (IR) | Binary Label |
 | -------------- | ------ | ---------- | -------------------- | ------------ |
-| Normal         | 39,200 | 31.938%    | 1.0                  | 0            |
-| Generic        | 28,000 | 22.813%    | 1.4                  | 1            |
-| Exploits       | 23,375 | 19.045%    | 1.68                 | 1            |
-| Fuzzers        | 12,729 | 10.371%    | 3.08                 | 1            |
-| DoS            | 8,585  | 6.995%     | 4.57                 | 1            |
-| Reconnaissance | 7,343  | 5.983%     | 5.34                 | 1            |
-| Analysis       | 1,400  | 1.141%     | 28.0                 | 1            |
-| Backdoors      | 1,222  | 0.996%     | 32.08                | 1            |
-| Shellcode      | 793    | 0.646%     | 49.43                | 1            |
-| Worms          | 91     | 0.074%     | 430.77               | 1            |
+| Normal         | 56,000 | 31.938%     | 1.0                   | 0            |
+| Generic        | 40,000 | 22.813%     | 1.4                   | 1            |
+| Exploits       | 33,393 | 19.045%     | 1.68                  | 1            |
+| Fuzzers        | 18,184 | 10.371%     | 3.08                  | 1            |
+| DoS            | 12,264 | 6.994%     | 4.57                  | 1            |
+| Reconnaissance | 10,491 | 5.983%     | 5.34                  | 1            |
+| Analysis       | 2,000  | 1.141%     | 28.0                  | 1            |
+| Backdoor       | 1,746  | 0.996%     | 32.07                 | 1            |
+| Shellcode      | 1,133  | 0.646%     | 49.43                 | 1            |
+| Worms          | 130    | 0.074%     | 430.77                | 1            |
 
 > **Imbalance Ratio (IR):** majority class count ÷ class count.  
 > IR = 1 means balanced; higher IR = more severe imbalance.

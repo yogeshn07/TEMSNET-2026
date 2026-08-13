@@ -1,0 +1,11 @@
+class_name,count,pct
+Normal,56000,31.9378
+Generic,40000,22.8127
+Exploits,33393,19.0446
+Fuzzers,18184,10.3706
+DoS,12264,6.9944
+Reconnaissance,10491,5.9832
+Analysis,2000,1.1406
+Backdoor,1746,0.9958
+Shellcode,1133,0.6462
+Worms,130,0.0741
